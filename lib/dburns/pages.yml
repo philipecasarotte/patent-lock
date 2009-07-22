@@ -1,27 +1,143 @@
+home:
+  id: 19
+  name: "Home"
+  body: "Coming soon"
+  permalink: "home"
+  parent_id: 
+  is_protected: 1
+
+thank_you_messages:
+  id: 18
+  name: "Thank You Message"
+  body: "Coming soon"
+  permalink: "thank-you-message"
+  parent_id: 13
+  is_protected: 1
+
+review_your_answers:
+  id: 17
+  name: "Review Your Answers"
+  body: "Coming soon"
+  permalink: "review-your-answers"
+  parent_id: 13
+  is_protected: 1
+
+terms_of_service:
+  id: 16
+  name: "Terms of Service"
+  body: "Coming soon"
+  permalink: "terms-of-service"
+  parent_id: 13
+  is_protected: 1
+
+questionnaire:
+  id: 15
+  name: "Questionnaire"
+  body: "Coming soon"
+  permalink: "questionnaire"
+  parent_id: 13
+  is_protected: 1
+
+client_login:
+  id: 13
+  name: "Client Login"
+  body: "Coming soon"
+  permalink: "client-login"
+  parent_id: 
+  is_protected: 1
+
+why_patent_lock:
+  id: 12
+  name: "Why Patent Lock"
+  body: "Coming soon"
+  permalink: "why-patent-lock"
+  parent_id: 
+  is_protected: 1
+
+services:
+  id: 11
+  name: "Services"
+  body: "Coming soon"
+  permalink: "services"
+  parent_id: 
+  is_protected: 1
+
+trademarks:
+  id: 10
+  name: "Trademarks"
+  body: "Coming soon"
+  permalink: "trademarks"
+  parent_id: 
+  is_protected: 1
+
+blog:
+  id: 9
+  name: "Blog"
+  body: "Coming soon"
+  permalink: "blog"
+  parent_id: 
+  is_protected: 1
+
+faqs:
+  id: 8
+  name: "FAQs"
+  body: "Coming soon"
+  permalink: "faqs"
+  parent_id: 
+  is_protected: 1
+
+privacy:
+  id: 7
+  name: "Privacy"
+  body: "Coming soon"
+  permalink: "privacy"
+  parent_id: 
+  is_protected: 1
+  
+terms_of_use:
+  id: 6
+  name: "Terms of Use"
+  body: "Coming soon"
+  permalink: "terms-of-use"
+  parent_id: 
+  is_protected: 1
+
+site_map:
+  id: 5
+  name: "Site Map"
+  body: "Coming soon"
+  permalink: "site-map"
+  parent_id: 
+  is_protected: 1
+
 contact:
-  name: "Contact"
+  id: 4
+  name: "Contact Us"
   body: "Coming soon"
   permalink: "contact"
-  parent:
+  parent_id: 
   is_protected: 1
 
 page_not_found:
+  id: 3
   name: "Page Not Found"
   body: "Coming soon"
   permalink: "404"
-  parent:
+  parent_id: 
   is_protected: 1
 
 unexpected_error:
+  id: 2
   name: "Unexpected Error"
   body: "Coming soon"
   permalink: "500"
-  parent:
+  parent_id: 
   is_protected: 1
 
 unprocessable_entity:
+  id: 1
   name: "Unprocessable Entity"
   body: "Coming soon"
   permalink: "422"
-  parent:
+  parent_id: 
   is_protected: 1

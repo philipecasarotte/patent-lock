@@ -1,27 +1,23 @@
 <h1><%= @page.name %></h1>
-
-<%= @page.body %>
-
-<% form_for('contact') do |f| %>
+<%= render :partial => 'sidebar' %>
+<div class="content_cms">
+	<%= @page.body %>
+</div>
+<% form_for('contact', :html => {:class => "validate"}) do |f| %>
 	<p>
 		<%= f.label(:name) %>
-		<%= f.text_field :name %>
+		<%= f.text_field :name, :class => "required" %>
 	</p>
 	<p>
 		<%= f.label(:email) %>
-		<%= f.text_field :email %>
+		<%= f.text_field :email, :class => "required email" %>
 	</p>
 	
 	<p>
 		<%= f.label(:message) %>
-		<%= f.text_area :message %>
+		<%= f.text_area :message, :class => "required" %>
 	</p>
 	
-	<% [:error, :notice].each do |message| %>
-		<% content_tag :div, :class => message do %>
-			<%= flash[message] %>
-		<% end if flash[message] %>
-	<% end %>
-
 	<%= submit_tag("Submit") %>
 <% end %>
+<%= javascript "plugins/metadata", "plugins/validate" %>
