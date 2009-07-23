@@ -6,6 +6,7 @@ ActionController::Routing::Routes.draw do |map|
     admin.resource :user_session
     admin.resources :pages, :collection=>{ :reorder=>:get, :order=>:post }
     admin.resources :users
+    admin.resources :configurations
     admin.root :controller => 'pages'
   end
   

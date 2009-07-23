@@ -1,0 +1,12 @@
+<p>
+  <%= f.label :service_price, "Patent Service Price" %>
+  <%= f.text_field :service_price %>
+</p>
+<p>
+  <%= f.label :questionnaire_on_hold %>
+  <%= f.check_box :questionnaire_on_hold %>
+</p>
+<p>
+  <%= f.label :away_message %>
+  <%= fckeditor_textarea "configuration", "away_message", :height => "400px" %>
+</p>

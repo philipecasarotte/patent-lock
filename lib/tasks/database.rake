@@ -33,6 +33,7 @@ namespace :db do
       Dburns::Setup.bootstrap attributes
       
       Rake::Task["db:default_pages"].invoke
+      Rake::Task["db:default_configuration"].invoke
   end
 
   desc "Create the default pages in CMS that can't be deleted."
@@ -53,6 +54,19 @@ namespace :db do
   task :clear_default_pages => :environment do
     puts "Destroying default pages before creating it again."
     Page.destroy_all
+  end
+  
+  desc "Create the default configuration."
+  task :default_configuration => [:environment, :clear_default_pages] do
+   puts "Creating Default Configuration..."
+   @config = Configuration.new(:id => "1", :away_message => "Coming soon.")
+   @config.save
+   puts "Done"
+  end
+
+  task :clear_configuration => :environment do
+    puts "Destroying default configuration."
+    Configuration.destroy_all
   end
 
 end
