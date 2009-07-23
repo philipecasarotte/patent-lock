@@ -32,6 +32,10 @@ When /^I sign in as "(.*)\/(.*)"$/ do |login, password|
   And %{I press "Login"}
 end
 
-When /^I sign out$/ do
+When /^I sign out admin$/ do
   visit '/admin/logout'
+end
+
+When /^I sign out$/ do
+  visit '/logout'
 end

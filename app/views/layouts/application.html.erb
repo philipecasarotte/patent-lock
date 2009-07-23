@@ -35,7 +35,8 @@
       <li><%= link_to "Trademarks", page_path("trademarks") %></li>
       <li><%= link_to "Services", page_path("services") %></li>
       <li><%= link_to "Inventor Resource", page_path("inventor-resource") %></li>
-      <li><%= link_to "Member Login", "login_path" %></li>
+      <li><%= link_to "Member Login", login_path %></li>
+      <li><%= link_to "Create an Account", new_user_path %></li>
     </ul>
     <div id="content">
     	<% [:error, :notice].each do |message| %>

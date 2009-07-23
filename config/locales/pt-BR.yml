@@ -6,8 +6,8 @@ pt-BR:
   log_in: "Login"
   login: "Login"
   password: "Senha"
-  login_message: "Logged in successfully"
-  logout_message: "You have been logged out."
+  login_message: "Logado com sucesso"
+  logout_message: "Você saiu do admin"
   failed_login: "Couldn't log you in as"
   not_authorized: "Você não está autorizado"
   unauthorized: "Você não tem acesso."
@@ -26,6 +26,7 @@ pt-BR:
   new_child: "Nova filha"
   edit: "Editar"
   destroy: "Apagar"
+  register: "Registrar"
   are_you_sure: "Tem certeza?"
   new: "Adicionar"
   editing: "Editando"
@@ -35,6 +36,7 @@ pt-BR:
   permissions: "Permissões (Papéis)"
   contact_from: "Contato de"
   message_sent: "Sua mensagem foi enviada."
+  edit_profile: "Editar Perfil"
 
   # Resource Controller Messages
   success_create: "Criado com sucesso!"
@@ -163,6 +165,12 @@ pt-BR:
       user_session:
         one: "Sessão"
         other: "Sessões"
+      product:
+        one: "Produto"
+        other: "Produtos"
+      news_article:
+        one: "Notícia"
+        other: "Notícias"
     attributes:
       _all:
         name: "Nome"
@@ -208,7 +216,7 @@ pt-BR:
       consecutive_failed_logins_limit_exceeded: Consecutive failed logins limit exceeded, account is disabled.
       email_invalid: deve se parecer com um endereço de email.
       password_blank: não pode ser vazio
-      password_invalid: não é valida
+      password_invalid: não é válida
       not_active: Your account is not active
       not_confirmed: Your account is not confirmed
       not_approved: Your account is not approved

@@ -12,7 +12,7 @@ module NavigationHelpers
       '/'
     when /the new admin page/
       new_admin_path
-    when /the login page/
+    when /the admin login page/
       admin_login_path
     when /the admin list of admin users/
       admin_users_path(:role => 'admin')
@@ -20,6 +20,12 @@ module NavigationHelpers
       admin_users_path
     when /the admin list of pages/
       admin_pages_path
+    when /the login page/
+      login_path
+    when /the user page/
+      user_path(2)
+    when /the register page/
+      '/users/new'
     when /the Home page/
       '/pages/home'
     when /the About Us page/

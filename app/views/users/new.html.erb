@@ -1,0 +1,5 @@
+<h1>Create an Account</h1>
+<% form_for(@user, :url => users_path, :html => { :class => "validate" }) do |f| %>
+  <%= render :partial => 'form', :locals => { :f => f } %>
+  <%= submit_tag(t(:register)) %>
+<% end %>

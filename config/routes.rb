@@ -8,10 +8,14 @@ ActionController::Routing::Routes.draw do |map|
     admin.resources :users
     admin.root :controller => 'pages'
   end
-
+  
+  map.login "/login", :controller => "user_sessions", :action => "new"
+  map.logout "/logout", :controller => "user_sessions", :action => "destroy"
   map.pages '/pages/:action', :controller => 'pages'
   map.resources :pages
-
+  map.resource :user_session
+  map.resources :users
+  
   map.not_found '/404', :controller => 'pages', :action => '404'
   map.application_error '/500', :controller => 'pages', :action => '500'
   map.unprocessable_entity '/422', :controller => 'pages', :action => '422'

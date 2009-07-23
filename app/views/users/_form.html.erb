@@ -1,0 +1,24 @@
+<div class="form">
+  <%= f.error_messages %>
+  <p>
+    <%= f.label :login, "Login" %>
+    <%= f.text_field :login, :class => "{required:true, login:true}" %>
+  </p>
+  <p>
+    <%= f.label :name %>
+    <%= f.text_field :name, :class => "{required:true}" %>
+  </p>
+  <p>
+    <%= f.label :email %>
+    <%= f.text_field :email, :class => "{required:true, email:true}" %>
+  </p>
+  <p>
+    <%= f.label :password, "Password" %>
+    <%= f.password_field :password, :class => "{" + ((params[:action] == "edit") ? "" : "required:true, ") + "minlength:6}" %>
+  </p>
+  <p>
+    <%= f.label :password_confirmation %>
+    <%= f.password_field :password_confirmation, :class => "{" + ((params[:action] == "edit") ? "" : "required:true, ") + "equalTo: '#user_password'}" %>
+  </p>
+</div>
+<%= javascript "plugins/metadata", "plugins/validate" %>

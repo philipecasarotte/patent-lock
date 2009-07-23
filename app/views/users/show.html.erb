@@ -1,0 +1,11 @@
+<h1>My Account</h1>
+<div id="my_account">
+  <div>
+    <h4><%= @user.login %></h4>
+    <p><%= @user.name %></p>
+    <p><%= @user.email %></p>
+    <p>Registered on <%= l(@user.created_at, :format => :long) %></p>
+  </div>
+  <span><%= link_to t(:edit_profile), edit_user_path(@user) %> - <%= link_to "Logout", logout_path %></span>
+</div>
+

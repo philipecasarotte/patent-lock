@@ -19,3 +19,7 @@ end
 Then /^I should have ([0-9]+) users?$/ do |count|
   assert_equal User.count, count.to_i
 end
+
+Given /^I have no users$/ do
+  User.destroy_all
+end
