@@ -1,3 +1,19 @@
+inventor_resource:
+  id: 21
+  name: "Inventor Resource"
+  body: "Coming soon"
+  permalink: "inventor-resource"
+  parent_id: 
+  is_protected: 1
+
+about_us:
+  id: 20
+  name: "About Us"
+  body: "Coming soon"
+  permalink: "about-us"
+  parent_id: 
+  is_protected: 1
+
 home:
   id: 19
   name: "Home"
@@ -6,7 +22,7 @@ home:
   parent_id: 
   is_protected: 1
 
-thank_you_messages:
+thank_you_message:
   id: 18
   name: "Thank You Message"
   body: "Coming soon"
@@ -38,11 +54,11 @@ questionnaire:
   parent_id: 13
   is_protected: 1
 
-client_login:
+member_login:
   id: 13
-  name: "Client Login"
+  name: "Member Login"
   body: "Coming soon"
-  permalink: "client-login"
+  permalink: "member-login"
   parent_id: 
   is_protected: 1
 
@@ -78,11 +94,11 @@ blog:
   parent_id: 
   is_protected: 1
 
-faqs:
+how_patent_lock_works:
   id: 8
-  name: "FAQs"
+  name: "How Patent Lock Works"
   body: "Coming soon"
-  permalink: "faqs"
+  permalink: "how-patent-lock-works"
   parent_id: 
   is_protected: 1
 
@@ -102,17 +118,17 @@ terms_of_use:
   parent_id: 
   is_protected: 1
 
-site_map:
+sitemap:
   id: 5
-  name: "Site Map"
+  name: "Sitemap"
   body: "Coming soon"
-  permalink: "site-map"
+  permalink: "sitemap"
   parent_id: 
   is_protected: 1
 
 contact:
   id: 4
-  name: "Contact Us"
+  name: "Contact"
   body: "Coming soon"
   permalink: "contact"
   parent_id: 

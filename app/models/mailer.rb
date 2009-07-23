@@ -1,19 +1,13 @@
 class Mailer < ActionMailer::Base
   
-  require 'tlsmail'
-
-  Net::SMTP.enable_tls(OpenSSL::SSL::VERIFY_NONE)
-  
   ActionMailer::Base.raise_delivery_errors = true
-
   ActionMailer::Base.smtp_settings = {
-      :tls => true,
-      :address => "smtp.gmail.com",
-      :port => "587",
+      :address => "mail.#{SITE_DOMAIN}",
+      :port => "25",
       :domain => SITE_DOMAIN,
-      :authentication => :plain,
-      :user_name => "dev.dburns@gmail.com",
-      :password => "dev@1942!"
+      :authentication => :login,
+      :user_name => "webmaster@#{SITE_DOMAIN}",
+      :password => "password_here"
   }
   
   def contact(params)
@@ -21,6 +15,17 @@ class Mailer < ActionMailer::Base
     @from = params[:email] if params[:email]
     @reply_to = params[:email] if params[:email]
     @subject = I18n.t(:contact_from) + " #{SITE_DOMAIN}"
+    @sent_on = Time.now
+    @content_type = 'text/html'
+    
+    body[:params] = params
+  end
+  
+  def trademarks(params)
+    @recipients = SITE_EMAIL
+    @from = params[:email] if params[:email]
+    @reply_to = params[:email] if params[:email]
+    @subject = "Trademarks Form #{SITE_DOMAIN}"
     @sent_on = Time.now
     @content_type = 'text/html'
     

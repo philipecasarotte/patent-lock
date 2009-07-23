@@ -59,6 +59,29 @@ class PagesControllerTest < ActionController::TestCase
 
     should_set_the_flash_to(I18n.t(:message_sent))
   end
+  
+  context "When a user sends the trademarks form" do
+    setup do
+      ActionMailer::Base.delivery_method = :test
+      ActionMailer::Base.perform_deliveries = true
+      ActionMailer::Base.deliveries = []
+      Factory.create(:page, :name => 'Trademarks')
+      post :trademarks, 'trademarks' => {'name' => "Ricardo", 'email' => "dev.dburns@gmail.com", 'message' => 'Hello!'}
+    end
+
+    should "render the trademarks's template" do
+      get "trademarks"
+      assert_template "trademarks"
+    end
+
+    should "send trademarks e-mail" do
+      assert_sent_email do |email|
+        email.from.include?('dev.dburns@gmail.com') && email.subject.match("Trademarks")
+      end
+    end
+
+    should_set_the_flash_to(I18n.t(:message_sent))
+  end
 
   context "Trying to get a page with a existing method" do
     setup do

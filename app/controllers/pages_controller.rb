@@ -14,6 +14,15 @@ class PagesController < ApplicationController
     end
     @metatag_object = @page
   end
+  
+  def trademarks
+    @page = Page.find_by_permalink('trademarks')
+    if request.post?
+      Mailer.deliver_trademarks(params[:trademarks])
+      flash[:notice] = t(:message_sent)
+    end
+    @metatag_object = @page
+  end
 
   def method_missing(method, *args)
     @page = Page.find_by_permalink(method) || @page = Page.page_not_found

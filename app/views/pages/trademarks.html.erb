@@ -1,0 +1,23 @@
+<h1><%= @page.name %></h1>
+<%= render :partial => 'sidebar' %>
+<div class="content_cms">
+	<%= @page.body %>
+</div>
+<% form_for('trademarks', :html => {:class => "validate"}) do |f| %>
+	<p>
+		<%= f.label(:name) %>
+		<%= f.text_field :name, :class => "required" %>
+	</p>
+	<p>
+		<%= f.label(:email) %>
+		<%= f.text_field :email, :class => "required email" %>
+	</p>
+	
+	<p>
+		<%= f.label(:message) %>
+		<%= f.text_area :message, :class => "required" %>
+	</p>
+	
+	<%= submit_tag("Submit") %>
+<% end %>
+<%= javascript "plugins/metadata", "plugins/validate" %>
