@@ -20,6 +20,8 @@ module NavigationHelpers
       admin_users_path
     when /the admin list of pages/
       admin_pages_path
+    when /the admin edit configuration/
+      edit_admin_configuration_path(1)
     when /the login page/
       login_path
     when /the user page/
