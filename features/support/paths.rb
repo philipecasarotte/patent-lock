@@ -22,6 +22,8 @@ module NavigationHelpers
       admin_pages_path
     when /the admin edit configuration/
       edit_admin_configuration_path(1)
+    when /the admin list of questions/
+      admin_questions_path
     when /the login page/
       login_path
     when /the user page/
