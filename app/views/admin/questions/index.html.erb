@@ -1,0 +1,27 @@
+<h1>Listing Questions</h1>
+
+<table id="table">
+	<thead>
+		<tr>
+			<th>Name</th>
+			<th>Help Text</th>
+		</tr>
+	</thead>
+	<tbody>
+		<%- @questions.each do |question|%>
+			<tr>
+				<td><%=h question.name %></td>
+				<td><%=h question.help %></td>
+
+				<td><%=link_to t(:edit), edit_object_url(question) %></td>
+				<td><%=link_to t(:destroy), object_url(question), :confirm => t(:are_you_sure), :method => :delete %></td>
+			</tr>
+		<% end %>
+	</tbody>
+</table>
+
+<%= link_to 'New Question', new_object_url %> |
+<%= link_to t(:reorder), reorder_admin_questions_url %>
+
+
+<%= render :partial => '/admin/scaffold/data_table' %>

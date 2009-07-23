@@ -20,6 +20,8 @@ module NavigationHelpers
       admin_users_path
     when /the admin list of pages/
       admin_pages_path
+    when /the admin list of questions/
+      admin_questions_path
     when /the Home page/
       '/pages/home'
     when /the About Us page/

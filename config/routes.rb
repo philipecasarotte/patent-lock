@@ -4,6 +4,7 @@ ActionController::Routing::Routes.draw do |map|
     admin.login 'login', :controller => "user_sessions", :action => "new"
     admin.logout 'logout', :controller => "user_sessions", :action => "destroy"
     admin.resource :user_session
+    admin.resources :questions, :collection=>{ :reorder=>:get, :order=>:post }
     admin.resources :pages, :collection=>{ :reorder=>:get, :order=>:post }
     admin.resources :users
     admin.root :controller => 'pages'
