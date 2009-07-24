@@ -9,7 +9,7 @@ class Admin::PagesController < Admin::AdminController
     format.js { render :layout => false }
   end
 
-  include Order
+  include PositionOrder
 
   protected
   def collection

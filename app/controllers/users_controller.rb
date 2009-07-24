@@ -7,11 +7,12 @@ class UsersController < ApplicationController
   
   def create
     @user = User.new(params[:user])
+    @user.build_order
     if @user.save
       role = Role.find_or_create_by_name('user')
       @user.roles << role
       flash[:notice] = I18n.t(:success_create)
-      redirect_back_or_default user_path(@user)
+      redirect_back_or_default user_path(current_user)
     else
       render :action => 'new'
     end

@@ -84,5 +84,5 @@ end
 
 LiveValidations.use :jquery_validations
 
-require 'order'
+require 'position_order'
 require 'summary'

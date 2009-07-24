@@ -7,7 +7,8 @@ class User < ActiveRecord::Base
       c.validates_format_of_login_field_options = { :with => /^[a-z0-9]+$/ }
       c.validate_email_field = false
   end
-
+  
+  has_one :order
   has_and_belongs_to_many :roles
 
   validates_presence_of :name, :email
@@ -22,5 +23,4 @@ class User < ActiveRecord::Base
     return true if @_list.include?("admin")
     (@_list.include?(role_in_question.to_s) )
   end
-  
 end

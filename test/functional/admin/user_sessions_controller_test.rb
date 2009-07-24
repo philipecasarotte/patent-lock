@@ -2,7 +2,7 @@ require 'test_helper'
 
 class Admin::UserSessionsControllerTest < ActionController::TestCase
   setup :activate_authlogic
-
+  
   context "A user logging in" do
 
     context "with valid credentials" do

@@ -1,4 +1,4 @@
-module Order
+module PositionOrder
   def order
     @order = params[:order]
     @order.each_index { |i| end_of_association_chain.find(@order[i]).update_attribute(:position, i) }

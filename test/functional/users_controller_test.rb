@@ -36,6 +36,11 @@ class UsersControllerTest < ActionController::TestCase
         should "should have the 'user' role" do
           assert assigns(:user).has_role?('user')
         end
+        
+        should "have an order after created" do
+          assert_not_nil(assigns(:user).order)
+        end
+        
         should_redirect_to("profile page") { user_path(assigns(:user)) }
       end
     end
