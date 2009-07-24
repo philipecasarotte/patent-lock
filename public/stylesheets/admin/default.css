@@ -26,6 +26,7 @@ tr.altrow td    {background-color:#E4E4E4;}
 td.center       {text-align:center;}
 td.right        {text-align:right;}
 td.large        {min-width:250px;}
+th.hidden, td.hidden {display:none;}
 
 dl              {line-height: 2em;margin: 0em 0em;width: 60%;}
 dl.altrow       {background: #f4f4f4;}
