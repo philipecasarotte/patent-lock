@@ -5,17 +5,53 @@
 </div>
 <% form_for('trademarks', :html => {:class => "validate"}) do |f| %>
 	<p>
-		<%= f.label(:name) %>
+		<%= f.label(:name, "Name of the Owner of the Trademark") %>
 		<%= f.text_field :name, :class => "required" %>
+	</p>
+	<p>
+		<%= f.label(:address, "Street Address of Owner") %>
+		<%= f.text_field :address, :class => "required" %>
+	</p>
+	<p>
+		<%= f.label(:city) %>
+		<%= f.text_field :city, :class => "required" %>
+	</p>
+	<p>
+		<%= f.label(:state) %>
+		<%= f.text_field :state, :class => "required" %>
+	</p>
+	<p>
+		<%= f.label(:zip_code) %>
+		<%= f.text_field :zip_code, :class => "required" %>
+	</p>
+	<p>
+		<%= f.label(:telephone) %>
+		<%= f.text_field :telephone, :class => "required" %>
 	</p>
 	<p>
 		<%= f.label(:email) %>
 		<%= f.text_field :email, :class => "required email" %>
 	</p>
-	
 	<p>
-		<%= f.label(:message) %>
-		<%= f.text_area :message, :class => "required" %>
+		<%= f.label(:trademark, "What is the word, phrase, or name of the trademark you wish to register") %>
+		<%= f.text_field :trademark, :class => "required" %>
+	</p>
+	<p>
+		<%= f.label(:description, "Describe the goods and/or services you will use your trademark with") %>
+		<%= f.text_area :description, :class => "required" %>
+	</p>
+	<p>
+		<%= f.label(:being_used, "Is this trademark currently being used?") %>
+		<%= f.radio_button :being_used, "yes" %> Yes
+		<%= f.radio_button :being_used, "no" %> No
+	</p>
+	<p>
+		<%= f.label(:first_date, "If this trademark is currently being used, when was the first date of your use of the trademark?") %>
+		<%= f.text_field :first_date, :class => "required" %>
+	</p>
+	<p>
+		<%= f.label(:acceptance, "Attorney Retainer Agreement") %>
+		<%= f.check_box :acceptance, :class => "required" %>
 	</p>
 	
 	<%= submit_tag("Submit") %>
