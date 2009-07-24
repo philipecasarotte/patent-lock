@@ -5,12 +5,13 @@ class User < ActiveRecord::Base
   acts_as_authentic do |c|
       c.logged_in_timeout = 30.minutes
       c.validates_format_of_login_field_options = { :with => /^[a-z0-9]+$/ }
-      c.validates_format_of_email_field_options = { :with => /^([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})$/i }
+      c.validate_email_field = false
   end
 
   has_and_belongs_to_many :roles
 
-  validates_presence_of :name
+  validates_presence_of :name, :email
+  validates_format_of :email, :with => /^([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})$/i
 
   named_scope :admins, :include => :roles, :conditions => "roles.name = 'admin'"
   
