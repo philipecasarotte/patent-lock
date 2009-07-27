@@ -73,7 +73,7 @@ Rails::Initializer.run do |config|
   old_verbose = $VERBOSE
   $VERBOSE = nil
 
-  SITE_NAME = 'Law Office of Michael N. Cohen'
+  SITE_NAME = 'Patent Lock'
   SITE_DOMAIN = 'patentlock.com'
   SITE_URL = "http://www.#{SITE_DOMAIN}/"
   SITE_EMAIL = "info@#{SITE_DOMAIN}"
