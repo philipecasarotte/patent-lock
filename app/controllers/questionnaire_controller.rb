@@ -3,7 +3,11 @@ class QuestionnaireController < ApplicationController
   
   def questions
     @question = Question.find(params[:question_id])
-    @answer = Answer.new
+    @answer = Answer.find_or_create_by_id(params[:question_id])
+  end
+  
+  def terms
+    
   end
   
   def save_and_continue
@@ -13,27 +17,20 @@ class QuestionnaireController < ApplicationController
       #update
       if @answer_check.update_attribute("body", "#{params[:answer][:body]}")
         flash[:notice] = I18n.t(:success_update)
-        redirect_to questionnaire_questions_path("questions", @question.id+1)
+        verify_next_step
       end
     else
       #create
       @answer = Answer.new(:question_id => params[:answer][:question_id], :order_id => params[:answer][:order_id], :body => params[:answer][:body])
       if @answer.save
         flash[:notice] = I18n.t(:success_create)
-        redirect_to questionnaire_questions_path("questions", @question.id+1)
+        verify_next_step
       end
     end
   end
   
   def on_hold
     @page = Configuration.first
-  end
-  
-  def verify_questionnaire_on_hold
-    @order = Order.find_by_user_id(current_user)
-    if @order.state == "pending_answers" and Configuration.first.questionnaire_on_hold == true
-      redirect_to on_hold_path
-    end
   end
   
   private
@@ -43,6 +40,23 @@ class QuestionnaireController < ApplicationController
       flash[:error] = I18n.t(:not_authorized)
       redirect_to login_url
       return false
+    end
+  end
+  
+  def verify_questionnaire_on_hold
+    @order = Order.find_by_user_id(current_user)
+    if @order.state == "pending_answers" and Configuration.first.questionnaire_on_hold == true
+      redirect_to questionnaire_on_hold_path
+    end
+  end
+  
+  def verify_next_step
+    @next_question = Question.find(@question.id+1) rescue ""
+    if @next_question.present?
+      redirect_to questionnaire_questions_path("questions", @question.id+1)
+    else
+      current_user.order.answer!
+      redirect_to questionnaire_terms_path
     end
   end
 end
