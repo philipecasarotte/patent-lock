@@ -1,0 +1,21 @@
+<h1>Order Details of <%= parent_object.name %></h1>
+<br/>
+<dl>
+  <dt>Order Amount:</dt>
+  <dd><%= number_to_currency(parent_object.order.total) %></dd>
+  <dt>Order Status:</dt>
+  <dd><%= parent_object.order.state.humanize %></dd>
+</dl>
+<% if parent_object.order.answers %>
+<h2>Answers</h2>
+<ol>
+  <% parent_object.order.answers.each do |answer| %>
+    <li>
+      <strong><%= answer.question.name %></strong>
+      <p><%= answer.body %></p>
+    </li>
+  <% end %>
+</ol>
+<% end %>
+<br/>
+<p><%= link_to t(:back), admin_users_path %></p>

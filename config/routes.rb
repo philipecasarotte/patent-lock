@@ -6,7 +6,7 @@ ActionController::Routing::Routes.draw do |map|
     admin.resource :user_session
     admin.resources :questions, :collection=>{ :reorder=>:get, :order=>:post }
     admin.resources :pages, :collection=>{ :reorder=>:get, :order=>:post }
-    admin.resources :users
+    admin.resources :users, :has_one => :order
     admin.resources :configurations
     admin.root :controller => 'pages'
   end
@@ -15,9 +15,9 @@ ActionController::Routing::Routes.draw do |map|
   map.logout "/logout", :controller => "user_sessions", :action => "destroy"
   map.pages '/pages/:action', :controller => 'pages'
   map.questionnaire_terms "/questionnaire/terms", :controller => "questionnaire", :action => "terms"
-  map.answer_save_and_continue "/questionnaire/save_and_continue", :controller => "questionnaire", :action => "save_and_continue"
   map.questionnaire_on_hold "/questionnaire/on_hold", :controller => "questionnaire", :action => "on_hold"
-  map.questionnaire_questions "/questionnaire/:action/:question_id", :controller => "questionnaire"
+  map.answer_save_and_continue "/questionnaire/save_and_continue", :controller => "questionnaire", :action => "save_and_continue"
+  map.questionnaire_questions "/questionnaire/:action/:position", :controller => "questionnaire"
   map.resources :pages
   map.resource :user_session
   map.resources :users

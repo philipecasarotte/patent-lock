@@ -1,4 +1,7 @@
-<h1>Questionnaire &raquo; Question <%= params[:question_id] %></h1>
+<h1>Questionnaire &raquo; Question <%= params[:position].to_i+1 %></h1>
+<div class="content_cms">
+  <%= @page.body %>
+</div>
 <%= error_messages_for @object.class.to_s.underscore.to_sym %>
 <% form_for(@answer, :url => answer_save_and_continue_path, :live_validations => true, :html => { :method => :put }) do |f| %>
   <%= render :partial => "question", :locals => { :f => f }, :object => @question %>

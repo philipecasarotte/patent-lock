@@ -6,6 +6,6 @@
     <p><%= @user.email %></p>
     <p>Registered on <%= l(@user.created_at, :format => :long) %></p>
   </div>
-  <span><%= link_to t(:edit_profile), edit_user_path(@user) %> - <%= link_to "Logout", logout_path %></span>
+  <span><%= link_to t(:edit_profile), edit_user_path(@user) %> - <%= link_to "Start Process", questionnaire_questions_path("questions", 0) if current_user.order %> - <%= link_to "Logout", logout_path %></span>
 </div>
 

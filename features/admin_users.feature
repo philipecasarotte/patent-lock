@@ -83,3 +83,16 @@ Feature: Manage users
     And I press "Update"
     Then I should see "Successfully updated!"
     And I should see "Bob Martin"
+  
+  Scenario: View User's Order
+    Given the following user records
+      | id | login | email             | password | password_confirmation |
+      | 1  | bob   | bob@example.com   | secret   | secret                |
+      | 2  | admin | admin@example.com | secret   | secret                |
+    And the following order records
+      | user_id | total  | state           |
+      | 1       | 150.00 | pending_answers |
+    And I am on the admin list of users
+    When I follow "View Order"
+    Then I should see "150.00"
+    And I should see "Pending answers"
