@@ -29,6 +29,7 @@ class UsersControllerTest < ActionController::TestCase
 
       context "a valid user" do
         setup do
+          Factory.create(:question)
           User.any_instance.stubs(:valid?).returns(true)
           post :create, :user => Factory.attributes_for(:user)
         end
@@ -41,7 +42,7 @@ class UsersControllerTest < ActionController::TestCase
           assert_not_nil(assigns(:user).order)
         end
         
-        should_redirect_to("profile page") { user_path(assigns(:user)) }
+        should_redirect_to("profile page") { questionnaire_questions_path("questions", Question.first.position) }
       end
     end
 

@@ -5,6 +5,13 @@ Feature: Frontend users
   
   Scenario: Register Valid User
     Given I have no users
+    And the following question records
+      | name                  | help       |
+      | What is your name?    | Question 1 |
+      | What is your mission? | Question 2 |
+    And the following page records
+      | name     | body                            |
+      | Questionnaire | Lorem ipsum dolem sit amet |
     And I am on the register page
     And I fill in "Login" with "bob"
     And I fill in "Name" with "Bob"
@@ -13,7 +20,7 @@ Feature: Frontend users
     And I fill in "Email" with "bob@example.com"
     And I press "Register"
     Then I should see "Successfully created!"
-    And I should see "bob"
+    And I should see "What is your name?"
     And I should have 1 users
   
   Scenario: Register Invalid User

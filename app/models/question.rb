@@ -15,7 +15,14 @@ class Question < ActiveRecord::Base
 
   def previous
     arr = Question.all
-    arr[arr.index(self) -1].position
+    (arr[arr.index(self) - 1]).position
+  end
+  
+  def first?
+    @first_question = Question.first
+    unless self.position == @first_question.position
+      return true
+    end
   end
   
   private

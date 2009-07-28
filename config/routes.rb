@@ -14,6 +14,7 @@ ActionController::Routing::Routes.draw do |map|
   map.login "/login", :controller => "user_sessions", :action => "new"
   map.logout "/logout", :controller => "user_sessions", :action => "destroy"
   map.pages '/pages/:action', :controller => 'pages'
+  map.questionnaire_payment "/questionnaire/payment", :controller => "questionnaire", :action => "payment"
   map.questionnaire_terms "/questionnaire/terms", :controller => "questionnaire", :action => "terms"
   map.questionnaire_on_hold "/questionnaire/on_hold", :controller => "questionnaire", :action => "on_hold"
   map.answer_save_and_continue "/questionnaire/save_and_continue", :controller => "questionnaire", :action => "save_and_continue"

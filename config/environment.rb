@@ -78,6 +78,9 @@ Rails::Initializer.run do |config|
   SITE_URL = "http://www.#{SITE_DOMAIN}/"
   SITE_EMAIL = "info@#{SITE_DOMAIN}"
   SITE_META_KEYWORDS = ""
+  
+  MERCHANT_ID = "756706787746159"
+  MERCHANT_KEY = "UmII3MrWKFjIDfvCUIkhLw"
 
   $VERBOSE = old_verbose
 end
@@ -86,3 +89,4 @@ LiveValidations.use :jquery_validations
 
 require 'position_order'
 require 'summary'
+require 'google-checkout'

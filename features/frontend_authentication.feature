@@ -16,9 +16,18 @@ Feature: Authentication
       Then I should see "password is not valid"
    
    Scenario: User signs in with valid login and password
-      Given I signed up with "someuser/secret"
+      Given the following order records
+        | user_id | total  | state           |
+        | 1       | 150.00 | pending_answers |
+      And the following user records
+        | id | login     | email             | password | password_confirmation |
+        | 1  | philipe   | bob@example.com   | secret   | secret                |
+      And the following question records
+        | name                  | help       |
+        | What is your name?    | Question 1 |
+        | What is your mission? | Question 2 |
       When I go to the login page
-      And I sign in as "someuser/secret"
+      And I sign in as "philipe/secret"
       Then I should see "Logged in successfully"
       
    Scenario: User signs out

@@ -1,5 +1,5 @@
 class QuestionnaireController < ApplicationController
-  before_filter :require_user, :verify_questionnaire_on_hold
+  before_filter :require_user, :verify_questionnaire_on_hold, :gateway
   
   def questions
     @page = Page.find_by_permalink("questionnaire")
@@ -19,6 +19,11 @@ class QuestionnaireController < ApplicationController
         flash[:error] = "You must accept the terms to continue."
       end
     end
+  end
+  
+  def payment
+    @cart = GoogleCheckout::Cart.new(MERCHANT_ID, MERCHANT_KEY)
+    @cart.add_item(:name => 'Patent Lock Service', :description => 'A service to make the patent of your mark.', :price => @order.total)
   end
   
   def save_and_continue
@@ -61,4 +66,8 @@ class QuestionnaireController < ApplicationController
        redirect_to questionnaire_terms_path
     end
   end
+  
+  def gateway
+		GoogleCheckout.use_sandbox
+	end
 end

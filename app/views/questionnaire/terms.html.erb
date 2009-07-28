@@ -19,5 +19,5 @@
     <%= label_tag :accept, "Yes I agree with the Terms above" %>
     <%= check_box_tag(:accept, value = "yes") %>
   </p>
-  <p><%=submit_tag "Save & Continue" %></p>
+  <p><%= link_to "Back", questionnaire_questions_path("questions", Question.last.position) %><%=submit_tag "Save & Continue" %></p>
 <% end %>

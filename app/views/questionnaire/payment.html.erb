@@ -1,0 +1,6 @@
+<h1>Questionnaire &raquo; Payment</h1>
+<div class="content_cms">
+  Please make the payment of <%= number_to_currency @order.total %>
+  <p><%= @cart.checkout_button %></p>
+  <%= link_to "Back", questionnaire_terms_path %>
+</div>
