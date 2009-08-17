@@ -1,2 +1,22 @@
 module UsersHelper
+  def go_to_current_order_state
+    if current_user.order
+      case current_user.order.state
+        when "pending_answers"
+          questionnaire_questions_path("questions", Question.first.position)
+        when "pending_terms"
+          questionnaire_terms_path
+        when "pending_payment"
+          questionnaire_payment_path
+        when "pending_confirmation"
+          questionnaire_confirmation_path
+        when "confirmed"
+          questionnaire_thankyou_path
+        else
+          user_path(current_user)
+      end
+    else
+      questionnaire_questions_path("questions", Question.first.position)
+    end
+  end
 end
