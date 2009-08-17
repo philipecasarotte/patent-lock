@@ -44,4 +44,6 @@ class ActiveSupport::TestCase
   
   require "authlogic/test_case"
   require "mocha"
+  
+  Factory.create(:configuration)
 end
