@@ -16,6 +16,8 @@ class PagesController < ApplicationController
   end
   
   def trademarks
+    @cart = GoogleCheckout::Cart.new(MERCHANT_ID, MERCHANT_KEY)
+    @cart.add_item(:name => 'Patent Lock Service', :description => 'A service to make the patent of your mark.', :price => "150.00")
     @page = Page.find_by_permalink('trademarks')
     if request.post?
       Mailer.deliver_trademarks(params[:trademarks])

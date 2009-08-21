@@ -54,6 +54,7 @@
 		<%= f.check_box :acceptance, :class => "required" %>
 	</p>
 	
-	<%= submit_tag("Submit") %>
+	<%#= submit_tag("Submit") %>
+	<p><%= @cart.checkout_button %></p>
 <% end %>
 <%= javascript "plugins/metadata", "plugins/validate" %>
