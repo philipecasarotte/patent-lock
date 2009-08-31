@@ -12,10 +12,16 @@ class PagesControllerTest < ActionController::TestCase
 
     context "on GET to index" do
       setup do
+        @page = Factory.create(:page, :name => "home")
+        @how_patent_lock_works = Factory.create(:page, :name => "How Patent Lock Works")
+        @trademarks = Factory.create(:page, :name => "Trademarks")
+        @services = Factory.create(:page, :name => "Services")
+        @blog = Factory.create(:page, :name => "Blog")
+        @inventor_resource = Factory.create(:page, :name => "Inventor Resource")
         get :index
       end
 
-      should_assign_to(:pages) { Page.main_pages }
+      should_assign_to(:page) { Page.find_by_permalink("home") }
     end
 
     context "on GET to show" do
@@ -65,13 +71,13 @@ class PagesControllerTest < ActionController::TestCase
       ActionMailer::Base.delivery_method = :test
       ActionMailer::Base.perform_deliveries = true
       ActionMailer::Base.deliveries = []
-      Factory.create(:page, :name => 'Trademarks')
-      post :trademarks, 'trademarks' => {'name' => "Ricardo", 'email' => "dev.dburns@gmail.com", 'message' => 'Hello!'}
+      Factory.create(:page, :name => 'Trademark Registration')
+      post :trademark_registration, 'trademarks' => {'name' => "Ricardo", 'email' => "dev.dburns@gmail.com", 'message' => 'Hello!'}
     end
 
     should "render the trademarks's template" do
-      get "trademarks"
-      assert_template "trademarks"
+      get "trademark_registration"
+      assert_template "trademark_registration"
     end
 
     should "send trademarks e-mail" do

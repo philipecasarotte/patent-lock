@@ -3,3 +3,17 @@
 * {margin:0;padding:0;outline:none;}
 
 ol {margin-left:20px;}
+
+body {font:12px "Trebuchet MS", Verdana, Arial, sans-serif;}
+
+#main {width:860px;margin:0 auto;}
+
+/*Menus*/
+#help_menu {float:right;}
+#help_menu li {display:inline;}
+
+#menu li {display:inline;}
+
+/*Footer*/
+#footer {background-color:yellow;margin:20px 0;}
+#footer ul li {display:inline;}

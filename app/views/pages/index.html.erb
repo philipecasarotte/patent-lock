@@ -1,1 +1,24 @@
-<h1>Home</h1>
+<h1><%= @page.name %></h1>
+<%= @page.body %>
+<ul>
+  <li>
+    <h2><%= link_to @inventor_resource.name, page_path(@inventor_resource.permalink) %></h2>
+    <%= @inventor_resource.body.summary 200 %>
+  </li>
+  <li>
+    <h2><%= link_to @services.name, page_path(@services.permalink) %></h2>
+    <%= @services.body.summary 200 %>
+  </li>
+  <li>
+    <h2><%= link_to @how_patent_lock_works.name, page_path(@how_patent_lock_works.permalink) %></h2>
+    <%= @how_patent_lock_works.body.summary 200 %>
+  </li>
+  <li>
+    <h2><%= link_to @trademarks.name, page_path(@trademarks.permalink) %></h2>
+    <%= @trademarks.body.summary 200 %>
+  </li>
+  <li>
+    <h2><%= link_to @blog.name, page_path(@blog.permalink) %></h2>
+    <%= @blog.body.summary 200 %>
+  </li>
+</ul>

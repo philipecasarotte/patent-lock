@@ -1,3 +1,35 @@
+patent_search:
+  id: 25
+  name: "Patent Search"
+  body: "Coming soon"
+  permalink: "patent-search"
+  parent_id: 24
+  is_protected: 1
+
+get_started:
+  id: 24
+  name: "Get Started"
+  body: "Coming soon"
+  permalink: "get-started"
+  parent_id: 
+  is_protected: 1
+
+trademark_registration:
+  id: 23
+  name: "Trademark Registration"
+  body: "Coming soon"
+  permalink: "trademark-registration"
+  parent_id: 10
+  is_protected: 1
+
+trademark_search:
+  id: 22
+  name: "Trademark Search"
+  body: "Coming soon"
+  permalink: "trademark-search"
+  parent_id: 10
+  is_protected: 1
+
 inventor_resource:
   id: 21
   name: "Inventor Resource"
@@ -59,7 +91,7 @@ member_login:
   name: "Member Login"
   body: "Coming soon"
   permalink: "member-login"
-  parent_id: 
+  parent_id: 24
   is_protected: 1
 
 why_patent_lock:

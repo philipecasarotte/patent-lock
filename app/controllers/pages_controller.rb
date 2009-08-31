@@ -3,7 +3,13 @@ class PagesController < ApplicationController
   after_filter(:except => :contact) {|c| c.cache_page}
 
   def index
-    @pages = Page.main_pages
+    @page = Page.find_by_permalink("home")
+    @how_patent_lock_works = Page.find_by_permalink("how-patent-lock-works")
+    @trademarks = Page.find_by_permalink("trademarks")
+    @services = Page.find_by_permalink("services")
+    @blog = Page.find_by_permalink("blog")
+    @inventor_resource = Page.find_by_permalink("inventor-resource")
+    @metatag_object = @page
   end
 
   def contact
@@ -15,10 +21,10 @@ class PagesController < ApplicationController
     @metatag_object = @page
   end
   
-  def trademarks
+  def trademark_registration
     @cart = GoogleCheckout::Cart.new(MERCHANT_ID, MERCHANT_KEY)
     @cart.add_item(:name => 'Patent Lock Service', :description => 'A service to make the patent of your mark.', :price => "150.00")
-    @page = Page.find_by_permalink('trademarks')
+    @page = Page.find_by_permalink('trademark-registration')
     if request.post?
       Mailer.deliver_trademarks(params[:trademarks])
       flash[:notice] = t(:message_sent)

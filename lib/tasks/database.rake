@@ -42,7 +42,7 @@ namespace :db do
    ActiveRecord::Base.establish_connection(RAILS_ENV.to_sym)
    Fixtures.create_fixtures("#{RAILS_ROOT}/lib/dburns", 'pages')
    puts "Updating children count..."
-   main_pages = Page.all :conditions => 'parent_id IS NULL'
+   main_pages = Page.all
    main_pages.each do |main_page|
      children_count = main_page.children.count
      ActiveRecord::Base.connection.execute("UPDATE pages p SET children_count = #{children_count} WHERE p.id = #{main_page.id}; ")
