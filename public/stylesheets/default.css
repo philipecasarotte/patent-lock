@@ -2,18 +2,54 @@
 
 * {margin:0;padding:0;outline:none;}
 
+a {color:black;text-decoration:none;}
+a:hover {text-decoration:underline;}
+
+h1 {font-size:18px;}
+
 ol {margin-left:20px;}
 
-body {font:12px "Trebuchet MS", Verdana, Arial, sans-serif;}
+body {background:white url(../images/bg/body.png) repeat-x;font:12px "Trebuchet MS", Verdana, Arial, sans-serif;}
 
-#main {width:860px;margin:0 auto;}
+#main {width:940px;margin:0 auto;}
+
+#logo {margin:15px 0 21px 0;}
 
 /*Menus*/
-#help_menu {float:right;}
+#help_menu {float:right;background:url(../images/bg/tab.png) no-repeat;width:155px;height:23px;padding:10px 0 0 46px;font-size:11px;}
 #help_menu li {display:inline;}
+#help_menu li.first {margin-right:50px;}
 
-#menu li {display:inline;}
+#menu {float:left;width:940px;}
+#menu li {list-style:none;display:inline;}
+#menu li a {float:left;background-image:url(../images/bg/menu.png);background-repeat:no-repeat;height:54px;text-indent:-9999px;}
+#menu li.welcome a {width:110px;}
+#menu li.welcome a:hover {background-position:0 -54px;}
+#menu li.get_started a {width:194px;background-position:-110px 0;}
+#menu li.get_started a:hover {background-position:-110px -54px;}
+#menu li.why a {width:199px;background-position:-304px 0;}
+#menu li.why a:hover {background-position:-304px -54px;}
+#menu li.about a {width:105px;margin-right:170px;background-position:-503px 0;}
+#menu li.about a:hover {background-position:-503px -54px;}
+#menu li.member_login a {width:125px;background-position:-770px 0;}
+#menu li.member_login a:hover {background-position:-770px -54px;}
+
+/*Home*/
+#medal_services {float:left;width:151px;margin-right:20px;}
+#medal_services ul {background:url(../images/bg/services_menu.jpg) no-repeat;margin-top:20px;height:168px;}
+
+#home {float:left;width:545px;height:340px;overflow:hidden;padding-bottom:20px;}
+
+#get_started_home {float:right;margin-top:55px;}
+
+#hot_boxes {float:left;width:715px;}
+
+#patent_search {background-color:yellow;float:right;width:200px;}
+
+/*Content*/
+#content {float:left;margin:20px 0;}
 
 /*Footer*/
-#footer {background-color:yellow;margin:20px 0;}
-#footer ul li {display:inline;}
+#footer {clear:both;background:url(../images/bg/footer.png) no-repeat;height:45px;padding:10px 20px 0 20px;font-size:10px;line-height:16px;}
+#footer ul {float:left;margin:10px 145px 0 0;}
+#footer ul li {display:inline;border-right:solid 1px black;padding-right:7px;margin-right:5px;}

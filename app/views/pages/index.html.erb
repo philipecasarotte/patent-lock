@@ -1,6 +1,18 @@
-<h1><%= @page.name %></h1>
-<%= @page.body %>
-<ul>
+<div id="medal_services">
+  <%= image_tag "medal.png", :alt => "The Patent Lock Advantage", :title => "The Patent Lock Advantage", :size => "149x149" %>
+  <ul>
+    <li><%= link_to "nome", "link" %></li>
+    <li><%= link_to "nome", "link" %></li>
+    <li><%= link_to "nome", "link" %></li>
+    <li><%= link_to "nome", "link" %></li>
+  </ul>
+</div>
+<div id="home">
+  <h1><%= @page.name %></h1>
+  <%= @page.body %>
+</div>
+<%= image_tag "bt/get_started.png", :id => "get_started_home", :alt => "Get started on your provisional patent application", :title => "Get started on your provisional patent application", :size => "200x281" %>
+<ul id="hot_boxes">
   <li>
     <h2><%= link_to @inventor_resource.name, page_path(@inventor_resource.permalink) %></h2>
     <%= @inventor_resource.body.summary 200 %>
@@ -22,3 +34,7 @@
     <%= @blog.body.summary 200 %>
   </li>
 </ul>
+<div id="patent_search">
+  <h3>Patent Search</h3>
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
+</div>
