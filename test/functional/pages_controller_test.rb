@@ -18,6 +18,7 @@ class PagesControllerTest < ActionController::TestCase
         @services = Factory.create(:page, :name => "Services")
         @blog = Factory.create(:page, :name => "Blog")
         @inventor_resource = Factory.create(:page, :name => "Inventor Resource")
+        @patent_search = Factory.create(:page, :name => "Patent Search")
         get :index
       end
 

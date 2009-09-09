@@ -9,6 +9,7 @@ class PagesController < ApplicationController
     @services = Page.find_by_permalink("services")
     @blog = Page.find_by_permalink("blog")
     @inventor_resource = Page.find_by_permalink("inventor-resource")
+    @patent_search = Page.find_by_permalink("patent-search")
     @metatag_object = @page
   end
 

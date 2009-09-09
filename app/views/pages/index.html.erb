@@ -1,40 +1,50 @@
 <div id="medal_services">
   <%= image_tag "medal.png", :alt => "The Patent Lock Advantage", :title => "The Patent Lock Advantage", :size => "149x149" %>
   <ul>
-    <li><%= link_to "nome", "link" %></li>
-    <li><%= link_to "nome", "link" %></li>
-    <li><%= link_to "nome", "link" %></li>
-    <li><%= link_to "nome", "link" %></li>
+    <li class="head"><h2>Online Services</h2></li>
+    <li><%= link_to "Provisional Patent", "link" %></li>
+    <li><%= link_to "Patent Search", "link" %></li>
+    <li><%= link_to "Trademark Registration", "link" %></li>
+    <li><%= link_to "Trademark Search", "link" %></li>
   </ul>
 </div>
 <div id="home">
   <h1><%= @page.name %></h1>
   <%= @page.body %>
 </div>
-<%= image_tag "bt/get_started.png", :id => "get_started_home", :alt => "Get started on your provisional patent application", :title => "Get started on your provisional patent application", :size => "200x281" %>
+<%= link_to image_tag("bt/get_started.png", :id => "get_started_home", :alt => "Get started on your provisional patent application", :title => "Get started on your provisional patent application", :size => "200x281"), page_path("get-started") %>
 <ul id="hot_boxes">
   <li>
-    <h2><%= link_to @inventor_resource.name, page_path(@inventor_resource.permalink) %></h2>
-    <%= @inventor_resource.body.summary 200 %>
+    <small class="investor"></small>
+    <h3><%= link_to @inventor_resource.name, page_path(@inventor_resource.permalink) %></h3>
+    <p><%= @inventor_resource.body.summary 150 %></p>
   </li>
   <li>
-    <h2><%= link_to @services.name, page_path(@services.permalink) %></h2>
-    <%= @services.body.summary 200 %>
+    <small class="services"></small>
+    <h3><%= link_to @services.name, page_path(@services.permalink) %></h3>
+    <p><%= @services.body.summary 150 %></p>
   </li>
   <li>
-    <h2><%= link_to @how_patent_lock_works.name, page_path(@how_patent_lock_works.permalink) %></h2>
-    <%= @how_patent_lock_works.body.summary 200 %>
+    <small class="how"></small>
+    <h3><%= link_to @how_patent_lock_works.name, page_path(@how_patent_lock_works.permalink) %></h3>
+    <p><%= @how_patent_lock_works.body.summary 150 %></p>
   </li>
   <li>
-    <h2><%= link_to @trademarks.name, page_path(@trademarks.permalink) %></h2>
-    <%= @trademarks.body.summary 200 %>
+    <small class="trademarks"></small>
+    <h3><%= link_to @trademarks.name, page_path(@trademarks.permalink) %></h3>
+    <p><%= @trademarks.body.summary 150 %></p>
   </li>
   <li>
-    <h2><%= link_to @blog.name, page_path(@blog.permalink) %></h2>
-    <%= @blog.body.summary 200 %>
+    <small class="blog"></small>
+    <h3><%= link_to @blog.name, page_path(@blog.permalink) %></h3>
+    <p><%= @blog.body.summary 150 %></p>
   </li>
 </ul>
 <div id="patent_search">
-  <h3>Patent Search</h3>
-  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
+  <h3><%= @patent_search.name %></h3>
+  <p><%= @patent_search.body.summary 100 %></p>
+  <% form_tag "/test", :method => :get do %>
+  	<%= text_field_tag "q", params[:q] || nil %>
+  	<%= submit_tag("GO", :class => "submit") %>
+  <% end %>
 </div>
