@@ -2,7 +2,9 @@ class UsersController < ApplicationController
   before_filter :require_user, :only => [:show, :edit, :update]
   
   def new
+    @page = Page.find_by_permalink("member-login") rescue ""
     @user = User.new
+    @metatag_object = @page
   end
   
   def create

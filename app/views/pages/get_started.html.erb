@@ -1,0 +1,8 @@
+<h1><%= @page.name %></h1>
+<div class="content_cms">
+	<%= @page.body %>
+</div>
+<div id="hot_links">
+  <%= link_to image_tag("bt/patent_search.png", :class => "first", :alt => "Patent Search", :title => "Patent Search", :size => "344x238"), page_path("patent-search") %>
+  <%= link_to image_tag("bt/patent_application.png", :alt => "Patent Application", :title => "Patent Application", :size => "397x238"), go_to_current_order_state %>
+</div>

@@ -1,5 +1,11 @@
 <h1>Create an Account</h1>
-<% form_for(@user, :url => users_path, :html => { :class => "validate" }) do |f| %>
-  <%= render :partial => 'form', :locals => { :f => f } %>
-  <%= submit_tag(t(:register)) %>
-<% end %>
+<div id="with_form_small" class="content_cms">
+	<%= @page.body rescue "" %>
+</div>
+<div id="register">
+  <% form_for(@user, :url => users_path, :html => { :class => "validate" }) do |f| %>
+    <%= render :partial => 'form', :locals => { :f => f } %>
+    <%= submit_tag(t(:register), :class => "replacement submit") %>
+    <%= link_to image_tag("bt/already_a_member.jpg", :alt => "Already a Member?", :title => "Already a Member?", :id => "already_member"), login_path %>
+  <% end %>
+</div>

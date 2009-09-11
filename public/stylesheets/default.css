@@ -6,11 +6,18 @@ img {border:none;}
 a {color:black;text-decoration:none;}
 a:hover {text-decoration:underline;}
 
-h1 {font-size:18px;}
+label {display:block;margin-bottom:3px;}
+input {border:none;font-weight:bold;height:22px;}
+input.submit {height:auto;width:auto;}
+
+h1 {font-size:18px;margin-bottom:10px;}
 h2 {font-size:15px;}
 h3 {font-size:12px;}
 
+li {list-style:none;}
 ol {margin-left:20px;}
+
+.replacement {font-size:0px;line-height:0px;text-indent:-9999px;}
 
 body {background:white url(../images/bg/body.png) repeat-x;font:12px "Trebuchet MS", Verdana, Arial, sans-serif;margin-bottom:20px;}
 
@@ -71,7 +78,38 @@ body {background:white url(../images/bg/body.png) repeat-x;font:12px "Trebuchet 
 /*Content*/
 #content {float:left;margin:20px 0;}
 
+.content_cms p {margin-bottom:14px;}
+.content_cms ul {margin-bottom:14px;}
+.content_cms li {background:url(../images/bullet/locker.jpg) no-repeat;padding-left:20px;margin:2px 0;}
+
+#hot_links {text-align:center;width:940px;margin-top:20px;}
+#hot_links img.first {margin-right:100px;}
+
+#with_form {float:left;width:579px;padding-right:20px;border-right:1px dotted #CCC;}
+#with_form_small {float:left;width:459px;padding-right:40px;border-right:1px dotted #CCC;}
+
+/*Login*/
+#login {float:right;width:274px;margin:-51px 0 0 20px;padding:0 33px 0 13px;}
+#login form {background:url(../images/bg/login.png) no-repeat;height:183px;padding:10px;margin-bottom:20px;}
+#login form h3 {margin-top:15px;padding-bottom:5px;border-bottom:1px dotted #999;margin-bottom:15px;font-size:14px;}
+#login form input {margin:0 0 10px 5px;width:240px;}
+#login form input.submit {margin:5px 0 0 0;float:right;width:57px;height:26px;background:url(../images/bt/login.jpg) no-repeat;}
+
+#register {float:right;width:400px;margin-left:40px;}
+#register form p {background:url(../images/bg/input_01.jpg) 0 15px no-repeat;height:auto !important;height:50px;min-height:50px;}
+#register form input {background-color:#EFEFEF;margin-left:7px;}
+#register form input.submit {margin:5px 0 0 0;float:right;width:77px;height:26px;background:url(../images/bt/submit.jpg) no-repeat;}
+#register form img#already_member {float:right;margin:5px 10px 0 0;}
+#register form p.checkbox {background:none;}
+#register form p.checkbox label {display:inline;float:right;width:370px;margin-top:5px;}
+#register form p.checkbox input {width:auto;float:left;}
+
 /*Footer*/
 #footer {clear:both;background:url(../images/bg/footer.png) no-repeat;height:45px;padding:10px 20px 0 20px;font-size:10px;line-height:16px;}
 #footer ul {float:left;margin:10px 145px 0 0;}
 #footer ul li {display:inline;border-right:solid 1px black;padding-right:7px;margin-right:5px;}
+
+/* Messages */
+label.error  {color:red; font-weight:normal;margin-top:5px;}
+div.notice {border:solid 2px green;background-color:#B2DFB8;color:green;padding:3px 5px;}
+div.error {border:solid 2px red;background-color:#FDB5AF;color:red;padding:3px 5px;}

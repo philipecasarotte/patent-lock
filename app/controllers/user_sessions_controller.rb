@@ -1,14 +1,17 @@
 class UserSessionsController < ApplicationController
 
   def new
+    @page = Page.find_by_permalink("member-login")
     if current_user
       redirect_to user_path(current_user)
     else
       @user_session = UserSession.new
     end
+    @metatag_object = @page
   end
   
   def create
+    @page = Page.find_by_permalink("member-login")
     @user_session = UserSession.new(params[:user_session])
     if @user_session.save
       flash[:notice] = I18n.t(:login_message)
@@ -33,6 +36,7 @@ class UserSessionsController < ApplicationController
     else
       render :action => :new
     end
+    @metatag_object = @page
   end
   
   def destroy

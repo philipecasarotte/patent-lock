@@ -14,6 +14,9 @@ Feature: Questionnaire
       | name                  | help       | position |
       | What is your name?    | Question 1 |        1 |
       | What is your mission? | Question 2 |        2 |
+    Given the following page records
+      | name         | body          |
+      | Member Login | Login body pa |
     And I go to the login page
     And I sign in as "quentin/secret"
 
@@ -49,8 +52,3 @@ Feature: Questionnaire
     And I press "Save & Continue"
     Then I should see "Payment"
     And I should see "Please make the payment of"
-  
-  
-  
-  
-  

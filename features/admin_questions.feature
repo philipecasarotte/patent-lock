@@ -4,7 +4,10 @@ Feature: Manage questions
   I want to be able to manage questions
 
   Background:
-    Given I am logged in as admin
+    Given the following page records
+      | name         | body          |
+      | Member Login | Login body pa |
+    And I am logged in as admin
     
   Scenario: Questions list
     Given the following question records

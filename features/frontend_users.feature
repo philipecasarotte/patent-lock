@@ -3,6 +3,11 @@ Feature: Frontend users
   As an user
   I want to be able to register, see and edit my profile
   
+  Background:
+   Given the following page records
+     | name         | body          |
+     | Member Login | Login body pa |
+  
   Scenario: Register Valid User
     Given I have no users
     And the following question records

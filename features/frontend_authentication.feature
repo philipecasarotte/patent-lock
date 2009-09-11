@@ -2,8 +2,13 @@ Feature: Authentication
   In order to get access to the user account and protect from unauthorized access
   As an user
   I want to be able to sign in and sign out
-
-    Scenario: User is not signed up
+    
+   Background:
+    Given the following page records
+      | name         | body          |
+      | Member Login | Login body pa |
+  
+   Scenario: User is not signed up
       Given no user exists with a login of "someuser"
       When I go to the login page
       And I sign in as "someuser/password"

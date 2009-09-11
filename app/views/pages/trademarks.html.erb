@@ -1,7 +1,8 @@
 <h1><%= @page.name %></h1>
-<%= render :partial => 'sidebar' %>
 <div class="content_cms">
 	<%= @page.body %>
-	<%= link_to "Trademark Search", page_path("trademark-search") %>
-	<%= link_to "Trademark Registration", page_path("trademark-registration") %>	
+</div>
+<div id="hot_links">
+  <%= link_to image_tag("bt/trademark_search.png", :class => "first", :alt => "Trademark Search", :title => "Trademark Search", :size => "344x238"), page_path("trademark-search") %>
+  <%= link_to image_tag("bt/trademark_application.png", :alt => "Trademark Application", :title => "Trademark Application", :size => "397x238"), page_path("trademark-registration") %>
 </div>

@@ -7,6 +7,7 @@ class UserSessionsControllerTest < ActionController::TestCase
 
     context "with valid credentials" do
       setup do
+        @page = Factory(:page, :name => "Member Login", :permalink => "member-login")
         @question = Factory(:question)
         @user = Factory(:user)
         @order = Factory(:order, :user_id => @user.id)
@@ -26,7 +27,8 @@ class UserSessionsControllerTest < ActionController::TestCase
 
     context "with invalid credentials" do
       setup do
-        post :create, :user_session => {:login => "invalid_user", :password => "badpassword" }
+        @page = Factory(:page, :name => "Member Login", :permalink => "member-login")
+        post :create, :user_session => {:login => "invalid_user", :password => "badpassword"}
       end
 
       should_not_set_the_flash

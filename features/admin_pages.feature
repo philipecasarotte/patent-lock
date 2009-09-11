@@ -4,7 +4,10 @@ Feature: Manage pages
   I want to be able to manage pages and edit them like a rich text editor
 
   Background:
-    Given I am logged in as admin
+    Given the following page records
+      | name         | body          |
+      | Member Login | Login body pa |
+    And I am logged in as admin
     
   Scenario: Pages list
     Given the following page records

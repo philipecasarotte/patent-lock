@@ -4,7 +4,10 @@ Feature: Manage users
   I want to be able to manage users and assign them roles
 
   Background:
-    Given I am logged in as admin
+    Given the following page records
+      | name         | body          |
+      | Member Login | Login body pa |
+    And I am logged in as admin
 
   Scenario: Admin Users List
     Given the following user records
