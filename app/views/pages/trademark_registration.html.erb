@@ -3,58 +3,89 @@
 <div class="content_cms">
 	<%= @page.body %>
 </div>
-<% form_for('trademarks', :html => {:class => "validate"}) do |f| %>
-	<p>
-		<%= f.label(:name, "Name of the Owner of the Trademark") %>
-		<%= f.text_field :name, :class => "required" %>
-	</p>
-	<p>
-		<%= f.label(:address, "Street Address of Owner") %>
-		<%= f.text_field :address, :class => "required" %>
-	</p>
-	<p>
-		<%= f.label(:city) %>
-		<%= f.text_field :city, :class => "required" %>
-	</p>
-	<p>
-		<%= f.label(:state) %>
-		<%= f.text_field :state, :class => "required" %>
-	</p>
-	<p>
-		<%= f.label(:zip_code) %>
-		<%= f.text_field :zip_code, :class => "required" %>
-	</p>
-	<p>
-		<%= f.label(:telephone) %>
-		<%= f.text_field :telephone, :class => "required" %>
-	</p>
-	<p>
-		<%= f.label(:email) %>
-		<%= f.text_field :email, :class => "required email" %>
-	</p>
-	<p>
-		<%= f.label(:trademark, "What is the word, phrase, or name of the trademark you wish to register") %>
-		<%= f.text_field :trademark, :class => "required" %>
-	</p>
-	<p>
-		<%= f.label(:description, "Describe the goods and/or services you will use your trademark with") %>
-		<%= f.text_area :description, :class => "required" %>
-	</p>
-	<p>
-		<%= f.label(:being_used, "Is this trademark currently being used?") %>
-		<%= f.radio_button :being_used, "yes" %> Yes
-		<%= f.radio_button :being_used, "no" %> No
-	</p>
-	<p>
-		<%= f.label(:first_date, "If this trademark is currently being used, when was the first date of your use of the trademark?") %>
-		<%= f.text_field :first_date, :class => "required" %>
-	</p>
-	<p>
-		<%= f.label(:acceptance, "Attorney Retainer Agreement") %>
-		<%= f.check_box :acceptance, :class => "required" %>
-	</p>
-	
-	<%#= submit_tag("Submit") %>
-	<p><%= @cart.checkout_button %></p>
-<% end %>
+<div id="trademark">
+  <% form_for('trademarks', :html => {:class => "validate"}) do |f| %>
+  <div id="column_first">
+    <p class="first">
+  		<%= f.label(:name, "<strong>1.</strong> Name of the Owner of the Trademark") %>
+  		<%= f.text_field :name, :class => "required" %>
+  		<small>If individual, provide the full legal name. If a business, provide the full legal name of the corporation, LLC, or other.</small>
+  	</p>
+  	<p class="first select_small">
+  		<%= f.label(:state_of_formation, "State of Formation:") %>
+  		<%= select(:trademarks, :state_of_formation, [["Problema", "Problema"], ["Questão", "Questão"], ["Requisição de feature", "Requisição de Feature"]]) %>
+  		<small>If Owner is a corporation or LLC, enter the state where it was formed.</small>
+  	</p>
+  	<p class="first">
+  		<%= f.label(:type_of_entity, "Type of entity (if applicable)") %>
+  		<%= f.text_field :type_of_entity %>
+  	</p>
+  		<p class="first address">
+    		<%= f.label(:address, "<strong>2.</strong> Street Address of Owner:") %>
+    		<%= f.text_field :address, :class => "required" %>
+    	</p>
+    	<p class="first">
+    		<%= f.label(:city, "<strong>3.</strong> Owner's City:") %>
+    		<%= f.text_field :city, :class => "required" %>
+    	</p>
+    	<p class="first state">
+    		<%= f.label(:state, "<strong>4.</strong> Owner's State:") %>
+    		<%= f.text_field :state, :class => "required" %>
+    	</p>
+    	<p class="first">
+    		<%= f.label(:zip_code, "<strong>5.</strong> Owner's Zip Code:") %>
+    		<%= f.text_field :zip_code, :class => "required" %>
+    	</p>
+    	<p class="first">
+    		<%= f.label(:telephone, "<strong>6.</strong> Owner's Telephone Number:") %>
+    		<%= f.text_field :telephone, :class => "required" %>
+    	</p>
+    	<p class="first">
+    		<%= f.label(:email, "<strong>7.</strong> Owner's Email Address:") %>
+    		<%= f.text_field :email, :class => "required email" %>
+    	</p>
+    	<p class="first">
+    		<%= f.label(:email_confirmation, "Confirm Email Address:") %>
+    		<%= f.text_field :email_confirmation, :class => "{ required:true, email:true, equalTo: '#trademarks_email'}" %>
+    	</p>
+  </div>
+  	<p>
+  		<%= f.label(:country, "<strong>8.</strong> Country of Citizenship of Owner:") %>
+  		<%= f.text_field :country, :class => "required" %>
+  	</p>
+    <p>
+  		<%= f.label(:phrase, "<strong>9.</strong> Enter the exact word or phrase of the trademark you wish to register:") %>
+  		<%= f.text_field :phrase, :class => "required" %>
+  	</p>
+  	<p class="textarea">
+  		<%= f.label(:description, "<strong>10.</strong> Describe the goods and/or services you will use your trademark with:") %>
+  		<%= f.text_area :description, :class => "required" %>
+  		<small>e.g. t-shirts, medical software, online social networking website, real estate agent business.</small>
+  	</p>
+  	<p class="checkbox radio">
+  		<%= f.label(:being_used, "<strong>11.</strong> Is this trademark currently being used?") %>
+  		<small>Use means interstate commerce in the United States. The name of the trademark entered in #8 must be used in connection with the goods and/or services you described in #9.</small>       
+  		<%= f.radio_button :being_used, "yes" %>
+  		<%= f.label(:being_used_yes, "Yes", :class => "small") %>
+  		<%= f.radio_button :being_used, "no" %>
+  		<%= f.label(:being_used_no, "No", :class => "small") %>
+  	</p>
+  	<p class="big_label">
+  		<%= f.label(:first_date, "<strong>12.</strong> If this trademark is currently being used, when was the first date of your use of the trademark?") %>
+  		<%= f.text_field :first_date, :class => "required" %>
+  		<small>This date must be used in interstate commerce in the United States as used in connection with the goods and/or services you described in #9.</small>
+  	</p>
+  	<p class="textarea terms">
+  		<%= f.text_area :terms, :value => "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", :disabled => true %>
+  	</p>
+  	<p class="checkbox check">
+  		<%= f.check_box :acceptance, :class => "required" %>
+  		<%= f.label(:acceptance, "I Accept the terms above.") %>
+  	</p>
+  	<p class="submit">
+  	  <%#= submit_tag("Submit") %>
+    	<%= @cart.checkout_button %>
+  	</p>
+  <% end %>
+</div>
 <%= javascript "plugins/metadata", "plugins/validate" %>

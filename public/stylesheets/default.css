@@ -10,6 +10,8 @@ label {display:block;margin-bottom:3px;}
 input {border:none;font-weight:bold;height:22px;}
 input.submit {height:auto;width:auto;}
 
+textarea {border:none;}
+
 h1 {font-size:18px;margin-bottom:10px;}
 h2 {font-size:15px;}
 h3 {font-size:12px;}
@@ -96,13 +98,40 @@ body {background:white url(../images/bg/body.png) repeat-x;font:12px "Trebuchet 
 #login form input.submit {margin:5px 0 0 0;float:right;width:57px;height:26px;background:url(../images/bt/login.jpg) no-repeat;}
 
 #register {float:right;width:400px;margin-left:40px;}
-#register form p {background:url(../images/bg/input_01.jpg) 0 15px no-repeat;height:auto !important;height:50px;min-height:50px;}
-#register form input {background-color:#EFEFEF;margin-left:7px;}
+#trademark form p,
+#register form p {background:url(../images/bg/input_01.jpg) 0 13px no-repeat;height:auto !important;height:50px;min-height:50px;}
+#trademark form p.big_label {background:url(../images/bg/input_01.jpg) 0 26px no-repeat;height:auto !important;height:60px;min-height:60px;}
+#trademark form p.select_small {background:url(../images/bg/input_02.jpg) right top no-repeat;padding-top:4px;}
+#trademark form p.textarea {background:url(../images/bg/input_03.jpg) 0 13px no-repeat;}
+#trademark form p.select_small select {margin-left:20px;width:270px;}
+#trademark form p.select_small label {display:inline;}
+#trademark form p.select_small small {margin:8px 0 10px 120px;}
+#trademark form p {float:left;width:400px;}
+#trademark form p.first {margin-right:140px;}
+#trademark form textarea,
+#trademark form input,
+#register form input {background-color:#EFEFEF;margin-left:7px;width:380px;}
 #register form input.submit {margin:5px 0 0 0;float:right;width:77px;height:26px;background:url(../images/bt/submit.jpg) no-repeat;}
 #register form img#already_member {float:right;margin:5px 10px 0 0;}
-#register form p.checkbox {background:none;}
+#trademark form p.checkbox,
+#register form p.checkbox {background:none;float:right;}
+#trademark form p.checkbox label.small,
 #register form p.checkbox label {display:inline;float:right;width:370px;margin-top:5px;}
 #register form p.checkbox input {width:auto;float:left;}
+
+/*Trademarks*/
+#trademark {margin-top:40px;}
+#trademark #column_first {float:left;width:540px;}
+#trademark label {font-size:11px;}
+#trademark p small {display:block;margin:5px 10px 10px 10px;color:#999;}
+#trademark textarea {height:60px;}
+#trademark form p.terms {background:url(../images/bg/input_03.jpg) 0 0 no-repeat;padding-top:4px;height:auto !important;height:70px;min-height:70px;}
+#trademark form p.checkbox label.small {width:80px;}
+#trademark form p.submit {background:none;text-align:right;}
+#trademark form p.checkbox small {margin-bottom:0px;}
+#trademark form p.checkbox input {width:20px;float:left;}
+#trademark form p.checkbox label.small {float:left;width:40px;}
+#trademark form p.check label {padding-top:4px;}
 
 /*Footer*/
 #footer {clear:both;background:url(../images/bg/footer.png) no-repeat;height:45px;padding:10px 20px 0 20px;font-size:10px;line-height:16px;}
