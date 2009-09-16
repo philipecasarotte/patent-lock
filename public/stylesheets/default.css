@@ -128,10 +128,17 @@ body {background:white url(../images/bg/body.png) repeat-x;font:12px "Trebuchet 
 #trademark form p.terms {background:url(../images/bg/input_03.jpg) 0 0 no-repeat;padding-top:4px;height:auto !important;height:70px;min-height:70px;}
 #trademark form p.checkbox label.small {width:80px;}
 #trademark form p.submit {background:none;text-align:right;}
+#trademark form p.submit input {width:auto;}
 #trademark form p.checkbox small {margin-bottom:0px;}
 #trademark form p.checkbox input {width:20px;float:left;}
 #trademark form p.checkbox label.small {float:left;width:40px;}
 #trademark form p.check label {padding-top:4px;}
+#trademark table {margin:40px 0;width:940px;}
+#trademark table tr.odd td,
+#trademark table tr.odd th {background-color:#CCC;}
+#trademark table td,
+#trademark table th {padding:5px;vertical-align:top;}
+#trademark table th {text-align:left;width:200px;}
 
 /*Footer*/
 #footer {clear:both;background:url(../images/bg/footer.png) no-repeat;height:45px;padding:10px 20px 0 20px;font-size:10px;line-height:16px;}

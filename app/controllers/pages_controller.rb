@@ -1,5 +1,7 @@
 class PagesController < ApplicationController
-
+  
+  before_filter :gateway
+  
   after_filter(:except => :contact) {|c| c.cache_page}
 
   def index
@@ -23,12 +25,11 @@ class PagesController < ApplicationController
   end
   
   def trademark_registration
-    @cart = GoogleCheckout::Cart.new(MERCHANT_ID, MERCHANT_KEY)
-    @cart.add_item(:name => 'Patent Lock Service', :description => 'A service to make the patent of your mark.', :price => "150.00")
     @page = Page.find_by_permalink('trademark-registration')
     if request.post?
+      @cart = GoogleCheckout::Cart.new(MERCHANT_ID, MERCHANT_KEY)
+      @cart.add_item(:name => "Trademark Registration for #{params[:trademarks][:name]}", :description => "User email: #{params[:trademarks][:email]} | Patent Phrase: #{params[:trademarks][:phrase]}", :price => Configuration.first.service_price)
       Mailer.deliver_trademarks(params[:trademarks])
-      flash[:notice] = t(:message_sent)
     end
     @metatag_object = @page
   end
@@ -43,6 +44,10 @@ class PagesController < ApplicationController
     rescue ActionView::MissingTemplate
       render 'show'
   end
+  
+  def gateway
+		GoogleCheckout.use_sandbox
+	end
 
 end
 

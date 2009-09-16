@@ -86,8 +86,6 @@ class PagesControllerTest < ActionController::TestCase
         email.from.include?('dev.dburns@gmail.com') && email.subject.match("Trademarks")
       end
     end
-
-    should_set_the_flash_to(I18n.t(:message_sent))
   end
 
   context "Trying to get a page with a existing method" do

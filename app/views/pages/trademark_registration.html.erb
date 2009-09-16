@@ -4,6 +4,74 @@
 	<%= @page.body %>
 </div>
 <div id="trademark">
+<% if request.post? %>
+  <p><big><%= params[:trademarks][:name] %></big>, please review the information below and press the checkout button to make the payment.</p>
+  <table cellpadding="0" cellspacing="0" border="0">
+    <tr class="odd">
+      <th>Name:</th>
+      <td><%= params[:trademarks][:name] %></td>
+      <th>Country of Citizenship of Owner:</th>
+      <td><%= params[:trademarks][:country] %></td>
+    </tr>
+    <tr>
+      <th>State of Information:</th>
+      <td><%= params[:trademarks][:state_of_formation] %></td>
+      <th>Enter the exact word or phrase of the trademark you wish to register:</th>
+      <td><%= params[:trademarks][:phrase] %></td>
+    </tr>
+    <tr class="odd">
+      <th>Type of entity (if applicable):</th>
+      <td><%= params[:trademarks][:type_of_entity] %></td>
+      <th>Describe the goods and/or services you will use your trademark with:</th>
+      <td><%= params[:trademarks][:description] %></td>
+    </tr>
+    <tr>
+      <th>Street Address of Owner:</th>
+      <td><%= params[:trademarks][:address] %></td>
+      <th>Is this trademark currently being used?</th>
+      <td><%= params[:trademarks][:being_used] %></td>
+    </tr>
+    <tr class="odd">
+      <th>Owner's City:</th>
+      <td><%= params[:trademarks][:city] %></td>
+      <th>If this trademark is currently being used, when was the first date of your use of the trademark?</th>
+      <td><%= params[:trademarks][:first_date] %></td>
+    </tr>
+    <tr>
+      <th>Street Address of Owner:</th>
+      <td><%= params[:trademarks][:address] %></td>
+      <th></th>
+      <td></td>
+    </tr>
+    <tr class="odd">
+      <th>Owner's State:</th>
+      <td><%= params[:trademarks][:state] %></td>
+      <th></th>
+      <td></td>
+    </tr>
+    <tr>
+      <th>Owner's Zip Code:</th>
+      <td><%= params[:trademarks][:zip_code] %></td>
+      <th></th>
+      <td></td>
+    </tr>
+    <tr class="odd">
+      <th>Owner's Telephone Number:</th>
+      <td><%= params[:trademarks][:telephone] %></td>
+      <th></th>
+      <td></td>
+    </tr>
+    <tr>
+      <th>Owner's Email Address:</th>
+      <td><%= params[:trademarks][:email] %></td>
+      <th></th>
+      <td></td>
+    </tr>
+  </table>
+  <p class="submit">
+  	<%= @cart.checkout_button %>
+	</p>
+<% else %>
   <% form_for('trademarks', :html => {:class => "validate"}) do |f| %>
   <div id="column_first">
     <p class="first">
@@ -83,9 +151,9 @@
   		<%= f.label(:acceptance, "I Accept the terms above.") %>
   	</p>
   	<p class="submit">
-  	  <%#= submit_tag("Submit") %>
-    	<%= @cart.checkout_button %>
+    	<%= image_submit_tag("bt/submit.jpg") %>
   	</p>
   <% end %>
+<% end %>
 </div>
 <%= javascript "plugins/metadata", "plugins/validate" %>
