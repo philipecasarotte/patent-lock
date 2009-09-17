@@ -1,13 +1,13 @@
 # =============================================================================
 # CONFIGURE OS VALORES DE ACORDO COM SUA HOSPEDAGEM
 # =============================================================================
-set :user, "user"
-set :password, "password"
-set :host, "server_ip"
-set :domain, "domain.com"
-set :application, "app_name"
+set :user, "patentlo"
+set :password, "uHrduRIpWfqK"
+set :host, "207.162.216.174"
+set :domain, "patentlock.com"
+set :application, "patentlock"
 
-set :repository, "git://dburnsdesign.com/repos/mainline.git"
+set :repository, "git://dburnsdesign.com/patent-lock/mainline.git"
 # =============================================================================
 # NAO MEXER DAQUI PARA BAIXO
 # =============================================================================

@@ -77,13 +77,13 @@ class PagesControllerTest < ActionController::TestCase
     end
 
     should "render the trademarks's template" do
-      get "trademark_registration"
+      get "trademark-registration"
       assert_template "trademark_registration"
     end
 
     should "send trademarks e-mail" do
       assert_sent_email do |email|
-        email.from.include?('dev.dburns@gmail.com') && email.subject.match("Trademarks")
+        email.from.include?('dev.dburns@gmail.com') && email.subject.match("Trademark")
       end
     end
   end

@@ -1,23 +1,29 @@
 <h1><%= @page.name %></h1>
 <%= render :partial => 'sidebar' %>
-<div class="content_cms">
-	<%= @page.body %>
+<div id="with_form_small" class="content_cms">
+	<%= @page.body rescue "" %>
 </div>
-<% form_for('contact', :html => {:class => "validate"}) do |f| %>
-	<p>
-		<%= f.label(:name) %>
-		<%= f.text_field :name, :class => "required" %>
-	</p>
-	<p>
-		<%= f.label(:email) %>
-		<%= f.text_field :email, :class => "required email" %>
-	</p>
-	
-	<p>
-		<%= f.label(:message) %>
-		<%= f.text_area :message, :class => "required" %>
-	</p>
-	
-	<%= submit_tag("Submit") %>
-<% end %>
+<div id="register">
+  <% form_for('contact', :html => {:class => "validate"}) do |f| %>
+  	<p>
+  		<%= f.label(:name) %>
+  		<%= f.text_field :name, :class => "required" %>
+  	</p>
+  	<p>
+  		<%= f.label(:email) %>
+  		<%= f.text_field :email, :class => "required email" %>
+  	</p>
+  	<p>
+  		<%= f.label(:address) %>
+  		<%= f.text_field :address, :class => "required" %>
+  	</p>
+  	<p class="textarea">
+  		<%= f.label(:message) %>
+  		<%= f.text_area :message, :class => "required" %>
+  	</p>
+    
+    <%= submit_tag(t(:submit), :class => "replacement submit contact") %>
+  <% end %>
+</div>
+
 <%= javascript "plugins/metadata", "plugins/validate" %>

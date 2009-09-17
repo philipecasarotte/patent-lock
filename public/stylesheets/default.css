@@ -102,6 +102,7 @@ body {background:white url(../images/bg/body.png) repeat-x;font:12px "Trebuchet 
 #register form p {background:url(../images/bg/input_01.jpg) 0 13px no-repeat;height:auto !important;height:50px;min-height:50px;}
 #trademark form p.big_label {background:url(../images/bg/input_01.jpg) 0 26px no-repeat;height:auto !important;height:60px;min-height:60px;}
 #trademark form p.select_small {background:url(../images/bg/input_02.jpg) right top no-repeat;padding-top:4px;}
+#register form p.textarea,
 #trademark form p.textarea {background:url(../images/bg/input_03.jpg) 0 13px no-repeat;}
 #trademark form p.select_small select {margin-left:20px;width:270px;}
 #trademark form p.select_small label {display:inline;}
@@ -109,9 +110,11 @@ body {background:white url(../images/bg/body.png) repeat-x;font:12px "Trebuchet 
 #trademark form p {float:left;width:400px;}
 #trademark form p.first {margin-right:140px;}
 #trademark form textarea,
+#register form textarea,
 #trademark form input,
 #register form input {background-color:#EFEFEF;margin-left:7px;width:380px;}
 #register form input.submit {margin:5px 0 0 0;float:right;width:77px;height:26px;background:url(../images/bt/submit.jpg) no-repeat;}
+#register form input.contact {margin-top:20px;}
 #register form img#already_member {float:right;margin:5px 10px 0 0;}
 #trademark form p.checkbox,
 #register form p.checkbox {background:none;float:right;}
@@ -122,16 +125,21 @@ body {background:white url(../images/bg/body.png) repeat-x;font:12px "Trebuchet 
 /*Trademarks*/
 #trademark {margin-top:40px;}
 #trademark #column_first {float:left;width:540px;}
+#register label,
 #trademark label {font-size:11px;}
 #trademark p small {display:block;margin:5px 10px 10px 10px;color:#999;}
-#trademark textarea {height:60px;}
+#register textarea,
+#trademark textarea {height:63px;margin-bottom:2px;}
 #trademark form p.terms {background:url(../images/bg/input_03.jpg) 0 0 no-repeat;padding-top:4px;height:auto !important;height:70px;min-height:70px;}
+#trademark form p.terms textarea {height:60px;}
 #trademark form p.checkbox label.small {width:80px;}
 #trademark form p.submit {background:none;text-align:right;}
 #trademark form p.submit input {width:auto;}
 #trademark form p.checkbox small {margin-bottom:0px;}
 #trademark form p.checkbox input {width:20px;float:left;}
 #trademark form p.checkbox label.small {float:left;width:40px;}
+#trademark form p.none {background:none;}
+#trademark form p.none input {margin:2px 0;width:400px;}
 #trademark form p.check label {padding-top:4px;}
 #trademark table {margin:40px 0;width:940px;}
 #trademark table tr.odd td,

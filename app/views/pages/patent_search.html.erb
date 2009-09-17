@@ -1,0 +1,140 @@
+<h1><%= @page.name %></h1>
+<%= render :partial => 'sidebar' %>
+<div class="content_cms">
+	<%= @page.body %>
+</div>
+<div id="trademark">
+<% if request.post? %>
+  <p><big><%= params[:trademarks][:applicant_name] %></big>, please review the information below and press the checkout button to make the payment.</p>
+  <table cellpadding="0" cellspacing="0" border="0">
+    <tr class="odd">
+      <th>Title of Invention:</th>
+      <td><%= params[:trademarks][:title_of_invention] %></td>
+      <th>Company Name:</th>
+      <td><%= params[:trademarks][:company_name] %></td>
+    </tr>
+    <tr>
+      <th>Invention Description:</th>
+      <td><%= params[:trademarks][:invention_description] %></td>
+      <th>Email Address:</th>
+      <td><%= params[:trademarks][:email] %></td>
+    </tr>
+    <tr class="odd">
+      <th>Invention Details:</th>
+      <td><%= params[:trademarks][:invention_details] %></td>
+      <th>Telephone:</th>
+      <td><%= params[:trademarks][:telephone] %></td>
+    </tr>
+    <tr>
+      <th>Invention Novelty:</th>
+      <td><%= params[:trademarks][:invention_novelty] %></td>
+      <th>Address:</th>
+      <td><%= params[:trademarks][:address] %></td>
+    </tr>
+    <tr class="odd">
+      <th>Applicant Name:</th>
+      <td><%= params[:trademarks][:applicant_name] %></td>
+      <th>City:</th>
+      <td><%= params[:trademarks][:city] %></td>
+    </tr>
+    <tr>
+      <th>State:</th>
+      <td><%= params[:trademarks][:state] %></td>
+      <th>ZIP Code:</th>
+      <td><%= params[:trademarks][:zip_code] %></td>
+    </tr>
+    <tr class="odd">  
+      <th>Country:</th>
+      <td><%= params[:trademarks][:country] %></td>
+      <th></th>
+      <td></td>
+    </tr>
+  </table>
+  <p class="submit">
+  	<%= @cart.checkout_button %>
+	</p>
+<% else %>
+  <% form_for('trademarks', :html => {:multipart => true, :class => "validate"}) do |f| %>
+  <div id="column_first">
+    <p class="first">
+  		<%= f.label(:title_of_invention, "<strong>1.</strong> Title of Invention:") %>
+  		<%= f.text_field :title_of_invention, :class => "required" %>
+  	</p>
+  	<p class="first textarea">
+  		<%= f.label(:invention_description, "<strong>2.</strong> Invention Description:") %>
+  		<%= f.text_area :invention_description, :class => "required" %>
+  		<small>Describe what your invention is and what industry it is for.</small>
+  	</p>
+  	<p class="first textarea">
+  		<%= f.label(:invention_details, "<strong>3.</strong> Invention Details:") %>
+  		<%= f.text_area :invention_details %>
+  		<small>Describe in detail how your invention works, the parts, elements, or features of your invention.</small>
+  	</p>
+  		<p class="first textarea">
+    		<%= f.label(:invention_novelty, "<strong>4.</strong> Invention Novelty:") %>
+    		<%= f.text_area :invention_novelty, :class => "required" %>
+    		<small>What makes your invention different from existing products?</small>
+    	</p>
+    	<p class="first none">
+    		<%= f.label(:images, "<strong>5.</strong> Upload Pictures or Diagrams that Describe your Invention:") %>
+    		<%#= f.file_field :image1, :size => false %>
+    		<%#= f.file_field :image2, :size => false %>
+    		<%#= f.file_field :image3, :size => false %>
+    		<small>It is highly suggested that a picture, diagram, or flowchart be provided to help describe your invention. Computer or hand sketch drawings are fine.</small>
+    	</p>
+    	<p class="first">
+    		<%= f.label(:applicant_name, "<strong>6.</strong> Applicant Name:") %>
+    		<%= f.text_field :applicant_name, :class => "required" %>
+    	</p>
+    	<p class="first none">&nbsp;</p>
+  </div>
+    <p>
+  		<%= f.label(:company_name, "<strong>7.</strong> Company Name (if applicable):") %>
+  		<%= f.text_field :company_name, :class => "required" %>
+  	</p>
+  	<p>
+  		<%= f.label(:email, "<strong>8.</strong> Email Address:") %>
+  		<%= f.text_field :email, :class => "required email" %>
+  	</p>
+  	<p>
+  		<%= f.label(:email_confirmation, "Confirm Email Address:") %>
+  		<%= f.text_field :email_confirmation, :class => "{ required:true, email:true, equalTo: '#trademarks_email'}" %>
+  	</p>
+  	<p>
+  		<%= f.label(:telephone, "<strong>9.</strong> Telephone:") %>
+  		<%= f.text_field :telephone, :class => "required" %>
+  	</p>
+  	<p>
+  		<%= f.label(:address, "<strong>10.</strong> Address:") %>
+  		<%= f.text_field :address, :class => "required" %>
+  	</p>
+    <p>
+  		<%= f.label(:city, "<strong>11.</strong> City:") %>
+  		<%= f.text_field :city, :class => "required" %>
+  	</p>
+  	<p>
+  		<%= f.label(:state, "<strong>12.</strong> State:") %>
+  		<%= f.text_field :state, :class => "required" %>
+  	</p>
+  	<p>
+  		<%= f.label(:zip_code, "<strong>13.</strong> ZIP Code:") %>
+  		<%= f.text_field :zip_code, :class => "required" %>
+  	</p>
+  	<p>
+  		<%= f.label(:country, "<strong>14.</strong> Country:") %>
+  		<%= f.text_field :country, :class => "required" %>
+  	</p>
+  	<p class="textarea terms">
+  		<%= f.text_area :terms, :value => "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", :disabled => true %>
+  	</p>
+  	<p class="checkbox check">
+  		<%= f.check_box :acceptance, :class => "required" %>
+  		<%= f.label(:acceptance, "I Accept the terms above.") %>
+  	</p>
+  	<p class="submit">
+    	<%= image_submit_tag("bt/submit.jpg") %>
+  	</p>
+  <% end %>
+<% end %>
+</div>
+<%= javascript "plugins/metadata", "plugins/validate" %>

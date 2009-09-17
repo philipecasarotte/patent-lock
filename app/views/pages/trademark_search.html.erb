@@ -1,0 +1,117 @@
+<h1><%= @page.name %></h1>
+<%= render :partial => 'sidebar' %>
+<div class="content_cms">
+	<%= @page.body %>
+</div>
+<div id="trademark">
+<% if request.post? %>
+  <p><big><%= params[:trademarks][:applicant_name] %></big>, please review the information below and press the checkout button to make the payment.</p>
+  <table cellpadding="0" cellspacing="0" border="0">
+    <tr class="odd">
+      <th>Name of Trademark:</th>
+      <td><%= params[:trademarks][:name] %></td>
+      <th>Address:</th>
+      <td><%= params[:trademarks][:address] %></td>
+    </tr>
+    <tr>
+      <th>Goods and Services:</th>
+      <td><%= params[:trademarks][:goods_and_services] %></td>
+      <th>City:</th>
+      <td><%= params[:trademarks][:city] %></td>
+    </tr>
+    <tr class="odd">
+      <th>Applicant Name:</th>
+      <td><%= params[:trademarks][:applicant_name] %></td>
+      <th>State:</th>
+      <td><%= params[:trademarks][:state] %></td>
+    </tr>
+    <tr>
+      <th>Company Name:</th>
+      <td><%= params[:trademarks][:company_name] %></td>
+      <th>ZIP Code:</th>
+      <td><%= params[:trademarks][:zip_code] %></td>
+    </tr>
+    <tr class="odd">
+      <th>Email:</th>
+      <td><%= params[:trademarks][:email] %></td>
+      <th>Country:</th>
+      <td><%= params[:trademarks][:country] %></td>
+    </tr>
+    <tr>
+      <th>Telephone:</th>
+      <td><%= params[:trademarks][:telephone] %></td>
+      <th></th>
+      <td></td>
+    </tr>
+  </table>
+  <p class="submit">
+  	<%= @cart.checkout_button %>
+	</p>
+<% else %>
+  <% form_for('trademarks', :html => {:class => "validate"}) do |f| %>
+  <div id="column_first">
+    <p class="first">
+  		<%= f.label(:name, "<strong>1.</strong> Name of Trademark:") %>
+  		<%= f.text_field :name, :class => "required" %>
+  		<small>Enter the exact spelling of your trademark as you will use it.</small>
+  	</p>
+  	<p class="first">
+  		<%= f.label(:goods_and_services, "<strong>2.</strong> Goods and Services:") %>
+  		<%= f.text_field :goods_and_services, :class => "required" %>
+  		<small>Specifically describe the goods and/or services your trademark will be used in connection with.</small>
+  	</p>
+  	<p class="first">
+  		<%= f.label(:applicant_name, "<strong>3.</strong> Applicant Name:") %>
+  		<%= f.text_field :applicant_name %>
+  	</p>
+  		<p class="first address">
+    		<%= f.label(:company_name, "<strong>4.</strong> Company Name:") %>
+    		<%= f.text_field :company_name, :class => "required" %>
+    	</p>
+    	<p class="first">
+    		<%= f.label(:email, "<strong>5.</strong> Email Address:") %>
+    		<%= f.text_field :email, :class => "required email" %>
+    	</p>
+    	<p class="first">
+    		<%= f.label(:email_confirmation, "Confirm Email Address:") %>
+    		<%= f.text_field :email_confirmation, :class => "{ required:true, email:true, equalTo: '#trademarks_email'}" %>
+    	</p>
+    	<p class="first">
+    		<%= f.label(:telephone, "<strong>6.</strong> Telephone Number:") %>
+    		<%= f.text_field :telephone, :class => "required" %>
+    	</p>
+  </div>
+  	<p>
+  		<%= f.label(:address, "<strong>7.</strong> Address:") %>
+  		<%= f.text_field :address, :class => "required" %>
+  	</p>
+    <p>
+  		<%= f.label(:city, "<strong>8.</strong> City:") %>
+  		<%= f.text_field :city, :class => "required" %>
+  	</p>
+  	<p>
+  		<%= f.label(:state, "<strong>9.</strong> State:") %>
+  		<%= f.text_field :state, :class => "required" %>
+  	</p>
+  	<p>
+  		<%= f.label(:zip_code, "<strong>10.</strong> ZIP Code:") %>
+  		<%= f.text_field :zip_code, :class => "required" %>
+  	</p>
+  	<p>
+  		<%= f.label(:country, "<strong>11.</strong> Country:") %>
+  		<%= f.text_field :country, :class => "required" %>
+  	</p>
+  	<p class="textarea terms">
+  		<%= f.text_area :terms, :value => "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", :disabled => true %>
+  	</p>
+  	<p class="checkbox check">
+  		<%= f.check_box :acceptance, :class => "required" %>
+  		<%= f.label(:acceptance, "I Accept the terms above.") %>
+  	</p>
+  	<p class="submit">
+    	<%= image_submit_tag("bt/submit.jpg") %>
+  	</p>
+  <% end %>
+<% end %>
+</div>
+<%= javascript "plugins/metadata", "plugins/validate" %>

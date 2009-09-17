@@ -24,12 +24,35 @@ class PagesController < ApplicationController
     @metatag_object = @page
   end
   
+  def patent_search
+    @page = Page.find_by_permalink('patent-search')
+    if request.post?
+      @cart = GoogleCheckout::Cart.new(MERCHANT_ID, MERCHANT_KEY)
+      @cart.add_item(:name => "Patent Search for #{params[:trademarks][:name]}", :description => "User email: #{params[:trademarks][:email]} | Applicant Name: #{params[:trademarks][:applicant_name]}", :price => Configuration.first.service_price)
+      @file1 = params[:trademark][:image1] rescue ""
+      @file2 = params[:trademark][:image2] rescue ""
+      @file3 = params[:trademark][:image3] rescue ""
+      Mailer.deliver_patent_search(params[:trademarks], @file1, @file2, @file3)
+    end
+    @metatag_object = @page
+  end
+  
+  def trademark_search
+    @page = Page.find_by_permalink('trademark-search')
+    if request.post?
+      @cart = GoogleCheckout::Cart.new(MERCHANT_ID, MERCHANT_KEY)
+      @cart.add_item(:name => "Trademark Search for #{params[:trademarks][:name]}", :description => "User email: #{params[:trademarks][:email]} | Patent Phrase: #{params[:trademarks][:phrase]}", :price => Configuration.first.service_price)
+      Mailer.deliver_trademark_search(params[:trademarks])
+    end
+    @metatag_object = @page
+  end
+  
   def trademark_registration
     @page = Page.find_by_permalink('trademark-registration')
     if request.post?
       @cart = GoogleCheckout::Cart.new(MERCHANT_ID, MERCHANT_KEY)
-      @cart.add_item(:name => "Trademark Registration for #{params[:trademarks][:name]}", :description => "User email: #{params[:trademarks][:email]} | Patent Phrase: #{params[:trademarks][:phrase]}", :price => Configuration.first.service_price)
-      Mailer.deliver_trademarks(params[:trademarks])
+      @cart.add_item(:name => "Trademark Registration for #{params[:trademarks][:name]}", :description => "User email: #{params[:trademarks][:email]} | Applicant Name: #{params[:trademarks][:applicant_name]}", :price => Configuration.first.service_price)
+      Mailer.deliver_trademark_registration(params[:trademarks])
     end
     @metatag_object = @page
   end
@@ -48,6 +71,4 @@ class PagesController < ApplicationController
   def gateway
 		GoogleCheckout.use_sandbox
 	end
-
 end
-
