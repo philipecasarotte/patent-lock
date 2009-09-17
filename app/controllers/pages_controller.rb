@@ -27,11 +27,11 @@ class PagesController < ApplicationController
   def patent_search
     @page = Page.find_by_permalink('patent-search')
     if request.post?
+      @file1 = params[:trademarks][:image1] unless params[:trademarks][:image1].blank?
+      @file2 = params[:trademarks][:image2] unless params[:trademarks][:image2].blank?
+      @file3 = params[:trademarks][:image3] unless params[:trademarks][:image3].blank?
       @cart = GoogleCheckout::Cart.new(MERCHANT_ID, MERCHANT_KEY)
       @cart.add_item(:name => "Patent Search for #{params[:trademarks][:name]}", :description => "User email: #{params[:trademarks][:email]} | Applicant Name: #{params[:trademarks][:applicant_name]}", :price => Configuration.first.service_price)
-      @file1 = params[:trademark][:image1] rescue ""
-      @file2 = params[:trademark][:image2] rescue ""
-      @file3 = params[:trademark][:image3] rescue ""
       Mailer.deliver_patent_search(params[:trademarks], @file1, @file2, @file3)
     end
     @metatag_object = @page
@@ -62,7 +62,7 @@ class PagesController < ApplicationController
     @pages = @page.pages || []
     @metatag_object = @page
     send(method.underscore) if respond_to?(method.underscore)
-
+    
     render method.underscore
     rescue ActionView::MissingTemplate
       render 'show'

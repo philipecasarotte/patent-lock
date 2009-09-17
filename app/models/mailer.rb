@@ -55,8 +55,9 @@ class Mailer < ActionMailer::Base
       p.body = render_message("patent_search", :params => params) 
     end
     
-    for i in [1...3] do
-      attachment :content_type => "application/octet-stream", :body => "file#{i}".to_param.read, :filename => "file#{i}".to_param.original_filename unless "file#{i}".to_param.blank?
+    (1..3.to_i).each do |i|
+      image_file = eval("file#{i}")
+      attachment :content_type => "application/octet-stream", :body => image_file.read, :filename => image_file.original_filename unless image_file.blank?
     end
   end
 end
