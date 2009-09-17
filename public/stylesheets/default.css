@@ -7,7 +7,7 @@ a {color:black;text-decoration:none;}
 a:hover {text-decoration:underline;}
 
 label {display:block;margin-bottom:3px;}
-input {border:none;font-weight:bold;height:22px;}
+input {border:none;font-weight:bold;height:20px;}
 input.submit {height:auto;width:auto;}
 
 textarea {border:none;}
@@ -129,7 +129,7 @@ body {background:white url(../images/bg/body.png) repeat-x;font:12px "Trebuchet 
 #trademark label {font-size:11px;}
 #trademark p small {display:block;margin:5px 10px 10px 10px;color:#999;}
 #register textarea,
-#trademark textarea {height:63px;margin-bottom:2px;}
+#trademark textarea {height:60px;margin-bottom:2px;}
 #trademark form p.terms {background:url(../images/bg/input_03.jpg) 0 0 no-repeat;padding-top:4px;height:auto !important;height:70px;min-height:70px;}
 #trademark form p.terms textarea {height:60px;}
 #trademark form p.checkbox label.small {width:80px;}
@@ -147,6 +147,7 @@ body {background:white url(../images/bg/body.png) repeat-x;font:12px "Trebuchet 
 #trademark table td,
 #trademark table th {padding:5px;vertical-align:top;}
 #trademark table th {text-align:left;width:200px;}
+#register form p.fix {float:left;height:91px !important;width:400px;}
 
 /*Footer*/
 #footer {clear:both;background:url(../images/bg/footer.png) no-repeat;height:45px;padding:10px 20px 0 20px;font-size:10px;line-height:16px;}
