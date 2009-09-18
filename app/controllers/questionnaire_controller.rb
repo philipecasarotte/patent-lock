@@ -31,7 +31,11 @@ class QuestionnaireController < ApplicationController
     @answer_check = Answer.create_or_update({:order_id => params[:answer][:order_id], :question_id => params[:answer][:question_id], :body => params[:answer][:body]})
     if @answer_check
       flash[:notice] = I18n.t(:success_update)
-      verify_next_step
+      if params[:answer][:save_and_exit] == "yes"
+        redirect_to logout_path
+      else
+        verify_next_step
+      end
     end
   end
   

@@ -1,8 +1,11 @@
 <%= f.hidden_field :order_id, :value => @order.id %>
 <%= f.hidden_field :question_id, :value => @question.id %>
+<%= f.hidden_field :save_and_exit, :value => "" %>
 <p>
-  <strong><%= question.name %></strong>
+  <%= f.label :body, "<strong>#{params[:position].to_i+1}.</strong> #{question.name}" %>
+  <%= f.text_area :body %>
 </p>
-<p>
-  <%= f.text_field :body %>
-</p>
+<%= image_tag "bt/info_tab.jpg", :alt => "More Information", :id => "more_info" %>
+<div id="info_text">
+  <%= question.help %>
+</div>

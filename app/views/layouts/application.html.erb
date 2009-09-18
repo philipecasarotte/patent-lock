@@ -28,6 +28,11 @@
         <li class="first"><%= link_to "contact", page_path("contact") %></li>
         <li><%= link_to "sitemap", page_path("sitemap") %></li>
       </ul>
+      <% [:error, :notice].each do |message| %>
+    		<% content_tag :div, :class => message do %>
+    			<%= flash[message] %>
+    		<% end if flash[message] %>
+    	<% end %>
       <ul id="menu">
         <li class="welcome"><%= link_to "Welcome", root_path %></li>
         <li class="get_started"><%= link_to "Get Started", page_path("get-started") %></li>
@@ -36,11 +41,6 @@
         <li class="member_login"><%= link_to "Member Login", login_path %></li>
       </ul>
       <div id="content">
-      	<% [:error, :notice].each do |message| %>
-      		<% content_tag :div, :class => message do %>
-      			<%= flash[message] %>
-      		<% end if flash[message] %>
-      	<% end %>
       	<%= yield  %>
       </div>
       <div id="footer">
