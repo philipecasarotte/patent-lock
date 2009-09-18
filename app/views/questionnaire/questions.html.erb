@@ -8,7 +8,7 @@
     <%= render :partial => "question", :locals => { :f => f }, :object => @question %>
     <div id="actions">
       <div id="progress_bar">
-        dsadsadsa
+        PROGRESS BAR (<%= progress_bar(params[:position].to_i+1)%>%)
       </div>
       <div id="buttons">
       <% if @question.first?  %>
