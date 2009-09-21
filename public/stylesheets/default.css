@@ -161,7 +161,8 @@ body {background:white url(../images/bg/body.png) repeat-x;font:12px "Trebuchet 
 #questionnaire #actions input {cursor:pointer;}
 #questionnaire #progress_bar {float:left;text-align:center;width:200px;height:26px;background:url(../images/bg/progress_bar.jpg) no-repeat;margin-top:5px;position:relative;}
 #questionnaire #progress_bar img {position:absolute;top:0;}
-#questionnaire #progress_bar img.right {right:0;}
+#questionnaire #progress_bar img.left {left:0;}
+#questionnaire #progress_bar img.right {right:0;top:0;}
 #questionnaire #progress_bar p {position:absolute;background:none;top:5px;left:40px;}
 #questionnaire #progress_bar div {position:absolute;background:url(../images/bg/progress_bar_filled.jpg) repeat-x;height:24px;}
 #questionnaire #buttons {float:right;text-align:right;}
@@ -170,8 +171,6 @@ body {background:white url(../images/bg/body.png) repeat-x;font:12px "Trebuchet 
 #questionnaire #buttons .space {margin-right:10px;}
 #questionnaire #buttons .back {float:left;width:66px;height:26px;background:url(../images/bt/back.jpg) no-repeat;margin-top:5px;}
 #questionnaire #buttons a {text-decoration:none;color:white;}
-#questionnaire form p.terms_big {height:200px;background:url(../images/bg/input_05.jpg) left top no-repeat;}
-#questionnaire form p.terms_big textarea {height:190px;}
 #questionnaire form p.checkbox_small {background:none;height:25 !important;height:25px;min-height:25px;margin-top:10px;}
 #questionnaire form p.checkbox_small label {float:left;margin:8px 0 0 5px;}
 #questionnaire form p.checkbox_small input {margin-top:4px;float:left;}
@@ -181,6 +180,9 @@ body {background:white url(../images/bg/body.png) repeat-x;font:12px "Trebuchet 
 #review_questions li {list-style-image:none;list-style:decimal;background:none;padding:5px;margin:0;}
 #review_questions li.odd {background-color:#CCC;padding:5px;}
 #review_questions li p {margin:0;}
+
+#questionnaire p#terms_big {height:210px !important;background:url(../images/bg/input_05.jpg) left top no-repeat;}
+#questionnaire p#terms_big textarea {height:190px !important;}
 
 #field_set {background:url(../images/bg/input_04.jpg) left 20px no-repeat;height:auto !important;height:70px;min-height:70px;}
 #field_set textarea {height:50px !important;margin:10px 0 10px 10px;background-color:#EFEFEF;width:920px;}
@@ -194,3 +196,6 @@ body {background:white url(../images/bg/body.png) repeat-x;font:12px "Trebuchet 
 label.error  {color:red; font-weight:normal;margin-top:5px;}
 div.notice {border:solid 2px green;background-color:#B2DFB8;color:green;padding:3px 5px;float:right;margin:60px -200px 0 0;}
 div.error {border:solid 2px red;background-color:#FDB5AF;color:red;padding:3px 5px;float:right;margin:60px -200px 0 0;}
+
+/*Google Button*/
+#BB_BuyButtonForm input {height:auto !important;width:auto !important;margin-top:10px;}

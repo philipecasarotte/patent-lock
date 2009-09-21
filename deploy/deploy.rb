@@ -16,7 +16,7 @@ role :web, host
 role :app, host
 role :db,  host
 
-set :deploy_to, "/home/#{user}" 
+set :deploy_to, "/home/#{user}"
 
 set :scm, :git
 
