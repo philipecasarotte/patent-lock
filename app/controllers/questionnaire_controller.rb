@@ -9,7 +9,6 @@ class QuestionnaireController < ApplicationController
   end
   
   def terms
-    verify_questionnaire_on_hold
     @answers = @order.answers
     @page = Page.find_by_permalink("review-your-answers")
     @terms = Page.find_by_permalink("terms-of-service")
@@ -25,7 +24,6 @@ class QuestionnaireController < ApplicationController
   end
   
   def payment
-    verify_questionnaire_on_hold
     @cart = GoogleCheckout::Cart.new(MERCHANT_ID, MERCHANT_KEY)
     @cart.add_item(:name => "Provisional Patent Questionnaire of #{@order.user.name}", :description => "Email: #{@order.user.email} | Finished on #{Time.now}", :price => @order.total)
   end
@@ -76,6 +74,6 @@ class QuestionnaireController < ApplicationController
   end
   
   def gateway
-		GoogleCheckout.use_sandbox
+		#GoogleCheckout.use_sandbox
 	end
 end
