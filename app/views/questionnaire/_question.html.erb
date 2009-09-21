@@ -3,7 +3,7 @@
 <%= f.hidden_field :save_and_exit, :value => "" %>
 <p>
   <%= f.label :body, "<strong>#{params[:position].to_i+1}.</strong> #{question.name}" %>
-  <%= f.text_area :body %>
+  <%= f.text_area :body, :value => " " %>
 </p>
 <%= image_tag "bt/info_tab.jpg", :alt => "More Information", :id => "more_info" %>
 <div id="info_text">
