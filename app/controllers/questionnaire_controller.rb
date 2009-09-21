@@ -53,6 +53,7 @@ class QuestionnaireController < ApplicationController
       redirect_to login_url
       return false
     end
+    @order = Order.find_by_user_id(current_user)
   end
   
   def verify_questionnaire_on_hold
@@ -74,6 +75,6 @@ class QuestionnaireController < ApplicationController
   end
   
   def gateway
-		#GoogleCheckout.use_sandbox
+		GoogleCheckout.use_sandbox
 	end
 end
