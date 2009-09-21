@@ -17,7 +17,7 @@
 				<td><%=h user.name %></td>
 				<td><%=h user.email %></td>
 				<td><%= user.newsletter ? "Yes" : "No" %></td>
-				<td><%= user.order.state.humanize %></td>
+				<td><%= user.order.state.humanize rescue "" %></td>
         
         <td><%= link_to "Paid!", admin_set_as_paid_path(user) if user.order %></td>
         <td><%= link_to "View Order", admin_user_order_path(user) if user.order %></td>

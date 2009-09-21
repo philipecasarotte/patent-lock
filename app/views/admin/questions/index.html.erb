@@ -12,7 +12,7 @@
 		<%- @questions.each do |question|%>
 			<tr>
 				<td><%=h question.name %></td>
-				<td><%=h question.help %></td>
+				<td><%= question.help %></td>
 				<td class="hidden"><%=h question.position %></td>
 
 				<td><%=link_to t(:edit), edit_object_url(question) %></td>
