@@ -156,7 +156,7 @@ body {background:white url(../images/bg/body.png) repeat-x;font:12px "Trebuchet 
 #questionnaire form p textarea {height:50px;margin:10px 0 10px 10px;background-color:#EFEFEF;width:920px;}
 #questionnaire #more_info {cursor:pointer;}
 #questionnaire #info_text {background:url(../images/bg/info.jpg) bottom left no-repeat;padding:5px 20px 20px 20px;display:none;}
-#questionnaire #info_text p {background:none;height:auto !important;height:auto;min-height:autof;}
+#questionnaire #info_text p {background:none;height:auto !important;height:auto;min-height:auto;}
 #questionnaire #actions {margin-top:20px;}
 #questionnaire #actions input {cursor:pointer;}
 #questionnaire #progress_bar {float:left;text-align:center;width:200px;height:26px;background:url(../images/bg/progress_bar.jpg) no-repeat;margin-top:5px;position:relative;}
