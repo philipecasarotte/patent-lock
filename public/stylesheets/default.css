@@ -153,7 +153,7 @@ body {background:white url(../images/bg/body.png) repeat-x;font:12px "Trebuchet 
 #questionnaire {margin-top:20px;width:940px;}
 #questionnaire form label {font-size:11px;}
 #questionnaire form p {background:url(../images/bg/input_04.jpg) left 20px no-repeat;height:auto !important;height:70px;min-height:70px;}
-#questionnaire form p textarea {height:50px;margin:10px 0 10px 10px;background-color:#EFEFEF;width:920px;}
+#questionnaire form p textarea {height:50px !important;margin:10px 0 10px 10px;background-color:#EFEFEF;width:920px;}
 #questionnaire #more_info {cursor:pointer;}
 #questionnaire #info_text {background:url(../images/bg/info.jpg) bottom left no-repeat;padding:5px 20px 20px 20px;display:none;}
 #questionnaire #info_text p {background:none;height:auto !important;height:auto;min-height:auto;}
@@ -181,6 +181,9 @@ body {background:white url(../images/bg/body.png) repeat-x;font:12px "Trebuchet 
 #review_questions li {list-style-image:none;list-style:decimal;background:none;padding:5px;margin:0;}
 #review_questions li.odd {background-color:#CCC;padding:5px;}
 #review_questions li p {margin:0;}
+
+#field_set {background:url(../images/bg/input_04.jpg) left 20px no-repeat;height:auto !important;height:70px;min-height:70px;}
+#field_set textarea {height:50px !important;margin:10px 0 10px 10px;background-color:#EFEFEF;width:920px;}
 
 /*Footer*/
 #footer {clear:both;background:url(../images/bg/footer.png) no-repeat;height:45px;padding:10px 20px 0 20px;font-size:10px;line-height:16px;}
