@@ -1,19 +1,22 @@
 class QuestionnaireController < ApplicationController
-  before_filter :require_user, :verify_questionnaire_on_hold, :gateway
+  before_filter :require_user, :gateway
   
   def questions
+    verify_questionnaire_on_hold
     @page = Page.find_by_permalink("questionnaire")
     @question = Question.find_by_position(params[:position])
     @answer = Answer.find_or_create_by_question_id(@question.id)
   end
   
   def terms
+    verify_questionnaire_on_hold
     @answers = @order.answers
     @page = Page.find_by_permalink("review-your-answers")
     @terms = Page.find_by_permalink("terms-of-service")
     if request.post?
       if params[:accept]
         @order.accept_terms!
+        Mailer.deliver_provisional_patent_questionnaire(@order)
         redirect_to questionnaire_payment_path
       else
         flash[:error] = "You must accept the terms to continue."
@@ -22,9 +25,9 @@ class QuestionnaireController < ApplicationController
   end
   
   def payment
+    verify_questionnaire_on_hold
     @cart = GoogleCheckout::Cart.new(MERCHANT_ID, MERCHANT_KEY)
     @cart.add_item(:name => "Provisional Patent Questionnaire of #{@order.user.name}", :description => "Email: #{@order.user.email} | Finished on #{Time.now}", :price => @order.total)
-    Mailer.deliver_provisional_patent_questionnaire(@order)
   end
   
   def save_and_continue

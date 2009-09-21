@@ -27,8 +27,6 @@ class UserSessionsController < ApplicationController
             redirect_to questionnaire_confirmation_path
           when "confirmed"
             redirect_to questionnaire_thankyou_path
-          else
-            redirect_to user_path(current_user)
         end
       else
         redirect_to user_path(current_user)
