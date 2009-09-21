@@ -7,6 +7,7 @@ ActionController::Routing::Routes.draw do |map|
     admin.resources :questions, :collection=>{ :reorder=>:get, :order=>:post }
     admin.resources :pages, :collection=>{ :reorder=>:get, :order=>:post }
     admin.resources :users, :has_one => :order
+    admin.set_as_paid "/admin/users/:id/order/paid", :controller => "orders", :action => "set_as_paid"
     admin.resources :configurations
     admin.root :controller => 'pages'
   end

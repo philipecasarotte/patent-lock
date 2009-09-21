@@ -23,7 +23,8 @@ class QuestionnaireController < ApplicationController
   
   def payment
     @cart = GoogleCheckout::Cart.new(MERCHANT_ID, MERCHANT_KEY)
-    @cart.add_item(:name => 'Patent Lock Service', :description => 'A service to make the patent of your mark.', :price => @order.total)
+    @cart.add_item(:name => "Provisional Patent Questionnaire of #{@order.user.name}", :description => "Email: #{@order.user.email} | Finished on #{Time.now}", :price => @order.total)
+    Mailer.deliver_provisional_patent_questionnaire(@order)
   end
   
   def save_and_continue

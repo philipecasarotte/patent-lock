@@ -1,23 +1,39 @@
-<h1>Questionnaire &raquo; Terms Acceptance</h1>
+<h1>Provisional Patent Questionnaire &raquo; Terms Acceptance</h1>
 <div class="content_cms">
   <h2><%= @page.name %></h2>
   <%= @page.body %>
-  <ol>
+  <ol id="review_questions">
   <% @answers.each do |answer| %>
-    <li>
+    <li <%= cycle("class='odd'", "") %>>
       <strong><%= answer.question.name %></strong>
       <p><%= answer.body %></p>
     </li>
   <% end %>
   </ol>
-  <h2><%= @terms.name %></h2>
-  <%= @terms.body %>
 </div>
-<%= error_messages_for @object.class.to_s.underscore.to_sym %>
-<% form_for(@terms, :url => questionnaire_terms_path, :live_validations => true, :html => { :method => :post }) do |f| %>
-  <p>
-    <%= label_tag :accept, "Yes I agree with the Terms above" %>
-    <%= check_box_tag(:accept, value = "yes") %>
-  </p>
-  <p><%= link_to "Back", questionnaire_questions_path("questions", Question.last.position) %><%=submit_tag "Save & Continue" %></p>
-<% end %>
+<div id="questionnaire">
+  <%= error_messages_for @object.class.to_s.underscore.to_sym %>
+  <% form_for(@terms, :url => questionnaire_terms_path, :live_validations => true, :html => { :method => :post }) do |f| %>
+    <h2><%= @terms.name %></h2>
+    <p class="terms_big">
+      <%= f.text_area :terms_text, :value => @terms.body, :disable=> true %>
+    </p>
+    <p class="checkbox_small">
+      <%= check_box_tag(:accept, value = "yes") %>
+      <%= label_tag :accept, "Yes I agree with the Terms above" %>
+    </p>
+    <div id="actions">
+      <div id="progress_bar">
+        <div style="width:<%= progress_bar(Question.all.size.to_i)%>%;">&nbsp;</div>
+        <p>PROGRESS BAR (<%= progress_bar(Question.all.size.to_i)%>%)</p>
+        <%= image_tag "bg/progress_bar_left_mask.png" %>
+        <%= image_tag "bg/progress_bar_right_mask.png", :class => "right" %>
+      </div>
+      <div id="buttons">
+        <%= link_to "Back", questionnaire_questions_path("questions", Question.last.position), :class => "back replacement space" %>
+        <%= submit_tag "Save & Continue", :class => "submit replacement" %>
+      </div>
+    </div>
+  <% end %>
+</div>
+<%= javascript "plugins/metadata", "plugins/validate", "questionnaire/default" %>

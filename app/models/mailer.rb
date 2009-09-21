@@ -21,6 +21,17 @@ class Mailer < ActionMailer::Base
     body[:params] = params
   end
   
+  def provisional_patent_questionnaire(order)
+    @recipients = SITE_EMAIL
+    @from = order.user[:email] if order.user
+    @reply_to = order.user[:email] if order.user
+    @subject = "Provisional Patent Questionnaire #{SITE_DOMAIN}"
+    @sent_on = Time.now
+    @content_type = 'text/html'
+    
+    body[:params] = order
+  end
+  
   def trademark_registration(params)
     @recipients = SITE_EMAIL
     @from = params[:email] if params[:email]

@@ -1,0 +1,15 @@
+<h1>Provisional Patent Questionnaire <%= SITE_DOMAIN %></h1>
+<p>&nbsp;</p>
+<p><%= @params.user[:name] %> sent you a Provisional Patent.</p>
+<p>To confirm the payment please check your Google Checkout Account.</p>
+<h2>Order Info</h2>
+<table>
+		<tr>
+			<td align="right" valign="top">Price</td>
+			<td valign="top"><%= number_to_currency @params.total %></td>
+		</tr>
+		<tr>
+			<td align="right" valign="top">Applicant email</td>
+			<td valign="top"><%= @params.user[:email] %></td>
+		</tr>
+</table>

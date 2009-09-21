@@ -150,20 +150,36 @@ body {background:white url(../images/bg/body.png) repeat-x;font:12px "Trebuchet 
 #register form p.fix {float:left;height:91px !important;width:400px;}
 
 /*Questionnaire*/
-#questionnaire {margin-top:20px;}
+#questionnaire {margin-top:20px;width:940px;}
 #questionnaire form label {font-size:11px;}
 #questionnaire form p {background:url(../images/bg/input_04.jpg) left 20px no-repeat;height:auto !important;height:70px;min-height:70px;}
 #questionnaire form p textarea {height:50px;margin:10px 0 10px 10px;background-color:#EFEFEF;width:920px;}
 #questionnaire #more_info {cursor:pointer;}
 #questionnaire #info_text {background:url(../images/bg/info.jpg) bottom left no-repeat;padding:5px 20px 20px 20px;display:none;}
-#questionnaire form #actions {margin-top:20px;}
-#questionnaire form #actions input {cursor:pointer;}
-#questionnaire form #progress_bar {float:left;text-align:center;padding-top:5px;width:200px;height:21px;background:url(../images/bg/progress_bar.jpg) no-repeat;margin-top:5px;}
-#questionnaire form #buttons {float:right;text-align:right;}
-#questionnaire form #buttons input.submit {margin:5px 0 0 0;float:left;width:155px;height:26px;background:url(../images/bt/save_and_continue.jpg) no-repeat;}
-#questionnaire form #buttons .saveexit {float:left;width:116px;height:26px;background:url(../images/bt/exit_and_save.jpg) no-repeat;margin:5px 10px 0 10px;}
-#questionnaire form #buttons .back {float:left;width:66px;height:26px;background:url(../images/bt/back.jpg) no-repeat;margin-top:5px;}
-#questionnaire form #buttons a {text-decoration:none;color:white;}
+#questionnaire #actions {margin-top:20px;}
+#questionnaire #actions input {cursor:pointer;}
+#questionnaire #progress_bar {float:left;text-align:center;width:200px;height:26px;background:url(../images/bg/progress_bar.jpg) no-repeat;margin-top:5px;position:relative;}
+#questionnaire #progress_bar img {position:absolute;top:0;}
+#questionnaire #progress_bar img.right {right:0;}
+#questionnaire #progress_bar p {position:absolute;background:none;top:5px;left:40px;}
+#questionnaire #progress_bar div {position:absolute;background:url(../images/bg/progress_bar_filled.jpg) repeat-x;height:24px;}
+#questionnaire #buttons {float:right;text-align:right;}
+#questionnaire #buttons input.submit {margin:5px 0 0 0;float:left;width:155px;height:26px;background:url(../images/bt/save_and_continue.jpg) no-repeat;}
+#questionnaire #buttons .saveexit {float:left;width:116px;height:26px;background:url(../images/bt/exit_and_save.jpg) no-repeat;margin:5px 10px 0 10px;}
+#questionnaire #buttons .space {margin-right:10px;}
+#questionnaire #buttons .back {float:left;width:66px;height:26px;background:url(../images/bt/back.jpg) no-repeat;margin-top:5px;}
+#questionnaire #buttons a {text-decoration:none;color:white;}
+#questionnaire form p.terms_big {height:200px;background:url(../images/bg/input_05.jpg) left top no-repeat;}
+#questionnaire form p.terms_big textarea {height:190px;}
+#questionnaire form p.checkbox_small {background:none;height:25 !important;height:25px;min-height:25px;margin-top:10px;}
+#questionnaire form p.checkbox_small label {float:left;margin:8px 0 0 5px;}
+#questionnaire form p.checkbox_small input {margin-top:4px;float:left;}
+#questionnaire ol {margin-top:20px;}
+
+#review_questions {margin:20px 0 0 40px;}
+#review_questions li {list-style-image:none;list-style:decimal;background:none;padding:5px;margin:0;}
+#review_questions li.odd {background-color:#CCC;padding:5px;}
+#review_questions li p {margin:0;}
 
 /*Footer*/
 #footer {clear:both;background:url(../images/bg/footer.png) no-repeat;height:45px;padding:10px 20px 0 20px;font-size:10px;line-height:16px;}

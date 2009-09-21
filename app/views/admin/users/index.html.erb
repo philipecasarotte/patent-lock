@@ -7,6 +7,7 @@
 			<th><%=t :user_name %></th>
 			<th><%=t :user_email %></th>
 			<th>Newsletter</th>
+			<th>Order Status</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -16,7 +17,9 @@
 				<td><%=h user.name %></td>
 				<td><%=h user.email %></td>
 				<td><%= user.newsletter ? "Yes" : "No" %></td>
+				<td><%= user.order.state.humanize %></td>
         
+        <td><%= link_to "Paid!", admin_set_as_paid_path(user) if user.order %></td>
         <td><%= link_to "View Order", admin_user_order_path(user) if user.order %></td>
 				<td><%=link_to t(:edit), edit_object_url(user) %></td>
 				<td><%=link_to t(:destroy), object_url(user), :confirm => t(:are_you_sure), :method => :delete %></td>

@@ -19,6 +19,3 @@ config.action_controller.perform_caching             = true
 
 # Disable delivery errors, bad email addresses will be ignored
 # config.action_mailer.raise_delivery_errors = false
-
-# MERCHANT_ID = "148545293775794"
-# MERCHANT_KEY = "iJVuI8il1i06FFf7GqIvpA"

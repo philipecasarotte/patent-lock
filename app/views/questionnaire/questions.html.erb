@@ -8,7 +8,10 @@
     <%= render :partial => "question", :locals => { :f => f }, :object => @question %>
     <div id="actions">
       <div id="progress_bar">
-        PROGRESS BAR (<%= progress_bar(params[:position].to_i+1)%>%)
+        <div style="width:<%= progress_bar(params[:position].to_i)%>%;">&nbsp;</div>
+        <p>PROGRESS BAR (<%= progress_bar(params[:position].to_i)%>%)</p>
+        <%= image_tag "bg/progress_bar_left_mask.png" %>
+        <%= image_tag "bg/progress_bar_right_mask.png", :class => "right" %>
       </div>
       <div id="buttons">
       <% if @question.first?  %>
