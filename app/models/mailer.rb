@@ -32,7 +32,7 @@ class Mailer < ActionMailer::Base
     body[:params] = order
   end
   
-  def trademark_registration(params)
+  def trademark_application(params)
     @recipients = SITE_EMAIL
     @from = params[:email] if params[:email]
     @reply_to = params[:email] if params[:email]

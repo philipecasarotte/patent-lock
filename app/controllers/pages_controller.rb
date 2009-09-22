@@ -47,12 +47,12 @@ class PagesController < ApplicationController
     @metatag_object = @page
   end
   
-  def trademark_registration
-    @page = Page.find_by_permalink('trademark-registration')
+  def trademark_application
+    @page = Page.find_by_permalink('trademark-application')
     if request.post?
       @cart = GoogleCheckout::Cart.new(MERCHANT_ID, MERCHANT_KEY)
-      @cart.add_item(:name => "Trademark Registration for #{params[:trademarks][:name]}", :description => "User email: #{params[:trademarks][:email]} | Applicant Name: #{params[:trademarks][:applicant_name]}", :price => Configuration.first.service_price)
-      Mailer.deliver_trademark_registration(params[:trademarks])
+      @cart.add_item(:name => "Trademark Application for #{params[:trademarks][:name]}", :description => "User email: #{params[:trademarks][:email]} | Applicant Name: #{params[:trademarks][:applicant_name]}", :price => Configuration.first.service_price)
+      Mailer.deliver_trademark_application(params[:trademarks])
     end
     @metatag_object = @page
   end

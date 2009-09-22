@@ -14,11 +14,11 @@ get_started:
   parent_id: 
   is_protected: 1
 
-trademark_registration:
+trademark_application:
   id: 23
-  name: "Trademark Registration"
+  name: "Trademark Application"
   body: "Coming soon"
-  permalink: "trademark-registration"
+  permalink: "trademark-application"
   parent_id: 10
   is_protected: 1
 

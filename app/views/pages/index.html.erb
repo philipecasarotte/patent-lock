@@ -4,7 +4,7 @@
     <li class="head"><h2>Online Services</h2></li>
     <li><%= link_to "Provisional Patent", page_path("get-started") %></li>
     <li><%= link_to "Patent Search", page_path("patent-search") %></li>
-    <li><%= link_to "Trademark Registration", page_path("trademark-registration") %></li>
+    <li><%= link_to "Trademark Application", page_path("trademark-application") %></li>
     <li><%= link_to "Trademark Search", page_path("trademark-search") %></li>
   </ul>
 </div>
@@ -15,36 +15,37 @@
 <%= link_to image_tag("bt/get_started.png", :id => "get_started_home", :alt => "Get started on your provisional patent application", :title => "Get started on your provisional patent application", :size => "200x281"), page_path("get-started") %>
 <ul id="hot_boxes">
   <li>
-    <small class="investor"></small>
+    <a href="/pages/<%= @inventor_resource.permalink %>" class="title investor"></a>
     <h3><%= link_to @inventor_resource.name, page_path(@inventor_resource.permalink) %></h3>
     <p><%= @inventor_resource.body.summary 150 %></p>
   </li>
   <li>
-    <small class="services"></small>
+    <a href="/pages/<%= @services.permalink %>" class="title services"></a>
     <h3><%= link_to @services.name, page_path(@services.permalink) %></h3>
     <p><%= @services.body.summary 150 %></p>
   </li>
-  <li>
-    <small class="how"></small>
+  <li class="big_title">
+    <a href="/pages/<%= @how_patent_lock_works.permalink %>" class="title how"></a>
     <h3><%= link_to @how_patent_lock_works.name, page_path(@how_patent_lock_works.permalink) %></h3>
     <p><%= @how_patent_lock_works.body.summary 150 %></p>
   </li>
   <li>
-    <small class="trademarks"></small>
+    <a href="/pages/<%= @trademarks.permalink %>" class="title trademarks"></a>
     <h3><%= link_to @trademarks.name, page_path(@trademarks.permalink) %></h3>
     <p><%= @trademarks.body.summary 150 %></p>
   </li>
   <li>
-    <small class="blog"></small>
-    <h3><%= link_to @blog.name, page_path(@blog.permalink) %></h3>
+    <a href="#" class="title blog"></a>
+    <h3><%= link_to @blog.name, "#", :target => "_blank" %></h3>
     <p><%= @blog.body.summary 150 %></p>
   </li>
 </ul>
 <div id="patent_search">
   <h3><%= @patent_search.name %></h3>
   <p><%= @patent_search.body.summary 100 %></p>
-  <% form_tag "/test", :method => :get do %>
+  <% form_tag "http://patft.uspto.gov/netacgi/nph-Parser?Sect1=PTO2&Sect2=HITOFF&p=1&u=%2Fnetahtml%2FPTO%2Fsearch-bool.html&r=0&f=S&l=50&TERM1=chair&FIELD1=&co1=AND&TERM2=&FIELD2=&d=PTXT", :method => :get do %>
   	<%= text_field_tag "q", params[:q] || nil %>
   	<%= submit_tag("GO", :class => "submit") %>
   <% end %>
 </div>
+<%= javascript "pages/home" %>

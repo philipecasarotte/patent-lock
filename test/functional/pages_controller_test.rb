@@ -72,13 +72,13 @@ class PagesControllerTest < ActionController::TestCase
       ActionMailer::Base.delivery_method = :test
       ActionMailer::Base.perform_deliveries = true
       ActionMailer::Base.deliveries = []
-      Factory.create(:page, :name => 'Trademark Registration')
-      post :trademark_registration, 'trademarks' => {'name' => "Ricardo", 'email' => "dev.dburns@gmail.com", 'message' => 'Hello!'}
+      Factory.create(:page, :name => 'Trademark Application')
+      post :trademark_application, 'trademarks' => {'name' => "Ricardo", 'email' => "dev.dburns@gmail.com", 'message' => 'Hello!'}
     end
 
     should "render the trademarks's template" do
-      get "trademark-registration"
-      assert_template "trademark_registration"
+      get "trademark-application"
+      assert_template "trademark_application"
     end
 
     should "send trademarks e-mail" do
