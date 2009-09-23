@@ -18,10 +18,10 @@ Feature: Frontend users
       | name     | body                            |
       | Questionnaire | Lorem ipsum dolem sit amet |
     And I am on the register page
-    And I fill in "Login" with "bob"
+    And I fill in "Username" with "bob"
     And I fill in "Name" with "Bob"
     And I fill in "Password" with "secret"
-    And I fill in "Password Confirmation" with "secret"
+    And I fill in "Confirm Password" with "secret"
     And I fill in "Email" with "bob@example.com"
     And I press "Register"
     Then I should see "Successfully created!"
@@ -33,7 +33,7 @@ Feature: Frontend users
     And I am on the register page
     And I fill in "Name" with "Bob"
     And I fill in "Password" with "secret"
-    And I fill in "Password Confirmation" with "secret"
+    And I fill in "Confirm Password" with "secret"
     And I fill in "Email" with "bob@example.com"
     And I press "Register"
     Then I should see "Login is too short"

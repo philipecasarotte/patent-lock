@@ -55,11 +55,13 @@
   		<%= f.text_field :name, :class => "required" %>
   		<small>Enter the exact spelling of your trademark as you will use it.</small>
   	</p>
+  	<%= link_to image_tag("bt/help.jpg", :alt => "Help", :class => "help_icon", :id => "help_icon5"), page_path("inventor-resource"), :target => "_blank" %>
   	<p class="first">
   		<%= f.label(:goods_and_services, "<strong>2.</strong> Goods and Services:") %>
   		<%= f.text_field :goods_and_services, :class => "required" %>
   		<small>Specifically describe the goods and/or services your trademark will be used in connection with.</small>
   	</p>
+  	<%= link_to image_tag("bt/help.jpg", :alt => "Help", :class => "help_icon", :id => "help_icon6"), page_path("inventor-resource"), :target => "_blank" %>
   	<p class="first">
   		<%= f.label(:applicant_name, "<strong>3.</strong> Applicant Name:") %>
   		<%= f.text_field :applicant_name %>

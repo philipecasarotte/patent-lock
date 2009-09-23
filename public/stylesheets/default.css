@@ -7,8 +7,8 @@ a {color:black;text-decoration:none;}
 a:hover {text-decoration:underline;}
 
 label {display:block;margin-bottom:3px;}
-input {border:none;font-weight:bold;height:20px;}
-input.submit {height:auto;width:auto;}
+input {border:none !important;border:solid 1px transparent;font-weight:bold;height:18px;}
+input.submit {height:auto !important;width:auto !important;}
 
 textarea {border:none;}
 
@@ -25,7 +25,7 @@ body {background:white url(../images/bg/body.png) repeat-x;font:12px "Trebuchet 
 
 #main {width:940px;margin:0 auto;}
 
-#logo {margin:15px 0 21px 0;}
+#logo {margin:15px 0 21px 0;float:left;}
 
 /*Menus*/
 #help_menu {float:right;background:url(../images/bg/tab.png) no-repeat;width:155px;height:23px;padding:10px 0 0 46px;font-size:11px;}
@@ -74,11 +74,11 @@ body {background:white url(../images/bg/body.png) repeat-x;font:12px "Trebuchet 
 #hot_boxes li a.trademarks {width:76px;background-position:-130px 0;}
 #hot_boxes li a.blog {width:70px;background-position:-205px 10px;}
 
-#patent_search {background:url(../images/bg/patent_search.png) no-repeat;float:right;width:180px;height:162px;margin-top:30px;padding:10px;}
+#patent_search {background:url(../images/bg/patent_search.png) no-repeat;float:right;width:180px;height:162px;margin-top:30px;padding:10px;position:relative;}
 #patent_search h3 {padding-bottom:5px;border-bottom:1px dotted #999;margin-bottom:15px;font-size:14px;}
 #patent_search p {width:110px;}
-#patent_search input {border:none;margin-top:20px;width:130px;height:22px;font-weight:bold;float:left;}
-#patent_search input.submit {width:40px;margin-left:5px;}
+#patent_search input {position:absolute;bottom:9px;left:12px;border:none;width:130px;height:22px;font-weight:bold;float:left;}
+#patent_search input.submit {width:40px;margin-left:5px;position:absolute;bottom:9px;right:12px;left:auto;}
 
 /*Content*/
 #content {float:left;margin:20px 0;}
@@ -96,9 +96,10 @@ body {background:white url(../images/bg/body.png) repeat-x;font:12px "Trebuchet 
 /*Login*/
 #login {float:right;width:274px;margin:-44px 0 0 20px;padding:0 33px 0 13px;}
 #login form {background:url(../images/bg/login.png) no-repeat;height:183px;padding:10px;margin-bottom:20px;}
-#login form h3 {margin-top:15px;padding-bottom:5px;border-bottom:1px dotted #999;margin-bottom:15px;font-size:14px;}
-#login form input {margin:0 0 10px 5px;width:240px;}
-#login form input.submit {margin:5px 0 0 0;float:right;width:57px;height:26px;background:url(../images/bt/login.jpg) no-repeat;}
+#login form h3 {width:254px;margin-top:15px;padding-bottom:5px;border-bottom:1px dotted #999;margin-bottom:15px;font-size:14px;float:left;}
+#login form input {margin:2px 0 10px 5px;width:240px;}
+#login form input.second {margin:7px 0 0 10px;}
+#login form input.submit {margin:10px 0 0 0;float:right;width:57px;height:26px;background:url(../images/bt/login.jpg) no-repeat;}
 
 #register {float:right;width:400px;margin-left:40px;}
 #trademark form p,
@@ -128,6 +129,7 @@ body {background:white url(../images/bg/body.png) repeat-x;font:12px "Trebuchet 
 /*Trademarks*/
 #trademark {margin-top:40px;}
 #trademark #column_first {float:left;width:540px;}
+#trademark #column_first.less {float:left;width:520px;}
 #register label,
 #trademark label {font-size:11px;}
 #trademark p small {display:block;margin:5px 10px 10px 10px;color:#999;}
@@ -137,7 +139,7 @@ body {background:white url(../images/bg/body.png) repeat-x;font:12px "Trebuchet 
 #trademark form p.terms textarea {height:60px;}
 #trademark form p.checkbox label.small {width:80px;}
 #trademark form p.submit {background:none;text-align:right;}
-#trademark form p.submit input {width:auto;}
+#trademark form p.submit input {width:auto;height:auto;}
 #trademark form p.checkbox small {margin-bottom:0px;}
 #trademark form p.checkbox input {width:20px;float:left;}
 #trademark form p.checkbox label.small {float:left;width:40px;}
@@ -151,6 +153,20 @@ body {background:white url(../images/bg/body.png) repeat-x;font:12px "Trebuchet 
 #trademark table th {padding:5px;vertical-align:top;}
 #trademark table th {text-align:left;width:200px;}
 #register form p.fix {float:left;height:91px !important;width:400px;}
+#column_first {position:relative;}
+#column_first .help_icon {position:absolute;right:120px;}
+#column_first #help_icon1 {top:18px;}
+#column_first #help_icon2 {top:85px;}
+#column_first #help_icon3 {top:195px;}
+#column_first #help_icon4 {top:318px;}
+#column_first #help_icon5 {top:18px;}
+#column_first #help_icon6 {top:82px;}
+#column_first #help_icon7 {top:164px;right:100px;}
+#help_icon8 {margin:18px 0 0 3px;float:right;}
+#help_icon9 {margin:36px 0 0 3px;float:right;}
+#help_icon10 {margin:0px 0 0 3px;float:right;}
+#help_icon11 {margin:30px 0 0 3px;float:right;}
+#trademark form p.indent {margin-left:0;float:left;}
 
 /*Questionnaire*/
 #questionnaire {margin-top:20px;width:940px;}
@@ -192,7 +208,7 @@ body {background:white url(../images/bg/body.png) repeat-x;font:12px "Trebuchet 
 
 /*Footer*/
 #footer {clear:both;background:url(../images/bg/footer.png) no-repeat;height:45px;padding:10px 20px 0 20px;font-size:10px;line-height:16px;}
-#footer ul {float:left;margin:10px 145px 0 0;}
+#footer ul {float:left;margin:10px 140px 0 0;}
 #footer ul li {display:inline;border-right:solid 1px black;padding-right:7px;margin-right:5px;}
 #footer ul li.last {border:none;}
 

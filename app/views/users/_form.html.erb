@@ -8,7 +8,7 @@
   <%= f.text_field :email, :class => "{required:true, email:true}" %>
 </p>
 <p>
-  <%= f.label :login, "Login:" %>
+  <%= f.label :login, "Username:" %>
   <%= f.text_field :login, :class => "{required:true, login:true}" %>
 </p>
 <p>
@@ -16,7 +16,7 @@
   <%= f.password_field :password, :class => "{" + ((params[:action] == "edit") ? "" : "required:true, ") + "minlength:6}" %>
 </p>
 <p>
-  <%= f.label :password_confirmation, "Password Confirmation:" %>
+  <%= f.label :password_confirmation, "Confirm Password:" %>
   <%= f.password_field :password_confirmation, :class => "{" + ((params[:action] == "edit") ? "" : "required:true, ") + "equalTo: '#user_password'}" %>
 </p>
 <p class ="checkbox">

@@ -6,19 +6,19 @@
 <div id="register">
   <% form_for('contact', :html => {:class => "validate"}) do |f| %>
   	<p>
-  		<%= f.label(:name) %>
+  		<%= f.label(:name, "Name:") %>
   		<%= f.text_field :name, :class => "required" %>
   	</p>
   	<p>
-  		<%= f.label(:email) %>
+  		<%= f.label(:email, "Email:") %>
   		<%= f.text_field :email, :class => "required email" %>
   	</p>
   	<p>
-  		<%= f.label(:address) %>
+  		<%= f.label(:address, "Address:") %>
   		<%= f.text_field :address, :class => "required" %>
   	</p>
   	<p class="textarea fix">
-  		<%= f.label(:message) %>
+  		<%= f.label(:message, "Message:") %>
   		<%= f.text_area :message, :class => "required" %>
   	</p>
     

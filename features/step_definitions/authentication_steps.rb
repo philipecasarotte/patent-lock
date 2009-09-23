@@ -1,7 +1,7 @@
 Given /^I am logged in as (.+)$/ do |u|
   user = Factory(u)
   When %{I go to the login page}
-  And %{I fill in "Login" with "#{user.login}"}
+  And %{I fill in "Username" with "#{user.login}"}
   And %{I fill in "Password" with "#{user.password}"}
   And %{I press "Login"}
 end
@@ -27,7 +27,7 @@ Given /^I am signed up with "(.*)\/(.*)" as "(.*)"$/ do |login, password, role|
 end 
 
 When /^I sign in as "(.*)\/(.*)"$/ do |login, password|
-  When %{I fill in "Login" with "#{login}"}
+  When %{I fill in "Username" with "#{login}"}
   And %{I fill in "Password" with "#{password}"}
   And %{I press "Login"}
 end

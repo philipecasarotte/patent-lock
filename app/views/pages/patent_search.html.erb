@@ -60,21 +60,25 @@
   		<%= f.label(:title_of_invention, "<strong>1.</strong> Title of Invention:") %>
   		<%= f.text_field :title_of_invention, :class => "required" %>
   	</p>
+		<%= link_to image_tag("bt/help.jpg", :alt => "Help", :class => "help_icon", :id => "help_icon1"), page_path("inventor-resource"), :target => "_blank" %>
   	<p class="first textarea">
   		<%= f.label(:invention_description, "<strong>2.</strong> Invention Description:") %>
   		<%= f.text_area :invention_description, :class => "required" %>
   		<small>Describe what your invention is and what industry it is for.</small>
   	</p>
+    <%= link_to image_tag("bt/help.jpg", :alt => "Help", :class => "help_icon", :id => "help_icon2"), page_path("inventor-resource"), :target => "_blank" %>
   	<p class="first textarea">
   		<%= f.label(:invention_details, "<strong>3.</strong> Invention Details:") %>
   		<%= f.text_area :invention_details %>
   		<small>Describe in detail how your invention works, the parts, elements, or features of your invention.</small>
   	</p>
+  	<%= link_to image_tag("bt/help.jpg", :alt => "Help", :class => "help_icon", :id => "help_icon3"), page_path("inventor-resource"), :target => "_blank" %>
   		<p class="first textarea">
     		<%= f.label(:invention_novelty, "<strong>4.</strong> Invention Novelty:") %>
     		<%= f.text_area :invention_novelty, :class => "required" %>
     		<small>What makes your invention different from existing products?</small>
     	</p>
+    <%= link_to image_tag("bt/help.jpg", :alt => "Help", :class => "help_icon", :id => "help_icon4"), page_path("inventor-resource"), :target => "_blank" %>
     	<p class="first none">
     		<%= f.label(:images, "<strong>5.</strong> Upload Pictures or Diagrams that Describe your Invention:") %>
     		<%= f.file_field :image1, :size => false %>

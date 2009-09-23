@@ -17,32 +17,32 @@
   <li>
     <a href="/pages/<%= @inventor_resource.permalink %>" class="title investor"></a>
     <h3><%= link_to @inventor_resource.name, page_path(@inventor_resource.permalink) %></h3>
-    <p><%= @inventor_resource.body.summary 150 %></p>
+    <p><%= @inventor_resource.summary.summary 150 rescue "" %></p>
   </li>
   <li>
     <a href="/pages/<%= @services.permalink %>" class="title services"></a>
     <h3><%= link_to @services.name, page_path(@services.permalink) %></h3>
-    <p><%= @services.body.summary 150 %></p>
+    <p><%= @services.summary.summary 150 rescue "" %></p>
   </li>
   <li class="big_title">
     <a href="/pages/<%= @how_patent_lock_works.permalink %>" class="title how"></a>
     <h3><%= link_to @how_patent_lock_works.name, page_path(@how_patent_lock_works.permalink) %></h3>
-    <p><%= @how_patent_lock_works.body.summary 150 %></p>
+    <p><%= @how_patent_lock_works.summary.summary 150 rescue "" %></p>
   </li>
   <li>
     <a href="/pages/<%= @trademarks.permalink %>" class="title trademarks"></a>
     <h3><%= link_to @trademarks.name, page_path(@trademarks.permalink) %></h3>
-    <p><%= @trademarks.body.summary 150 %></p>
+    <p><%= @trademarks.summary.summary 150 rescue "" %></p>
   </li>
   <li>
     <a href="#" class="title blog"></a>
     <h3><%= link_to @blog.name, "#", :target => "_blank" %></h3>
-    <p><%= @blog.body.summary 150 %></p>
+    <p><%= @blog.summary.summary 150 rescue "" %></p>
   </li>
 </ul>
 <div id="patent_search">
   <h3><%= @patent_search.name %></h3>
-  <p><%= @patent_search.body.summary 100 %></p>
+  <p><%= @patent_search.summary.summary 100 rescue "" %></p>
   <% form_tag "http://patft.uspto.gov/netacgi/nph-Parser?Sect1=PTO2&Sect2=HITOFF&p=1&u=%2Fnetahtml%2FPTO%2Fsearch-bool.html&r=0&f=S&l=50&TERM1=chair&FIELD1=&co1=AND&TERM2=&FIELD2=&d=PTXT", :method => :get do %>
   	<%= text_field_tag "q", params[:q] || nil %>
   	<%= submit_tag("GO", :class => "submit") %>
