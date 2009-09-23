@@ -93,7 +93,7 @@
   	</p>
   	<p>
   		<%= f.label(:state, "<strong>9.</strong> State:") %>
-  		<%= f.text_field :state, :class => "required" %>
+  		<%= f.us_state_select :state, {:show => :full}, {:prompt => 'Select a State', :class => 'required'} %>
   	</p>
   	<p>
   		<%= f.label(:zip_code, "<strong>10.</strong> ZIP Code:") %>

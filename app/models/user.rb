@@ -1,3 +1,5 @@
+require 'digest/sha1'
+
 class User < ActiveRecord::Base
   
   # acts_as_authentic already validates presence and format of: login, email, password; also password confirmation
@@ -22,5 +24,11 @@ class User < ActiveRecord::Base
     @_list ||= self.roles.collect(&:name)
     return true if @_list.include?("admin")
     (@_list.include?(role_in_question.to_s) )
+  end
+  
+  def reset_password
+    password = Digest::SHA1.hexdigest(rand.to_s)[0..6]
+    self.update_attributes(:password => password, :password_confirmation => password)
+    Mailer.deliver_forgot_password(self, password)
   end
 end

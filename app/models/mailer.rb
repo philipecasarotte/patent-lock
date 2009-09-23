@@ -10,6 +10,18 @@ class Mailer < ActionMailer::Base
       :password => "patent123"
   }
   
+  def forgot_password(user, password)
+    @recipients = user[:email] if user[:email]
+    @from = SITE_EMAIL
+    @reply_to = SITE_EMAIL
+    @subject = "Password Request #{SITE_DOMAIN}"
+    @sent_on = Time.now
+    @content_type = 'text/html'
+    
+    body[:params] = user
+    body[:password] = password
+  end
+  
   def contact(params)
     @recipients = SITE_EMAIL
     @from = params[:email] if params[:email]

@@ -8,7 +8,7 @@ a:hover {text-decoration:underline;}
 
 label {display:block;margin-bottom:3px;}
 input {border:none !important;border:solid 1px transparent;font-weight:bold;height:18px;}
-input.submit {height:auto !important;width:auto !important;}
+input.submit {height:auto;width:auto;}
 
 textarea {border:none;}
 
@@ -96,10 +96,13 @@ body {background:white url(../images/bg/body.png) repeat-x;font:12px "Trebuchet 
 /*Login*/
 #login {float:right;width:274px;margin:-44px 0 0 20px;padding:0 33px 0 13px;}
 #login form {background:url(../images/bg/login.png) no-repeat;height:183px;padding:10px;margin-bottom:20px;}
+#login.f_password form {background:url(../images/bg/forgot_password.png) no-repeat;}
 #login form h3 {width:254px;margin-top:15px;padding-bottom:5px;border-bottom:1px dotted #999;margin-bottom:15px;font-size:14px;float:left;}
 #login form input {margin:2px 0 10px 5px;width:240px;}
 #login form input.second {margin:7px 0 0 10px;}
 #login form input.submit {margin:10px 0 0 0;float:right;width:57px;height:26px;background:url(../images/bt/login.jpg) no-repeat;}
+#login.f_password form p {margin:10px 0 10px 0;}
+#login.f_password form input.submit {width:77px;background:url(../images/bt/submit2.jpg) no-repeat;}
 
 #register {float:right;width:400px;margin-left:40px;}
 #trademark form p,
@@ -167,6 +170,7 @@ body {background:white url(../images/bg/body.png) repeat-x;font:12px "Trebuchet 
 #help_icon10 {margin:0px 0 0 3px;float:right;}
 #help_icon11 {margin:30px 0 0 3px;float:right;}
 #trademark form p.indent {margin-left:0;float:left;}
+#trademark form p select {width:390px;margin-left:5px;}
 
 /*Questionnaire*/
 #questionnaire {margin-top:20px;width:940px;}

@@ -42,4 +42,18 @@ class UserSessionsController < ApplicationController
     flash[:notice] = I18n.t(:logout_message)
     redirect_back_or_default login_url
   end
+  
+  def forgot_password
+    @page = Page.find_by_permalink("member-login")
+    if request.post?
+      @user = User.find_by_email(params[:login][:email])
+      if @user
+        @user.reset_password
+        flash.now[:notice] = "New password was sent to #{params[:login][:email]}"
+      else
+        flash.now[:error] = "No users were registered with this email."
+      end
+    end
+    @metatag_object = @page
+  end
 end
