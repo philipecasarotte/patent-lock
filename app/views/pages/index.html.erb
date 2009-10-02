@@ -42,8 +42,8 @@
 </ul>
 <div id="patent_search">
   <h3><%= @patent_search.name %></h3>
-  <p><%= @patent_search.summary.summary 100 rescue "" %></p>
-  <% form_tag "http://patft.uspto.gov/netacgi/nph-Parser?Sect1=PTO2&Sect2=HITOFF&p=1&u=%2Fnetahtml%2FPTO%2Fsearch-bool.html&r=0&f=S&l=50&TERM1=chair&FIELD1=&co1=AND&TERM2=&FIELD2=&d=PTXT", :method => :get do %>
+  <p><%= @page.summary.summary 100 rescue "" %></p>
+  <% form_tag "#", :method => :get, :target => "_blank" do %>
   	<%= text_field_tag "q", params[:q] || nil %>
   	<%= submit_tag("GO", :class => "submit") %>
   <% end %>

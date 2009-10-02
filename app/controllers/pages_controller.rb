@@ -1,6 +1,7 @@
 class PagesController < ApplicationController
   
   before_filter :gateway
+  before_filter :require_user, :only => "patent-search"
   
   after_filter(:except => [:contact, :patent_search, :trademark_search, :trademark_registration, "patent-search", "trademark-search", "trademark-registration"]) {|c| c.cache_page}
 
@@ -66,6 +67,17 @@ class PagesController < ApplicationController
     render method.underscore
     rescue ActionView::MissingTemplate
       render 'show'
+  end
+  
+  private
+  def require_user
+    unless current_user
+      store_location
+      flash[:error] = I18n.t(:not_authorized)
+      redirect_to login_url
+      return false
+    end
+    @order = Order.find_by_user_id(current_user)
   end
   
   def gateway
