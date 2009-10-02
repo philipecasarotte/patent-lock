@@ -46,12 +46,12 @@ class UserSessionsController < ApplicationController
   def forgot_password
     @page = Page.find_by_permalink("member-login")
     if request.post?
-      @user = User.find_by_email(params[:login][:email])
+      @user = User.find_by_username(params[:login][:username])
       if @user
         @user.reset_password
-        flash.now[:notice] = "New password was sent to #{params[:login][:email]}"
+        flash.now[:notice] = "New password was sent to #{@user.email}."
       else
-        flash.now[:error] = "No users were registered with this email."
+        flash.now[:error] = "No users were registered with this username."
       end
     end
     @metatag_object = @page
