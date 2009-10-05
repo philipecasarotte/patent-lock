@@ -1,5 +1,17 @@
 <h1>My Account</h1>
 <% form_for(@user, :url => user_path, :html => { :class => "validate", :method => :put }) do |f| %>
-  <%= render :partial => 'form', :locals => { :f => f } %>
+  	<p>
+  		<%= f.label :password, "Password:" %>
+  		<%= f.password_field :password, :class => "{" + ((params[:action] == "edit") ? "" : "required:true, ") + "minlength:6}" %>
+	</p>
+	<p>
+	  <%= f.label :password_confirmation, "Confirm Password:" %>
+	  <%= f.password_field :password_confirmation, :class => "{" + ((params[:action] == "edit") ? "" : "required:true, ") + "equalTo: '#user_password'}" %>
+	</p>
+	<p class ="checkbox">
+	  <%= f.check_box :newsletter %>
+	  <%= f.label :newsletter, "I would like to receive the PatentLock newsletter.<br/>Sent no more than once per month." %>
+	</p>
   <%= submit_tag(t(:update)) %>
 <% end %>
+<%= javascript "plugins/metadata", "plugins/validate" %>
