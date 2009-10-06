@@ -5,6 +5,7 @@
 		<tr>
 			<th>Name</th>
 			<th>Help Text</th>
+			<th>Info Text</th>
 			<th class="hidden">Position</th>
 		</tr>
 	</thead>
@@ -12,18 +13,18 @@
 		<%- @questions.each do |question|%>
 			<tr>
 				<td><%=h question.name %></td>
-				<td><%= question.help %></td>
+				<td><%= question.info %></td>
+				<td><%= question.help.summary 200 %></td>
 				<td class="hidden"><%=h question.position %></td>
 
 				<td><%=link_to t(:edit), edit_object_url(question) %></td>
-				<td><%=link_to t(:destroy), object_url(question), :confirm => t(:are_you_sure), :method => :delete %></td>
 			</tr>
 		<% end %>
 	</tbody>
 </table>
 
-<%= link_to 'New Question', new_object_url %> |
-<%= link_to t(:reorder), reorder_admin_questions_url %>
+<!-- <%= link_to 'New Question', new_object_url %> | -->
+<!-- <%= link_to t(:reorder), reorder_admin_questions_url %> -->
 
 
 <%= render :partial => '/admin/scaffold/data_table', :locals => {:sort => '[[ 2, "asc" ]]'} %>

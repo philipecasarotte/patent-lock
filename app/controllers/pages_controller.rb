@@ -32,7 +32,7 @@ class PagesController < ApplicationController
       @file2 = params[:trademarks][:image2] unless params[:trademarks][:image2].blank?
       @file3 = params[:trademarks][:image3] unless params[:trademarks][:image3].blank?
       @cart = GoogleCheckout::Cart.new(MERCHANT_ID, MERCHANT_KEY)
-      @cart.add_item(:name => "Patent Search for #{params[:trademarks][:name]}", :description => "User email: #{params[:trademarks][:email]} | Applicant Name: #{params[:trademarks][:applicant_name]}", :price => Configuration.first.service_price)
+      @cart.add_item(:name => "Patent Search for #{params[:trademarks][:name]}", :description => "User email: #{params[:trademarks][:email]} | Applicant Name: #{params[:trademarks][:applicant_name]}", :price => Configuration.first.patent_search_price)
       Mailer.deliver_patent_search(params[:trademarks], @file1, @file2, @file3)
     end
     @metatag_object = @page
@@ -42,7 +42,7 @@ class PagesController < ApplicationController
     @page = Page.find_by_permalink('trademark-search')
     if request.post?
       @cart = GoogleCheckout::Cart.new(MERCHANT_ID, MERCHANT_KEY)
-      @cart.add_item(:name => "Trademark Search for #{params[:trademarks][:name]}", :description => "User email: #{params[:trademarks][:email]} | Patent Phrase: #{params[:trademarks][:phrase]}", :price => Configuration.first.service_price)
+      @cart.add_item(:name => "Trademark Search for #{params[:trademarks][:name]}", :description => "User email: #{params[:trademarks][:email]} | Patent Phrase: #{params[:trademarks][:phrase]}", :price => Configuration.first.trademark_search_price)
       Mailer.deliver_trademark_search(params[:trademarks])
     end
     @metatag_object = @page
@@ -52,7 +52,7 @@ class PagesController < ApplicationController
     @page = Page.find_by_permalink('trademark-application')
     if request.post?
       @cart = GoogleCheckout::Cart.new(MERCHANT_ID, MERCHANT_KEY)
-      @cart.add_item(:name => "Trademark Application for #{params[:trademarks][:name]}", :description => "User email: #{params[:trademarks][:email]} | Applicant Name: #{params[:trademarks][:applicant_name]}", :price => Configuration.first.service_price)
+      @cart.add_item(:name => "Trademark Application for #{params[:trademarks][:name]}", :description => "User email: #{params[:trademarks][:email]} | Applicant Name: #{params[:trademarks][:applicant_name]}", :price => Configuration.first.trademark_application_price)
       Mailer.deliver_trademark_application(params[:trademarks])
     end
     @metatag_object = @page

@@ -1,0 +1,48 @@
+question_07:
+  id: 7
+  name: "If your invention is not a device or apparatus, but rather involves a series of steps or is a method, describe in detail each and every step or method your invention takes."
+  help: "Help Text Here"
+  info: ""
+  position: 6
+
+question_06:
+  id: 6
+  name: "Describe the problems that your invention improves upon or solves:"
+  help: "Help Text Here"
+  info: "Explain how your invention is able to improve it."
+  position: 5
+
+question_05:
+  id: 5
+  name: "Give a detailed description of the purpose of your invention."
+  help: "Help Text Here"
+  info: ""
+  position: 4
+
+question_04:
+  id: 4
+  name: "Who is the Inventor?"
+  help: "Help Text Here"
+  info: ""
+  position: 3  
+
+question_03:
+  id: 3
+  name: "Are you a sole inventor?"
+  help: "Help Text Here"
+  info: ""
+  position: 2  
+
+question_02:
+  id: 2
+  name: "Title of the Invention:"
+  help: "Help Text Here"
+  info: "Provide a brief 1 to 3 sentence description of what your invention does."
+  position: 1
+
+question_01:
+  id: 1
+  name: "Brief Description"
+  help: "Help Text Here"
+  info: "Provide a brief title of the invention."
+  position: 0

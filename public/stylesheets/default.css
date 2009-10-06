@@ -7,6 +7,7 @@ a {color:black;text-decoration:none;}
 a:hover {text-decoration:underline;}
 
 label {display:block;margin-bottom:3px;}
+label.inline {display:inline;}
 input {border:none !important;border:solid 1px transparent;font-weight:bold;height:18px;}
 input.submit {height:auto;width:auto;}
 
@@ -174,12 +175,14 @@ body {background:white url(../images/bg/body.png) repeat-x;font:12px "Trebuchet 
 
 /*Questionnaire*/
 #questionnaire {margin-top:20px;width:940px;}
-#questionnaire form label {font-size:11px;}
+#questionnaire form label {font-size:11px;text-transform:none;}
 #questionnaire form p {background:url(../images/bg/input_04.jpg) left 20px no-repeat;height:auto !important;height:70px;min-height:70px;}
+#questionnaire form p.first {background:url(../images/bg/input_01.jpg) left 20px no-repeat;height:auto !important;height:50px;min-height:50px;}
+#questionnaire form p.first input {background-color:#EFEFEF;margin:5px 0 0 7px;width:380px;}
 #questionnaire form p textarea {height:50px !important;margin:10px 0 10px 10px;background-color:#EFEFEF;width:920px;}
-#questionnaire #more_info {cursor:pointer;}
-#questionnaire #info_text {background:url(../images/bg/info.jpg) bottom left no-repeat;padding:5px 20px 20px 20px;display:none;}
-#questionnaire #info_text p {background:none;height:auto !important;height:auto;min-height:auto;}
+#questionnaire .more_info {cursor:pointer;}
+#questionnaire .info_text {background:url(../images/bg/info.jpg) bottom left no-repeat;padding:5px 20px 20px 20px;display:none;}
+#questionnaire .info_text p {background:none;height:auto !important;height:auto;min-height:auto;}
 #questionnaire #actions {margin-top:20px;}
 #questionnaire #actions input {cursor:pointer;}
 #questionnaire #progress_bar {float:left;text-align:center;width:200px;height:26px;background:url(../images/bg/progress_bar.jpg) no-repeat;margin-top:5px;position:relative;}
@@ -208,7 +211,9 @@ body {background:white url(../images/bg/body.png) repeat-x;font:12px "Trebuchet 
 #questionnaire p#terms_big textarea {height:190px !important;}
 
 #field_set {background:url(../images/bg/input_04.jpg) left 20px no-repeat;height:auto !important;height:70px;min-height:70px;}
+#field_set.inline {background:url(../images/bg/input_06.jpg) left 20px no-repeat;height:auto !important;height:40px;min-height:40px;}
 #field_set textarea {height:50px !important;margin:10px 0 10px 10px;background-color:#EFEFEF;width:920px;}
+#field_set.inline input {height:20px !important;margin:10px 0 10px 10px;background-color:#EFEFEF;width:920px;}
 
 /*Footer*/
 #footer {clear:both;background:url(../images/bg/footer.png) no-repeat;height:45px;padding:10px 20px 0 20px;font-size:10px;line-height:16px;}

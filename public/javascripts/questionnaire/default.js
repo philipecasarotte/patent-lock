@@ -1,9 +1,9 @@
 $(document).ready(function() {
-	$("#more_info").toggle(function(){
-       $("#info_text:hidden").slideDown("slow");
+	$(".more_info").toggle(function(){
+       $(this).next(".info_text:hidden").slideDown("slow");
      },
      function () {
-       $("#info_text:visible").slideUp("fast");
+       $(this).next(".info_text:visible").slideUp("fast");
 	   }
 	);
 	

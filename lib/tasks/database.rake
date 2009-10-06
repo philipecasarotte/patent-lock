@@ -33,6 +33,7 @@ namespace :db do
       Dburns::Setup.bootstrap attributes
       
       Rake::Task["db:default_pages"].invoke
+      Rake::Task["db:default_questions"].invoke
       Rake::Task["db:default_configuration"].invoke
   end
 
@@ -54,6 +55,18 @@ namespace :db do
   task :clear_default_pages => :environment do
     puts "Destroying default pages before creating it again."
     Page.destroy_all
+  end
+  
+  task :default_questions => [:environment, :clear_default_questions] do
+   puts "Creating Default Questions..."
+   ActiveRecord::Base.establish_connection(RAILS_ENV.to_sym)
+   Fixtures.create_fixtures("#{RAILS_ROOT}/lib/dburns", 'questions')
+   puts "Done"
+  end
+
+  task :clear_default_questions => :environment do
+    puts "Destroying default questions."
+    Question.destroy_all
   end
   
   desc "Create the default configuration."

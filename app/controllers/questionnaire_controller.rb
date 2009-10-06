@@ -1,6 +1,41 @@
 class QuestionnaireController < ApplicationController
   before_filter :require_user, :gateway
   
+  def step1
+    verify_questionnaire_on_hold
+    @page = Page.find_by_permalink("questionnaire")
+    
+    @question1 = Question.find(1)
+    @answer1 = Answer.find_or_create_by_question_id(@question1.id)
+    
+    @question2 = Question.find(2)
+    @answer2 = Answer.find_or_create_by_question_id(@question2.id)
+    
+    if request.post?
+      @answer1_check = Answer.create_or_update({:order_id => params[:order][:order_id], :question_id => @question1.id, :body => params[:answer1][:body]})
+      @answer2_check = Answer.create_or_update({:order_id => params[:order][:order_id], :question_id => @question2.id, :body => params[:answer2][:body]})
+      if @answer1_check and @answer2_check
+        flash[:notice] = I18n.t(:success_update)
+        if params[:save_and_exit] == "yes"
+          redirect_to logout_path
+        else
+          redirect_to questionnaire_step2_path
+        end
+      end
+    end
+  end
+  
+  def step2
+    verify_questionnaire_on_hold
+    @page = Page.find_by_permalink("questionnaire")
+    
+    @question3 = Question.find(3)
+    @answer3 = Answer.find_or_create_by_question_id(@question3.id)
+    
+    @question4 = Question.find(4)
+    @answer4 = Answer.find_or_create_by_question_id(@question4.id)
+  end
+  
   def questions
     verify_questionnaire_on_hold
     @page = Page.find_by_permalink("questionnaire")

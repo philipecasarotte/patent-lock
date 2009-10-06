@@ -45,8 +45,8 @@ class ActiveSupport::TestCase
   require "authlogic/test_case"
   require "mocha"
   
-  MERCHANT_ID = "756706787746159"
-  MERCHANT_KEY = "UmII3MrWKFjIDfvCUIkhLw"
+  # MERCHANT_ID = "756706787746159"
+  # MERCHANT_KEY = "UmII3MrWKFjIDfvCUIkhLw"
   
   Factory.create(:configuration)
 end

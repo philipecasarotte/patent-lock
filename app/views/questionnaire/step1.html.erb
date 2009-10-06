@@ -1,0 +1,47 @@
+<h1>Provisional Patent Questionnaire &raquo; Step 1</h1>
+<div class="content_cms">
+  <%= @page.body rescue "" %>
+</div>
+<div id="questionnaire">
+  <%= error_messages_for @object.class.to_s.underscore.to_sym %>
+  <% form_tag("step-1", :url => questionnaire_step1_path, :live_validations => true, :html => { :method => :put }) do %>
+    <%= hidden_field :order, :order_id, :value => @order.id %>
+	<%= hidden_field :save_and_exit, :value => "" %>
+	
+	<div id="field_set" class="inline">
+	  <%= label :answer1, :body, "<strong>1.</strong> #{@question1.name} <small>#{@question1.info}</small>" %>
+	  <%= text_field :answer1, :body %>
+	</div>
+	<%= image_tag "bt/info_tab.jpg", :alt => "More Information", :class => "more_info" %>
+	<div class="info_text">
+	  <%= @question1.help %>
+	</div>
+	
+	<div id="field_set">
+	  <%= label :answer2, :body, "<strong>2.</strong> #{@question2.name} <small>#{@question2.info}</small>" %>
+	  <%= text_area :answer2, :body %>
+	</div>
+	<%= image_tag "bt/info_tab.jpg", :alt => "More Information", :class => "more_info" %>
+	<div class="info_text">
+	  <%= @question2.help %>
+	</div>
+	
+    <div id="actions">
+	  <div id="progress_bar">
+	    <div style="width:<%= progress_bar(2.to_i)%>%;">&nbsp;</div>
+	    <p>PROGRESS BAR (<%= progress_bar(2.to_i)%>%)</p>
+	    <%= image_tag "bg/progress_bar_left_mask.png", :class => "left" %>
+	    <%= image_tag "bg/progress_bar_right_mask.png", :class => "right" %>
+	  </div>
+	  <div id="buttons">
+	  <% if @question1.first?  %>
+	    <%= link_to "Back", questionnaire_questions_path("questions", @question1.previous), :class => "back replacement" %>
+	    <%= submit_tag "Exit & Save", :id => "exit_button", :class => "saveexit replacement" %>
+	  <% end %>
+	    <%= submit_tag "Save & Continue", :class => "submit replacement" %>
+	  </div>
+	</div>
+
+  <% end %>
+</div>
+<%= javascript "plugins/metadata", "plugins/validate", "questionnaire/default" %>
