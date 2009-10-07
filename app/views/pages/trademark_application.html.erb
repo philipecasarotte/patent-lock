@@ -81,7 +81,7 @@
   	</p>
   	<p class="first select_small">
   		<%= f.label(:state_of_formation, "State of Formation:") %>
-  		<%= select(:trademarks, :state_of_formation, [["Problema", "Problema"], ["Questão", "Questão"], ["Requisição de feature", "Requisição de Feature"]]) %>
+		<%= f.us_state_select :state_of_formation, {:show => :full}, {:include_blank => 'Select a State'}, {:class => 'required'} %>
   		<small>If Owner is a corporation or LLC, enter the state where it was formed.</small>
   	</p>
   	<p class="first">
@@ -99,7 +99,7 @@
     	</p>
     	<p class="first state">
     		<%= f.label(:state, "<strong>4.</strong> Owner's State:") %>
-    		<%= f.us_state_select :state, {:show => :full}, {:prompt => 'Select a State', :class => 'required'} %>
+    		<%= f.us_state_select :state, {:show => :full}, {:include_blank => 'Select a State'}, {:class => 'required'} %>
     	</p>
     	<p class="first">
     		<%= f.label(:zip_code, "<strong>5.</strong> Owner's Zip Code:") %>
@@ -136,9 +136,9 @@
   	<p class="checkbox radio indent">
   		<%= f.label(:being_used, "<strong>11.</strong> Is this trademark currently being used?") %>
   		<small>Use means interstate commerce in the United States. The name of the trademark entered in #8 must be used in connection with the goods and/or services you described in #9.</small>       
-  		<%= f.radio_button :being_used, "yes" %>
+  		<%= f.radio_button :being_used, "yes", :class => 'required' %>
   		<%= f.label(:being_used_yes, "Yes", :class => "small") %>
-  		<%= f.radio_button :being_used, "no" %>
+  		<%= f.radio_button :being_used, "no", :class => 'required' %>
   		<%= f.label(:being_used_no, "No", :class => "small") %>
   	</p>
   	<%= link_to image_tag("bt/help.jpg", :alt => "Help", :class => "help_icon", :id => "help_icon10"), page_path("inventor-resource"), :target => "_blank" %>
@@ -152,7 +152,7 @@
   		<%= f.text_area :terms, :value => @page.summary, :disabled => "disabled" %>
   	</p>
   	<p class="checkbox check">
-  		<%= f.check_box :acceptance, :class => "required" %>
+  		<input class="required" id="trademarks_acceptance" name="trademarks[acceptance]" type="checkbox" value="1" />
   		<%= f.label(:acceptance, "I Accept the terms above.") %>
   	</p>
   	<p class="submit">
