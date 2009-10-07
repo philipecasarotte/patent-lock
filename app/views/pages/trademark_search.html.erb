@@ -64,7 +64,7 @@
   	<%= link_to image_tag("bt/help.jpg", :alt => "Help", :class => "help_icon", :id => "help_icon6"), page_path("inventor-resource"), :target => "_blank" %>
   	<p class="first">
   		<%= f.label(:applicant_name, "<strong>3.</strong> Applicant Name:") %>
-  		<%= f.text_field :applicant_name %>
+  		<%= f.text_field :applicant_name, :class => "required" %>
   	</p>
   		<p class="first address">
     		<%= f.label(:company_name, "<strong>4.</strong> Company Name:") %>
@@ -93,7 +93,7 @@
   	</p>
   	<p>
   		<%= f.label(:state, "<strong>9.</strong> State:") %>
-  		<%= f.us_state_select :state, {:show => :full}, {:prompt => 'Select a State', :class => 'required'} %>
+  		<%= f.us_state_select :state, {:show => :full}, {:include_blank => 'Select a State'}, {:class => 'required'} %>
   	</p>
   	<p>
   		<%= f.label(:zip_code, "<strong>10.</strong> ZIP Code:") %>
@@ -107,7 +107,7 @@
   		<%= f.text_area :terms, :value => @page.summary, :disabled => "disabled" %>
   	</p>
   	<p class="checkbox check">
-  		<%= f.check_box :acceptance, :class => "required" %>
+  		<input class="required" id="trademarks_acceptance" name="trademarks[acceptance]" type="checkbox" validate="required:true" value="Yes" />
   		<%= f.label(:acceptance, "I Accept the terms above.") %>
   	</p>
   	<p class="submit">

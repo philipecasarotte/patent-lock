@@ -1,0 +1,34 @@
+<h1><%= @page.name %></h1>
+<%= render :partial => 'sidebar' %>
+<div id="with_form_small" class="content_cms">
+	<%= @page.body %>
+</div>
+<div id="register">	
+	<ul id="sitemap">
+		<li class="odd"><%= link_to "Home", root_path %></li>
+		<li><%= link_to "About Us", page_path("about-us") %></li>
+		<li class="odd"><%= link_to "Blog", "#" %></li>
+		<li><%= link_to "Contact", page_path("contact") %></li>
+		<li class="odd">
+			<%= link_to "Get Started", page_path("get-started") %>
+			<ul>
+				<li><%= link_to "Provisional Patent Application", go_to_current_order_state %></li>
+				<li><%= link_to "Patent Search", page_path("trademark-search") %></li>
+			</ul>
+		</li>
+		<li><%= link_to "How Patent Lock Works", page_path("how-patent-lock-works") %></li>
+		<li class="odd"><%= link_to "Inventor Resource", page_path("inventor-resource") %></li>
+		<li><%= link_to "Privacy", page_path("privacy") %></li>
+		<li class="odd"><%= link_to "Services", page_path("services") %></li>
+		<li><%= link_to "Sitemap", page_path("sitemap") %></li>
+		<li class="odd"><%= link_to "Terms of Use", page_path("terms-of-use") %></li>
+		<li><%= link_to "Why Patent Lock", page_path("why-patent-lock") %></li>
+		<li class="odd">
+			<%= link_to "Trademarks", page_path("trademarks") %>
+			<ul>
+				<li><%= link_to "Trademark Application", page_path("trademark-application") %></li>
+				<li><%= link_to "Trademark Search", page_path("trademark-search") %></li>
+			</ul>
+		</li>
+	</ul>
+</div>

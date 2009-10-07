@@ -69,7 +69,7 @@
     <%= link_to image_tag("bt/help.jpg", :alt => "Help", :class => "help_icon", :id => "help_icon2"), page_path("inventor-resource"), :target => "_blank" %>
   	<p class="first textarea">
   		<%= f.label(:invention_details, "<strong>3.</strong> Invention Details:") %>
-  		<%= f.text_area :invention_details %>
+  		<%= f.text_area :invention_details, :class => "required" %>
   		<small>Describe in detail how your invention works, the parts, elements, or features of your invention.</small>
   	</p>
   	<%= link_to image_tag("bt/help.jpg", :alt => "Help", :class => "help_icon", :id => "help_icon3"), page_path("inventor-resource"), :target => "_blank" %>
@@ -94,7 +94,7 @@
   </div>
     <p>
   		<%= f.label(:company_name, "<strong>7.</strong> Company Name (if applicable):") %>
-  		<%= f.text_field :company_name, :class => "required" %>
+  		<%= f.text_field :company_name %>
   	</p>
   	<p>
   		<%= f.label(:email, "<strong>8.</strong> Email Address:") %>
@@ -118,7 +118,7 @@
   	</p>
   	<p>
   		<%= f.label(:state, "<strong>12.</strong> State:") %>
-  		<%= f.us_state_select :state, {:show => :full}, {:prompt => 'Select a State', :class => 'required'} %>
+  		<%= f.us_state_select :state, {:show => :full}, {:include_blank => 'Select a State'}, {:class => 'required'} %>
   	</p>
   	<p>
   		<%= f.label(:zip_code, "<strong>13.</strong> ZIP Code:") %>
@@ -132,7 +132,7 @@
   		<%= f.text_area :terms, :value =>  @page.summary, :disabled => "disabled" %>
   	</p>
   	<p class="checkbox check">
-  		<%= f.check_box :acceptance, :class => "required" %>
+  		<input class="required" id="trademarks_acceptance" name="trademarks[acceptance]" type="checkbox" value="1" />
   		<%= f.label(:acceptance, "I Accept the terms above.") %>
   	</p>
   	<p class="submit">

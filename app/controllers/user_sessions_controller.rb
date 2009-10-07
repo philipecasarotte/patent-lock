@@ -15,21 +15,25 @@ class UserSessionsController < ApplicationController
     @user_session = UserSession.new(params[:user_session])
     if @user_session.save
       flash[:notice] = I18n.t(:login_message)
-      if current_user.order
-        case current_user.order.state
-          when "pending_answers"
-            redirect_to questionnaire_questions_path("questions", Question.first.position)
-          when "pending_terms"
-            redirect_to questionnaire_terms_path
-          when "pending_payment"
-            redirect_to questionnaire_payment_path
-          when "pending_confirmation"
-            redirect_to questionnaire_confirmation_path
-          when "confirmed"
-            redirect_to questionnaire_thankyou_path
-        end
+      if params[:user_session][:patent_search]
+        redirect_to page_path("patent-search")
       else
-        redirect_to user_path(current_user)
+        if current_user.order
+          case current_user.order.state
+            when "pending_answers"
+              redirect_to questionnaire_questions_path("questions", Question.first.position)
+            when "pending_terms"
+              redirect_to questionnaire_terms_path
+            when "pending_payment"
+              redirect_to questionnaire_payment_path
+            when "pending_confirmation"
+              redirect_to questionnaire_confirmation_path
+            when "confirmed"
+              redirect_to questionnaire_thankyou_path
+          end
+        else
+          redirect_to user_path(current_user)
+        end
       end
     else
       render :action => :new

@@ -1,17 +1,19 @@
 <h1>My Account</h1>
-<% form_for(@user, :url => user_path, :html => { :id => "my_account", :class => "validate", :method => :put }) do |f| %>
-  	<p>
-  		<%= f.label :password, "Password:" %>
-  		<%= f.password_field :password, :class => "{" + ((params[:action] == "edit") ? "" : "required:true, ") + "minlength:6}" %>
-	</p>
-	<p>
-	  <%= f.label :password_confirmation, "Confirm Password:" %>
-	  <%= f.password_field :password_confirmation, :class => "{" + ((params[:action] == "edit") ? "" : "required:true, ") + "equalTo: '#user_password'}" %>
-	</p>
-	<p class ="checkbox">
-	  <%= f.check_box :newsletter %>
-	  <%= f.label :newsletter, "I would like to receive the PatentLock newsletter.<br/>Sent no more than once per month." %>
-	</p>
-  <%= submit_tag(t(:update), :class => "replacement submit") %>
-<% end %>
+<div id="register">
+	<% form_for(@user, :url => user_path, :html => { :id => "my_account", :class => "validate", :method => :put }) do |f| %>
+	  	<p>
+	  		<%= f.label :password, "Password:" %>
+	  		<%= f.password_field :password, :class => "{" + ((params[:action] == "edit") ? "" : "required:true, ") + "minlength:6}" %>
+		</p>
+		<p>
+		  <%= f.label :password_confirmation, "Confirm Password:" %>
+		  <%= f.password_field :password_confirmation, :class => "{" + ((params[:action] == "edit") ? "" : "required:true, ") + "equalTo: '#user_password'}" %>
+		</p>
+		<p class ="checkbox">
+		  <%= f.check_box :newsletter %>
+		  <%= f.label :newsletter, "I would like to receive the PatentLock newsletter.<br/>Sent no more than once per month." %>
+		</p>
+	  <%= submit_tag(t(:update), :class => "replacement submit") %>
+	<% end %>
+</div>
 <%= javascript "plugins/metadata", "plugins/validate" %>

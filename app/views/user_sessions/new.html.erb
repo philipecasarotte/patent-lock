@@ -6,6 +6,7 @@
   <% form_for @user_session, :url => user_session_path do |f| %>
     <h3>Login</h3>
     <%= f.error_messages %>
+	<%= f.hidden_field :patent_search, :value => true if params[:patent_search] %>
     <%= f.label :login, "username:" %>
     <%= f.text_field :login %>
     <%= f.label :password, "password:" %>

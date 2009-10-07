@@ -19,7 +19,7 @@
   <%= f.label :password_confirmation, "Confirm Password:" %>
   <%= f.password_field :password_confirmation, :class => "{" + ((params[:action] == "edit") ? "" : "required:true, ") + "equalTo: '#user_password'}" %>
 </p>
-<p class ="checkbox">
+<p class="checkbox">
   <%= f.check_box :newsletter %>
   <%= f.label :newsletter, "I would like to receive the PatentLock newsletter.<br/>Sent no more than once per month." %>
 </p>

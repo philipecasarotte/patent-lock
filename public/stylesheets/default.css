@@ -127,7 +127,7 @@ body {background:white url(../images/bg/body.png) repeat-x;font:12px "Trebuchet 
 #trademark form p.checkbox,
 #register form p.checkbox {background:none;float:right;}
 #trademark form p.checkbox label.small,
-#register form p.checkbox label {display:inline;float:right;width:370px;margin-top:5px;}
+#register form p.checkbox label {display:inline;float:right;width:370px;margin:0 0 0 10px;}
 #register form p.checkbox input {width:auto;float:left;}
 
 /*Trademarks*/
@@ -172,6 +172,9 @@ body {background:white url(../images/bg/body.png) repeat-x;font:12px "Trebuchet 
 #help_icon11 {margin:30px 0 0 3px;float:right;}
 #trademark form p.indent {margin-left:0;float:left;}
 #trademark form p select {width:390px;margin-left:5px;}
+#trademark form .checkbox label.error {float:right;margin:0 140px 0 0;}
+
+form#my_account {margin:10px 0 0 -40px;float:left;width:400px;}
 
 /*Questionnaire*/
 #questionnaire {margin-top:20px;width:940px;}
@@ -214,6 +217,11 @@ body {background:white url(../images/bg/body.png) repeat-x;font:12px "Trebuchet 
 #field_set.inline {background:url(../images/bg/input_06.jpg) left 20px no-repeat;height:auto !important;height:40px;min-height:40px;}
 #field_set textarea {height:50px !important;margin:10px 0 10px 10px;background-color:#EFEFEF;width:920px;}
 #field_set.inline input {height:20px !important;margin:10px 0 10px 10px;background-color:#EFEFEF;width:920px;}
+
+#sitemap li a {display:block;}
+#sitemap li {background:none;padding:5px;}
+#sitemap li.odd {background-color:#CCC;}
+#sitemap li.odd li {background-color:#EAEAEA;}
 
 /*Footer*/
 #footer {clear:both;background:url(../images/bg/footer.png) no-repeat;height:45px;padding:10px 20px 0 20px;font-size:10px;line-height:16px;}

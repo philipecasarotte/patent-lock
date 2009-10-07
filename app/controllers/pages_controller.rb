@@ -74,7 +74,7 @@ class PagesController < ApplicationController
     unless current_user
       store_location
       flash[:error] = I18n.t(:not_authorized)
-      redirect_to login_url
+      redirect_to login_url(:patent_search => true)
       return false
     end
     @order = Order.find_by_user_id(current_user)
