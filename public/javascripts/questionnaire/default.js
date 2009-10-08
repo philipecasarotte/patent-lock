@@ -9,7 +9,7 @@ $(document).ready(function() {
 	
 	//Save and Exit
 	$("#exit_button").click(function(){
-		$("#answer_save_and_exit").val("yes");
+		$("#order_save_and_exit").val("yes");
 		$("form").submit();
 	});
 });

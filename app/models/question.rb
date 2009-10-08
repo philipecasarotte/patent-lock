@@ -19,8 +19,8 @@ class Question < ActiveRecord::Base
   end
   
   def first?
-    @first_question = Question.first
-    unless self.position == @first_question.position
+    @first_question = Question.find(1)
+    unless self.id == @first_question.id
       return true
     end
   end

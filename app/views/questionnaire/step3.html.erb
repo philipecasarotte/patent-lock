@@ -1,4 +1,4 @@
-<h1>Provisional Patent Questionnaire &raquo; Step 1</h1>
+<h1>Provisional Patent Questionnaire &raquo; Step 3</h1>
 <div class="content_cms">
   <%= @page.body rescue "" %>
 </div>
@@ -8,33 +8,37 @@
     <%= hidden_field :order, :order_id, :value => @order.id %>
 	<%= hidden_field :order, :save_and_exit, :value => "" %>
 	
-	<div id="field_set" class="inline">
-	  <%= label :answer1, :body, "<strong>1.</strong> #{@question1.name} <small>#{@question1.info}</small>" %>
-	  <%= text_field :answer1, :body, :class => "required" %>
+	<%= label_tag "main_label", "<strong>4. Objectives and Problems Solved by Your Invention:</strong>" %>
+	<div id="field_set">
+	  <%= label :answer5, :body, "<strong>A.</strong> #{@question5.name} <small>#{@question5.info}</small>" %>
+	  <%= text_area :answer5, :body, :class => "required" %>
 	</div>
 	<%= image_tag "bt/info_tab.jpg", :alt => "More Information", :class => "more_info" %>
 	<div class="info_text">
-	  <%= @question1.help %>
+	  <%= @question5.help %>
 	</div>
 	
 	<div id="field_set">
-	  <%= label :answer2, :body, "<strong>2.</strong> #{@question2.name} <small>#{@question2.info}</small>" %>
-	  <%= text_area :answer2, :body, :class => "required" %>
+	  <%= label :answer6, :body, "<strong>B.</strong> #{@question6.name} <small>#{@question6.info}</small>" %>
+	  <%= text_area :answer6, :body, :class => "required" %>
 	</div>
 	<%= image_tag "bt/info_tab.jpg", :alt => "More Information", :class => "more_info" %>
 	<div class="info_text">
-	  <%= @question2.help %>
+	  <%= @question6.help %>
 	</div>
 	
     <div id="actions">
 	  <div id="progress_bar">
-	    <div style="width:<%= progress_bar(2.to_i)%>%;">&nbsp;</div>
-	    <p>PROGRESS BAR (<%= progress_bar(2.to_i)%>%)</p>
+	    <div style="width:<%= progress_bar(6.to_i)%>%;">&nbsp;</div>
+	    <p>PROGRESS BAR (<%= progress_bar(6.to_i)%>%)</p>
 	    <%= image_tag "bg/progress_bar_left_mask.png", :class => "left" %>
 	    <%= image_tag "bg/progress_bar_right_mask.png", :class => "right" %>
 	  </div>
 	  <div id="buttons">
+	  <% if @question6.first?  %>
+	    <%= link_to "Back", questionnaire_step2_path, :class => "back replacement" %>
 	    <%= submit_tag "Exit & Save", :id => "exit_button", :class => "saveexit replacement" %>
+	  <% end %>
 	    <%= submit_tag "Save & Continue", :class => "submit replacement" %>
 	  </div>
 	</div>

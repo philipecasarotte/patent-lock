@@ -4,15 +4,15 @@
 </div>
 <div id="questionnaire">
   <%= error_messages_for @object.class.to_s.underscore.to_sym %>
-  <% form_tag("step-1", :url => questionnaire_step1_path, :live_validations => true, :html => { :method => :put }) do %>
+  <% form_tag("step-2", :url => questionnaire_step2_path, :class => "validate", :method => :put ) do %>
     <%= hidden_field :order, :order_id, :value => @order.id %>
 	<%= hidden_field :save_and_exit, :value => "" %>
 	
 	<%= label_tag "main_label", "<strong>3. Inventorship</strong>" %>
 	<%= label :answer3, :body, "<strong>A.</strong> #{@question3.name} <small>#{@question3.info}</small>" %>
-	<%= radio_button :answer3, :body, "Yes" %>
+	<%= radio_button :answer3, :body, "Yes", :class => "required" %>
 	<%= label :answer3, :body_yes, "Yes", :class => "inline" %>
-	<%= radio_button :answer3, :body, "No" %>
+	<%= radio_button :answer3, :body, "No", :class => "required" %>
 	<%= label :answer3, :body_no, "No", :class => "inline" %>
 	
 	<%= image_tag "bt/info_tab.jpg", :alt => "More Information", :class => "more_info" %>
@@ -30,7 +30,37 @@
   			<%= label :inventor, :last_name, "* Last Name" %>
 			<%= text_field :inventor, :last_name, :class => "required" %> 
   		</p>
+		<p class="first">
+  			<%= label :inventor, :street_address, "* Street Address" %>
+			<%= text_field :inventor, :street_address, :class => "required" %> 
+  		</p>
+		<p class="first">
+  			<%= label :inventor, :state, "* State" %>
+			<%= us_state_select :inventor, :state, {:show => :full}, {:include_blank => 'Select a State'}, {:class => 'required'} %>
+  		</p>
+		<p class="first">
+  			<%= label :inventor, :email, "* Email" %>
+			<%= text_field :inventor, :email, :class => "required email" %> 
+  		</p>
   	</div>
+	<div id="column_first" class="right">
+		<p class="first">
+  			<%= label :inventor, :middle_name, "* Middel Name" %>
+			<%= text_field :inventor, :middle_name, :class => "required" %> 
+  		</p>
+		<p class="first">
+  			<%= label :inventor, :citizenship, "* Citizenship" %>
+			<%= text_field :inventor, :citizenship, :class => "required" %> 
+  		</p>
+		<p class="first">
+  			<%= label :inventor, :city, "* City" %>
+			<%= text_field :inventor, :city, :class => "required" %> 
+  		</p>
+		<p class="first">
+  			<%= label :inventor, :zipcode, "* ZIP Code" %>
+			<%= text_field :inventor, :zipcode, :class => "required" %> 
+  		</p>
+	</div>
 	
 	<%= image_tag "bt/info_tab.jpg", :alt => "More Information", :class => "more_info" %>
 	<div class="info_text">
@@ -46,7 +76,7 @@
 	  </div>
 	  <div id="buttons">
 	  <% if @question4.first?  %>
-	    <%= link_to "Back", questionnaire_questions_path("questions", @question4.previous), :class => "back replacement" %>
+	    <%= link_to "Back", questionnaire_step1_path, :class => "back replacement" %>
 	    <%= submit_tag "Exit & Save", :id => "exit_button", :class => "saveexit replacement" %>
 	  <% end %>
 	    <%= submit_tag "Save & Continue", :class => "submit replacement" %>

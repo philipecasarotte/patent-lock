@@ -16,7 +16,7 @@ class QuestionnaireController < ApplicationController
       @answer2_check = Answer.create_or_update({:order_id => params[:order][:order_id], :question_id => @question2.id, :body => params[:answer2][:body]})
       if @answer1_check and @answer2_check
         flash[:notice] = I18n.t(:success_update)
-        if params[:save_and_exit] == "yes"
+        if params[:order][:save_and_exit] == "yes"
           redirect_to logout_path
         else
           redirect_to questionnaire_step2_path
@@ -36,6 +36,51 @@ class QuestionnaireController < ApplicationController
     @answer4 = Answer.find_or_create_by_question_id(@question4.id)
   end
   
+  def step3
+    verify_questionnaire_on_hold
+    @page = Page.find_by_permalink("questionnaire")
+    
+    @question5 = Question.find(5)
+    @answer5 = Answer.find_or_create_by_question_id(@question5.id)
+    
+    @question6 = Question.find(6)
+    @answer6 = Answer.find_or_create_by_question_id(@question6.id)
+    
+    if request.post?
+      @answer5_check = Answer.create_or_update({:order_id => params[:order][:order_id], :question_id => @question5.id, :body => params[:answer1][:body]})
+      @answer6_check = Answer.create_or_update({:order_id => params[:order][:order_id], :question_id => @question6.id, :body => params[:answer2][:body]})
+      if @answer5_check and @answer6_check
+        flash[:notice] = I18n.t(:success_update)
+        if params[:order][:save_and_exit] == "yes"
+          redirect_to logout_path
+        else
+          redirect_to questionnaire_step4_path
+        end
+      end
+    end
+  end
+  
+  def step4
+    verify_questionnaire_on_hold
+    @page = Page.find_by_permalink("questionnaire")
+    
+    @question7 = Question.find(5)
+    @answer7 = Answer.find_or_create_by_question_id(@question7.id)
+    
+    if request.post?
+      @answer7_check = Answer.create_or_update({:order_id => params[:order][:order_id], :question_id => @question7.id, :body => params[:answer1][:body]})
+      if @answer7_check
+        flash[:notice] = I18n.t(:success_update)
+        if params[:order][:save_and_exit] == "yes"
+          redirect_to logout_path
+        else
+          redirect_to questionnaire_step5_path
+        end
+      end
+    end
+  end
+  
+  #************* OLD WAY ***************#
   def questions
     verify_questionnaire_on_hold
     @page = Page.find_by_permalink("questionnaire")

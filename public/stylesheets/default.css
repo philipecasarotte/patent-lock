@@ -204,6 +204,9 @@ form#my_account {margin:10px 0 0 -40px;float:left;width:400px;}
 #questionnaire form p.checkbox_small label {float:left;margin:8px 0 0 5px;}
 #questionnaire form p.checkbox_small input {margin-top:4px;float:left;}
 #questionnaire ol {margin-top:20px;}
+#questionnaire #column_first {float:left;width:540px;}
+#questionnaire #column_first select {width:390px;margin:5px 0 0 5px;}
+#questionnaire #column_first.right {float:right;width:400px;}
 
 #review_questions {margin:20px 0 0 40px;}
 #review_questions li {list-style-image:none;list-style:decimal;background:none;padding:5px;margin:0;}
