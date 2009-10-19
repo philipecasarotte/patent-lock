@@ -21,7 +21,7 @@ class UserSessionsController < ApplicationController
         if current_user.order
           case current_user.order.state
             when "pending_answers"
-              redirect_to questionnaire_questions_path("questions", Question.first.position)
+              redirect_to questionnaire_step1_path
             when "pending_terms"
               redirect_to questionnaire_terms_path
             when "pending_payment"

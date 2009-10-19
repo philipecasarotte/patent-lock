@@ -47,8 +47,8 @@ class QuestionnaireController < ApplicationController
     @answer6 = Answer.find_or_create_by_question_id(@question6.id)
     
     if request.post?
-      @answer5_check = Answer.create_or_update({:order_id => params[:order][:order_id], :question_id => @question5.id, :body => params[:answer1][:body]})
-      @answer6_check = Answer.create_or_update({:order_id => params[:order][:order_id], :question_id => @question6.id, :body => params[:answer2][:body]})
+      @answer5_check = Answer.create_or_update({:order_id => params[:order][:order_id], :question_id => @question5.id, :body => params[:answer5][:body]})
+      @answer6_check = Answer.create_or_update({:order_id => params[:order][:order_id], :question_id => @question6.id, :body => params[:answer6][:body]})
       if @answer5_check and @answer6_check
         flash[:notice] = I18n.t(:success_update)
         if params[:order][:save_and_exit] == "yes"
@@ -64,17 +64,37 @@ class QuestionnaireController < ApplicationController
     verify_questionnaire_on_hold
     @page = Page.find_by_permalink("questionnaire")
     
-    @question7 = Question.find(5)
+    @question7 = Question.find(7)
     @answer7 = Answer.find_or_create_by_question_id(@question7.id)
     
     if request.post?
-      @answer7_check = Answer.create_or_update({:order_id => params[:order][:order_id], :question_id => @question7.id, :body => params[:answer1][:body]})
+      @answer7_check = Answer.create_or_update({:order_id => params[:order][:order_id], :question_id => @question7.id, :body => params[:answer7][:body]})
       if @answer7_check
         flash[:notice] = I18n.t(:success_update)
         if params[:order][:save_and_exit] == "yes"
           redirect_to logout_path
         else
           redirect_to questionnaire_step5_path
+        end
+      end
+    end
+  end
+  
+  def step5
+    verify_questionnaire_on_hold
+    @page = Page.find_by_permalink("questionnaire")
+    
+    @question8 = Question.find(8)
+    @answer8 = Answer.find_or_create_by_question_id(@question8.id)
+    
+    if request.post?
+      @answer8_check = Answer.create_or_update({:order_id => params[:order][:order_id], :question_id => @question8.id, :body => params[:answer8][:body]})
+      if @answer8_check
+        flash[:notice] = I18n.t(:success_update)
+        if params[:order][:save_and_exit] == "yes"
+          redirect_to logout_path
+        else
+          redirect_to questionnaire_step6_path
         end
       end
     end

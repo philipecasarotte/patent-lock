@@ -3,7 +3,7 @@ module UsersHelper
     if current_user.order
       case current_user.order.state
         when "pending_answers"
-          questionnaire_questions_path("questions", Question.first.position)
+          questionnaire_step1_path
         when "pending_terms"
           questionnaire_terms_path
         when "pending_payment"

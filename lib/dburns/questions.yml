@@ -1,3 +1,10 @@
+question_08:
+  id: 8
+  name: "If there are different variantions of your invention, describe the now:"
+  help: "Help Text Here"
+  info: "Alternative embodiments may be described within your patent application."
+  position: 7
+
 question_07:
   id: 7
   name: "If your invention is not a device or apparatus, but rather involves a series of steps or is a method, describe in detail each and every step or method your invention takes."
