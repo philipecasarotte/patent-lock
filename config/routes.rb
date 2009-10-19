@@ -23,6 +23,7 @@ ActionController::Routing::Routes.draw do |map|
   map.questionnaire_step3 "/questionnaire/step-3", :controller => "questionnaire", :action => "step3"
   map.questionnaire_step4 "/questionnaire/step-4", :controller => "questionnaire", :action => "step4"
   map.questionnaire_step5 "/questionnaire/step-5", :controller => "questionnaire", :action => "step5"
+  map.questionnaire_step6 "/questionnaire/step-6", :controller => "questionnaire", :action => "step6"
   
   map.questionnaire_payment "/questionnaire/payment", :controller => "questionnaire", :action => "payment"
   map.questionnaire_terms "/questionnaire/terms", :controller => "questionnaire", :action => "terms"

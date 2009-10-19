@@ -100,6 +100,26 @@ class QuestionnaireController < ApplicationController
     end
   end
   
+  def step6
+    verify_questionnaire_on_hold
+    @page = Page.find_by_permalink("questionnaire")
+    
+    @question9 = Question.find(9)
+    @answer9 = Answer.find_or_create_by_question_id(@question9.id)
+    
+    if request.post?
+      @answer9_check = Answer.create_or_update({:order_id => params[:order][:order_id], :question_id => @question9.id, :body => params[:answer9][:body]})
+      if @answer9_check
+        flash[:notice] = I18n.t(:success_update)
+        if params[:order][:save_and_exit] == "yes"
+          redirect_to logout_path
+        else
+          redirect_to questionnaire_step7_path
+        end
+      end
+    end
+  end
+  
   #************* OLD WAY ***************#
   def questions
     verify_questionnaire_on_hold
