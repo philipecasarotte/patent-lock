@@ -16,7 +16,7 @@ module UsersHelper
           user_path(current_user)
       end
     else
-      questionnaire_questions_path("questions", Question.first.position)
+      questionnaire_step1_path
     end rescue new_user_path
   end
 end
