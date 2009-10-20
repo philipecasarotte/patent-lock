@@ -178,7 +178,7 @@ class QuestionnaireController < ApplicationController
   
   def verify_questionnaire_on_hold
     @order = Order.find_by_user_id(current_user)
-    if @order.state == "pending_answers" and Configuration.first.questionnaire_on_hold == true
+    if Configuration.first.questionnaire_on_hold == true #@order.state == "pending_answers" and 
       redirect_to questionnaire_on_hold_path
     end
   end

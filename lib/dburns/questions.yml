@@ -1,3 +1,10 @@
+question_09:
+  id: 9
+  name: "Do you have any drawings, diagrams or flowcharts that further describe your invention?"
+  help: "Help Text Here"
+  info: ""
+  position: 8
+
 question_08:
   id: 8
   name: "If there are different variantions of your invention, describe the now:"

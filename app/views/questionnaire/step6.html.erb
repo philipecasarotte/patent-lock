@@ -8,11 +8,11 @@
     <%= hidden_field :order, :order_id, :value => @order.id %>
 	<%= hidden_field :order, :save_and_exit, :value => "" %>
 	
-	<%= label_tag "main_label", "<strong>9. Alternatives and Variations:</strong>" %>
-	<div id="field_set">
-	  <%= label :answer9, :body, "#{@question9.name} <small>#{@question9.info}</small>" %>
-	  <%= text_area :answer9, :body, :class => "required" %>
-	</div>
+	<%= label_tag "main_label", "<strong>9. Drawings:</strong>" %>
+	<%= label :answer9, :body, "#{@question9.name} <small>#{@question9.info}</small>" %><br/>
+	<%= file_field :answer9, :file, :class => "required" %><br/><br/>
+	<%= file_field :answer9, :file, :class => "required" %><br/><br/>
+	<%= file_field :answer9, :file, :class => "required" %><br/><br/>
 	<%= image_tag "bt/info_tab.jpg", :alt => "More Information", :class => "more_info" %>
 	<div class="info_text">
 	  <%= @question9.help %>
@@ -27,7 +27,7 @@
 	  </div>
 	  <div id="buttons">
 	  <% if @question9.first?  %>
-	    <%= link_to "Back", questionnaire_step4_path, :class => "back replacement" %>
+	    <%= link_to "Back", questionnaire_step5_path, :class => "back replacement" %>
 	    <%= submit_tag "Exit & Save", :id => "exit_button", :class => "saveexit replacement" %>
 	  <% end %>
 	    <%= submit_tag "Save & Continue", :class => "submit replacement" %>

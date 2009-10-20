@@ -16,7 +16,7 @@ class UserSessionsControllerTest < ActionController::TestCase
 
       should_assign_to :user_session
       should_set_the_flash_to "Logged in successfully"
-      should_redirect_to('the state of user order') { questionnaire_questions_path("questions", Question.first.position) }
+      should_redirect_to('the state of user order') { "/questionnaire/step-1" }
       should "assign the user session" do
         assert user_session = UserSession.find
         assert_equal @user, user_session.user
