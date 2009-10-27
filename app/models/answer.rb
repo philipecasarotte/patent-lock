@@ -11,5 +11,5 @@ class Answer < ActiveRecord::Base
       record.attributes = options
       record.save!
       record
-    end
+  end
 end

@@ -107,9 +107,17 @@ class QuestionnaireController < ApplicationController
     @question9 = Question.find(9)
     @answer9 = Answer.find_or_create_by_question_id(@question9.id)
     
+    @drawings = Drawing.all(:conditions => ["order_id = ?", @order.id])
+    
+    @drawing1 = @drawings.first
+    @drawing2 = @drawings.second
+    @drawing3 = @drawings.third
+    
     if request.post?
-      @answer9_check = Answer.create_or_update({:order_id => params[:order][:order_id], :question_id => @question9.id, :body => params[:answer9][:body]})
-      if @answer9_check
+      @drawing1 = Drawing.create_or_update({:order_id => params[:order][:order_id], :position => 1, :image => params[:drawing1][:image]}) if params[:drawing1]
+      @drawing2 = Drawing.create_or_update({:order_id => params[:order][:order_id], :position => 2, :image => params[:drawing2][:image]}) if params[:drawing2]
+      @drawing3 = Drawing.create_or_update({:order_id => params[:order][:order_id], :position => 3, :image => params[:drawing3][:image]}) if params[:drawing3]
+      if @drawing1 or @drawing2 or @drawing3
         flash[:notice] = I18n.t(:success_update)
         if params[:order][:save_and_exit] == "yes"
           redirect_to logout_path
@@ -118,6 +126,11 @@ class QuestionnaireController < ApplicationController
         end
       end
     end
+  end
+  
+  def step7
+    verify_questionnaire_on_hold
+    @answers = Answer.all(:conditions => ["order_id = ?", @order.id])
   end
   
   #************* OLD WAY ***************#

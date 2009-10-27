@@ -4,6 +4,8 @@ class Order < ActiveRecord::Base
   
   belongs_to :user
   has_many :answers
+  has_many :drawings
+  has_many :inventors
   
   acts_as_state_machine :initial => :pending_answers
   

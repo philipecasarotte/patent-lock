@@ -79,6 +79,9 @@ Rails::Initializer.run do |config|
   SITE_EMAIL = "info@#{SITE_DOMAIN}"
   SITE_META_KEYWORDS = ""
   
+  PAPERCLIP_PATH = ":rails_root/public/system/:class/:id/:style/:basename.:extension"
+  PAPERCLIP_URL = "/system/:class/:id/:style/:basename.:extension"
+  
   MERCHANT_ID = "637492163835195"
   MERCHANT_KEY = "12RKUL9Ef22mFi2xpO0cBw"
   

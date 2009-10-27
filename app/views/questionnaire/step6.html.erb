@@ -4,15 +4,18 @@
 </div>
 <div id="questionnaire">
   <%= error_messages_for @object.class.to_s.underscore.to_sym %>
-  <% form_tag("step-6", :url => questionnaire_step6_path, :class => "validate", :method => :post ) do %>
+  <% form_tag("step-6", :url => questionnaire_step6_path, :class => "validate", :method => :post, :multipart => true ) do %>
     <%= hidden_field :order, :order_id, :value => @order.id %>
 	<%= hidden_field :order, :save_and_exit, :value => "" %>
 	
 	<%= label_tag "main_label", "<strong>9. Drawings:</strong>" %>
 	<%= label :answer9, :body, "#{@question9.name} <small>#{@question9.info}</small>" %><br/>
-	<%= file_field :answer9, :file, :class => "required" %><br/><br/>
-	<%= file_field :answer9, :file, :class => "required" %><br/><br/>
-	<%= file_field :answer9, :file, :class => "required" %><br/><br/>
+	<%= file_field :drawing1, :image %><br/><br/>
+	<%= image_tag @drawing1.image.url(:thumb) if @drawing1 and @drawing1.image.url.present? %><br/><br/>
+	<%= file_field :drawing2, :image %><br/><br/>
+	<%= image_tag @drawing2.image.url(:thumb) if @drawing2 and @drawing2.image.url.present? %><br/><br/>
+	<%= file_field :drawing3, :image %><br/><br/>
+	<%= image_tag @drawing3.image.url(:thumb) if @drawing3 and @drawing3.image.url.present? %><br/><br/>
 	<%= image_tag "bt/info_tab.jpg", :alt => "More Information", :class => "more_info" %>
 	<div class="info_text">
 	  <%= @question9.help %>
