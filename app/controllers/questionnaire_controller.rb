@@ -122,15 +122,10 @@ class QuestionnaireController < ApplicationController
         if params[:order][:save_and_exit] == "yes"
           redirect_to logout_path
         else
-          redirect_to questionnaire_step7_path
+          redirect_to questionnaire_terms_path
         end
       end
     end
-  end
-  
-  def step7
-    verify_questionnaire_on_hold
-    @answers = Answer.all(:conditions => ["order_id = ?", @order.id])
   end
   
   #************* OLD WAY ***************#
@@ -142,7 +137,15 @@ class QuestionnaireController < ApplicationController
   end
   
   def terms
-    @answers = @order.answers
+    @question1 = Question.find(1)
+    @answer1 = Answer.first(:conditions => ["order_id = ? AND question_id = ?", @order.id, @question1.id])
+    
+    @question2 = Question.find(2)
+    @answer2 = Answer.first(:conditions => ["order_id = ? AND question_id = ?", @order.id, @question2.id])
+    
+    @question3 = Question.find(3)
+    @answer3 = Answer.first(:conditions => ["order_id = ? AND question_id = ?", @order.id, @question3.id])
+    
     @page = Page.find_by_permalink("review-your-answers")
     @terms = Page.find_by_permalink("terms-of-service")
     if request.post?

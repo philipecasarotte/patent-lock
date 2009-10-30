@@ -49,14 +49,14 @@ question_03:
 
 question_02:
   id: 2
-  name: "Title of the Invention:"
+  name: "Brief Description"
   help: "Help Text Here"
-  info: "Provide a brief 1 to 3 sentence description of what your invention does."
+  info: "Provide a brief title of the invention."
   position: 1
 
 question_01:
   id: 1
-  name: "Brief Description"
+  name: "Title of the Invention:"
   help: "Help Text Here"
-  info: "Provide a brief title of the invention."
+  info: "Provide a brief 1 to 3 sentence description of what your invention does."
   position: 0

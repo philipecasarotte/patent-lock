@@ -6,7 +6,7 @@ class Question < ActiveRecord::Base
   
   has_many :answers
   
-  default_scope :order => "position ASC"
+  default_scope :order => "id, position ASC"
   
   def next
     arr = Question.all

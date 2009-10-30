@@ -3,7 +3,7 @@ class Order < ActiveRecord::Base
   before_create :set_price
   
   belongs_to :user
-  has_many :answers
+  has_many :answers, :order => "question_id"
   has_many :drawings
   has_many :inventors
   

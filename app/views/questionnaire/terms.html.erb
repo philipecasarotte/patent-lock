@@ -1,15 +1,18 @@
-<h1>Provisional Patent Questionnaire &raquo; Terms Acceptance</h1>
+<h1>Provisional Patent Questionnaire &raquo; <%= @page.name %></h1>
 <div class="content_cms">
-  <h2><%= @page.name %></h2>
   <%= @page.body %>
-  <ol id="review_questions">
-  <% @answers.each do |answer| %>
-    <li <%= cycle("class='odd'", "") %>>
-      <strong><%= answer.question.name %></strong>
-      <p><%= answer.body %></p>
-    </li>
-  <% end %>
-  </ol>
+</div>
+<div class="question_answers">
+	<p><strong>1.</strong><%= @question1.name %></p>
+	<div><%= simple_format @answer1.body %></div>
+</div>
+<div class="question_answers">
+	<p><strong>2.</strong><%= @question2.name %></p>
+	<div><%= simple_format @answer2.body %></div>
+</div>
+<div class="question_answers">
+	<p><strong>3.</strong><%= @question3.name %></p>
+	<div><%= simple_format @answer3.body %></div>
 </div>
 <div id="questionnaire">
   <%= error_messages_for @object.class.to_s.underscore.to_sym %>

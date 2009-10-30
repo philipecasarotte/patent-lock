@@ -216,6 +216,8 @@ form#my_account {margin:10px 0 0 -40px;float:left;width:400px;}
 #questionnaire p#terms_big {height:210px !important;background:url(../images/bg/input_05.jpg) left top no-repeat;}
 #questionnaire p#terms_big textarea {height:190px !important;}
 
+.question_answers {width:400px;margin:20px;}
+
 #field_set {background:url(../images/bg/input_04.jpg) left 20px no-repeat;height:auto !important;height:70px;min-height:70px;}
 #field_set.inline {background:url(../images/bg/input_06.jpg) left 20px no-repeat;height:auto !important;height:40px;min-height:40px;}
 #field_set textarea {height:50px !important;margin:10px 0 10px 10px;background-color:#EFEFEF;width:920px;}
