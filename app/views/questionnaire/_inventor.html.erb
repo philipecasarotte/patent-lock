@@ -1,0 +1,46 @@
+<% fields_for :inventors, inventor, :child_index => (inventor.new_record? ? 'index_to_replace_with_js' : nil) do |inventor_form| %>
+	<table id='column_first' class='less'>
+	   	<tr>
+			<td>
+				<p class='first'>
+			 		<%= inventor_form.label :first_name, '* First Name' %>
+					<%= inventor_form.text_field :first_name, :class => 'required' %> 
+			 	</p>
+				<p class='first'>
+			 		<%= inventor_form.label :last_name, '* Last Name' %>
+					<%= inventor_form.text_field :last_name, :class => 'required' %> 
+			 	</p>
+				<p class='first'>
+			 		<%= inventor_form.label :street_address, '* Street Address' %>
+					<%= inventor_form.text_field :street_address, :class => 'required' %> 
+			 	</p>
+				<p class='first'>
+			 		<%= inventor_form.label :state, '* State' %>
+					<%= inventor_form.us_state_select :state, {:show => :full}, {:include_blank => 'Select a State'}, {:class => 'required'} %>
+			 	</p>
+				<p class='first'>
+			 		<%= inventor_form.label :email, '* Email' %>
+					<%= inventor_form.text_field :email, :class => 'required email' %> 
+			 	</p>
+			</td>
+			<td>
+				<p class='first'>
+			 		<%= inventor_form.label :middle_name, '* Middel Name' %>
+					<%= inventor_form.text_field :middle_name, :class => 'required' %> 
+			 	</p>
+				<p class='first'>
+			 		<%= inventor_form.label :citizenship, '* Citizenship' %>
+					<%= inventor_form.text_field :citizenship, :class => 'required' %> 
+			 	</p>
+				<p class='first'>
+			 		<%= inventor_form.label :city, '* City' %>
+					<%= inventor_form.text_field :city, :class => 'required' %> 
+			 	</p>
+				<p class='first'>
+			 		<%= inventor_form.label :zipcode, '* ZIP Code' %>
+					<%= inventor_form.text_field :zipcode, :class => 'required' %> 
+			 	</p>
+			</td>
+		</tr>
+	</table>
+<% end %>

@@ -34,6 +34,21 @@ class QuestionnaireController < ApplicationController
     
     @question4 = Question.find(4)
     @answer4 = Answer.find_or_create_by_question_id(@question4.id)
+    
+    @order.inventors.build
+    
+    if request.post?
+      @answer3_check = Answer.create_or_update({:order_id => params[:order][:order_id], :question_id => @question3.id, :body => params[:answer3][:body]})
+      @answer4_check = Answer.create_or_update({:order_id => params[:order][:order_id], :question_id => @question4.id, :body => params[:answer4][:body]})
+      if @answer3_check and @answer4_check
+        flash[:notice] = I18n.t(:success_update)
+        if params[:order][:save_and_exit] == "yes"
+          redirect_to logout_path
+        else
+          redirect_to questionnaire_step3_path
+        end
+      end
+    end
   end
   
   def step3

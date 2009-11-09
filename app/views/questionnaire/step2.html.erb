@@ -4,7 +4,7 @@
 </div>
 <div id="questionnaire">
   <%= error_messages_for @object.class.to_s.underscore.to_sym %>
-  <% form_tag("step-2", :url => questionnaire_step2_path, :class => "validate", :method => :put ) do %>
+  <% form_tag("step-2", :url => questionnaire_step2_path, :class => "validate", :method => :post ) do %>
     <%= hidden_field :order, :order_id, :value => @order.id %>
 	<%= hidden_field :save_and_exit, :value => "" %>
 	
@@ -21,46 +21,10 @@
 	</div>
 	
 	<%= label :answer4, :body, "<strong>B.</strong> #{@question4.name} <small>#{@question4.info}</small>" %>
-  	<div id="column_first" class="less">
-    	<p class="first">
-  			<%= label :inventor, :first_name, "* First Name" %>
-			<%= text_field :inventor, :first_name, :class => "required" %> 
-  		</p>
-		<p class="first">
-  			<%= label :inventor, :last_name, "* Last Name" %>
-			<%= text_field :inventor, :last_name, :class => "required" %> 
-  		</p>
-		<p class="first">
-  			<%= label :inventor, :street_address, "* Street Address" %>
-			<%= text_field :inventor, :street_address, :class => "required" %> 
-  		</p>
-		<p class="first">
-  			<%= label :inventor, :state, "* State" %>
-			<%= us_state_select :inventor, :state, {:show => :full}, {:include_blank => 'Select a State'}, {:class => 'required'} %>
-  		</p>
-		<p class="first">
-  			<%= label :inventor, :email, "* Email" %>
-			<%= text_field :inventor, :email, :class => "required email" %> 
-  		</p>
-  	</div>
-	<div id="column_first" class="right">
-		<p class="first">
-  			<%= label :inventor, :middle_name, "* Middel Name" %>
-			<%= text_field :inventor, :middle_name, :class => "required" %> 
-  		</p>
-		<p class="first">
-  			<%= label :inventor, :citizenship, "* Citizenship" %>
-			<%= text_field :inventor, :citizenship, :class => "required" %> 
-  		</p>
-		<p class="first">
-  			<%= label :inventor, :city, "* City" %>
-			<%= text_field :inventor, :city, :class => "required" %> 
-  		</p>
-		<p class="first">
-  			<%= label :inventor, :zipcode, "* ZIP Code" %>
-			<%= text_field :inventor, :zipcode, :class => "required" %> 
-  		</p>
-	</div>
+
+	<div id="patent_inventors"></div>
+	<div class="bt_add"><%= add_object_link("Add Inventor", Inventor.new, "inventor", "#patent_inventors") %></div>
+
 	
 	<%= image_tag "bt/info_tab.jpg", :alt => "More Information", :class => "more_info" %>
 	<div class="info_text">
