@@ -37,9 +37,14 @@ class QuestionnaireController < ApplicationController
     
     @order.inventors.build
     
+    @inventors = @order.inventors
+    
     if request.post?
       @answer3_check = Answer.create_or_update({:order_id => params[:order][:order_id], :question_id => @question3.id, :body => params[:answer3][:body]})
-      @answer4_check = Answer.create_or_update({:order_id => params[:order][:order_id], :question_id => @question4.id, :body => params[:answer4][:body]})
+      @answer4_check = Answer.create_or_update({:order_id => params[:order][:order_id], :question_id => @question4.id, :body => "#{params[:inventors][:first_name]} #{params[:inventors][:last_name]}"})
+      
+      @inventors = Inventor.create_or_update({:order_id => params[:order][:order_id], :first_name => params[:inventors][:first_name], :middle_name => params[:inventors][:middle_name], :last_name => params[:inventors][:last_name], :citizenship => params[:inventors][:citizenship], :street_address => params[:inventors][:street_address], :city => params[:inventors][:city], :state => params[:inventors][:state], :zipcode => params[:inventors][:zipcode], :email => params[:inventors][:email]})
+      
       if @answer3_check and @answer4_check
         flash[:notice] = I18n.t(:success_update)
         if params[:order][:save_and_exit] == "yes"
