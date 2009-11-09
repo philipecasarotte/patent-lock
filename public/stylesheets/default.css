@@ -228,6 +228,9 @@ form#my_account {margin:10px 0 0 -40px;float:left;width:400px;}
 #sitemap li.odd {background-color:#CCC;}
 #sitemap li.odd li {background-color:#EAEAEA;}
 
+/*Investors*/
+#inventors {width:100%;margin:0 auto;border-bottom:solid 1px #CCC;margin-bottom:20px;}
+
 /*Footer*/
 #footer {clear:both;background:url(../images/bg/footer.png) no-repeat;height:45px;padding:10px 20px 0 20px;font-size:10px;line-height:16px;}
 #footer ul {float:left;margin:10px 140px 0 0;}

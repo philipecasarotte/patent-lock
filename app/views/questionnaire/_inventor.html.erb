@@ -1,7 +1,7 @@
 <% fields_for :inventors, inventor, :child_index => (inventor.new_record? ? 'index_to_replace_with_js' : nil) do |inventor_form| %>
-	<table id='column_first' class='less'>
+	<table id='inventors'>
 	   	<tr>
-			<td>
+			<td valign="top">
 				<p class='first'>
 			 		<%= inventor_form.label :first_name, '* First Name' %>
 					<%= inventor_form.text_field :first_name, :class => 'required' %> 
@@ -23,7 +23,7 @@
 					<%= inventor_form.text_field :email, :class => 'required email' %> 
 			 	</p>
 			</td>
-			<td>
+			<td valign="top">
 				<p class='first'>
 			 		<%= inventor_form.label :middle_name, '* Middel Name' %>
 					<%= inventor_form.text_field :middle_name, :class => 'required' %> 
