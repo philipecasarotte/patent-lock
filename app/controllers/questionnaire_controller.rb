@@ -37,7 +37,7 @@ class QuestionnaireController < ApplicationController
     
     @order.inventors.build
     
-    @inventors = @order.inventors
+    @inventors = Inventor.all(:conditions => ["order_id = ?", @order.id])
     
     if request.post?
       @answer3_check = Answer.create_or_update({:order_id => params[:order][:order_id], :question_id => @question3.id, :body => params[:answer3][:body]})
@@ -87,9 +87,17 @@ class QuestionnaireController < ApplicationController
     @question7 = Question.find(7)
     @answer7 = Answer.find_or_create_by_question_id(@question7.id)
     
+    @question8 = Question.find(8)
+    @answer8 = Answer.find_or_create_by_question_id(@question8.id)
+    
+    @question9 = Question.find(9)
+    @answer9 = Answer.find_or_create_by_question_id(@question9.id)
+    
     if request.post?
       @answer7_check = Answer.create_or_update({:order_id => params[:order][:order_id], :question_id => @question7.id, :body => params[:answer7][:body]})
-      if @answer7_check
+      @answer8_check = Answer.create_or_update({:order_id => params[:order][:order_id], :question_id => @question8.id, :body => params[:answer8][:body]})
+      @answer9_check = Answer.create_or_update({:order_id => params[:order][:order_id], :question_id => @question9.id, :body => params[:answer9][:body]})
+      if @answer7_check and @answer8_check and @answer9_check
         flash[:notice] = I18n.t(:success_update)
         if params[:order][:save_and_exit] == "yes"
           redirect_to logout_path
@@ -104,12 +112,12 @@ class QuestionnaireController < ApplicationController
     verify_questionnaire_on_hold
     @page = Page.find_by_permalink("questionnaire")
     
-    @question8 = Question.find(8)
-    @answer8 = Answer.find_or_create_by_question_id(@question8.id)
+    @question10 = Question.find(10)
+    @answer10 = Answer.find_or_create_by_question_id(@question10.id)
     
     if request.post?
-      @answer8_check = Answer.create_or_update({:order_id => params[:order][:order_id], :question_id => @question8.id, :body => params[:answer8][:body]})
-      if @answer8_check
+      @answer10_check = Answer.create_or_update({:order_id => params[:order][:order_id], :question_id => @question10.id, :body => params[:answer10][:body]})
+      if @answer10_check
         flash[:notice] = I18n.t(:success_update)
         if params[:order][:save_and_exit] == "yes"
           redirect_to logout_path
@@ -124,8 +132,48 @@ class QuestionnaireController < ApplicationController
     verify_questionnaire_on_hold
     @page = Page.find_by_permalink("questionnaire")
     
-    @question9 = Question.find(9)
-    @answer9 = Answer.find_or_create_by_question_id(@question9.id)
+    @question11 = Question.find(11)
+    @answer11 = Answer.find_or_create_by_question_id(@question11.id)
+    
+    if request.post?
+      @answer11_check = Answer.create_or_update({:order_id => params[:order][:order_id], :question_id => @question11.id, :body => params[:answer11][:body]})
+      if @answer11_check
+        flash[:notice] = I18n.t(:success_update)
+        if params[:order][:save_and_exit] == "yes"
+          redirect_to logout_path
+        else
+          redirect_to questionnaire_step7_path
+        end
+      end
+    end
+  end
+  
+  def step7
+    verify_questionnaire_on_hold
+    @page = Page.find_by_permalink("questionnaire")
+    
+    @question12 = Question.find(12)
+    @answer12 = Answer.find_or_create_by_question_id(@question12.id)
+    
+    if request.post?
+      @answer12_check = Answer.create_or_update({:order_id => params[:order][:order_id], :question_id => @question12.id, :body => params[:answer12][:body]})
+      if @answer12_check
+        flash[:notice] = I18n.t(:success_update)
+        if params[:order][:save_and_exit] == "yes"
+          redirect_to logout_path
+        else
+          redirect_to questionnaire_step8_path
+        end
+      end
+    end
+  end
+  
+  def step8
+    verify_questionnaire_on_hold
+    @page = Page.find_by_permalink("questionnaire")
+    
+    @question13 = Question.find(13)
+    @answer13 = Answer.find_or_create_by_question_id(@question13.id)
     
     @drawings = Drawing.all(:conditions => ["order_id = ?", @order.id])
     
@@ -165,6 +213,25 @@ class QuestionnaireController < ApplicationController
     
     @question3 = Question.find(3)
     @answer3 = Answer.first(:conditions => ["order_id = ? AND question_id = ?", @order.id, @question3.id])
+    
+    @question4 = Question.find(4)
+    @answer4 = Answer.first(:conditions => ["order_id = ? AND question_id = ?", @order.id, @question4.id])
+    @inventors = Inventor.all(:conditions => ["order_id = ?", @order.id])
+    
+    @question5 = Question.find(5)
+    @answer5 = Answer.first(:conditions => ["order_id = ? AND question_id = ?", @order.id, @question5.id])
+    
+    @question6 = Question.find(6)
+    @answer6 = Answer.first(:conditions => ["order_id = ? AND question_id = ?", @order.id, @question6.id])
+    
+    @question7 = Question.find(7)
+    @answer7 = Answer.first(:conditions => ["order_id = ? AND question_id = ?", @order.id, @question7.id])
+    
+    @question8 = Question.find(8)
+    @answer8 = Answer.first(:conditions => ["order_id = ? AND question_id = ?", @order.id, @question8.id])
+    
+    @question9 = Question.find(9)
+    @answer9 = Answer.first(:conditions => ["order_id = ? AND question_id = ?", @order.id, @question9.id])
     
     @page = Page.find_by_permalink("review-your-answers")
     @terms = Page.find_by_permalink("terms-of-service")

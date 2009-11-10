@@ -8,25 +8,25 @@
     <%= hidden_field :order, :order_id, :value => @order.id %>
 	<%= hidden_field :order, :save_and_exit, :value => "" %>
 	
-	<%= label_tag "main_label", "<strong>8. Alternatives and Variations:</strong>" %>
+	<%= label_tag "main_label", "<strong>6. Methods and Steps:</strong>" %>
 	<div id="field_set">
-	  <%= label :answer8, :body, "#{@question8.name} <small>#{@question8.info}</small>" %>
-	  <%= text_area :answer8, :body, :class => "required" %>
+	  <%= label :answer10, :body, "#{@question10.name} <small>#{@question10.info}</small>" %>
+	  <%= text_area :answer10, :body, :class => "required" %>
 	</div>
 	<%= image_tag "bt/info_tab.jpg", :alt => "More Information", :class => "more_info" %>
 	<div class="info_text">
-	  <%= @question8.help %>
+	  <%= @question10.help %>
 	</div>
 	
     <div id="actions">
 	  <div id="progress_bar">
-	    <div style="width:<%= progress_bar(7.to_i)%>%;">&nbsp;</div>
-	    <p>PROGRESS BAR (<%= progress_bar(7.to_i)%>%)</p>
+	    <div style="width:<%= progress_bar(10.to_i)%>%;">&nbsp;</div>
+	    <p>PROGRESS BAR (<%= progress_bar(10.to_i)%>%)</p>
 	    <%= image_tag "bg/progress_bar_left_mask.png", :class => "left" %>
 	    <%= image_tag "bg/progress_bar_right_mask.png", :class => "right" %>
 	  </div>
 	  <div id="buttons">
-	  <% if @question8.first?  %>
+	  <% if @question10.first?  %>
 	    <%= link_to "Back", questionnaire_step4_path, :class => "back replacement" %>
 	    <%= submit_tag "Exit & Save", :id => "exit_button", :class => "saveexit replacement" %>
 	  <% end %>

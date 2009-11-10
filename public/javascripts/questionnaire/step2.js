@@ -1,7 +1,4 @@
-$(document).ready(function() {	
-	
-	$(".bt_add a").click();
-	
+$(document).ready(function() {
 	//Yes
 	$("#answer3_body_yes").click(function(){
 		$(".bt_add").hide();
@@ -14,5 +11,7 @@ $(document).ready(function() {
 	
 	if (sole == "Yes"){
 		$(".bt_add").hide();
+	}else{
+		$(".bt_add a").click();
 	};
 });

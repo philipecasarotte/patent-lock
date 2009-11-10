@@ -4,8 +4,8 @@ class Order < ActiveRecord::Base
   
   belongs_to :user
   has_many :answers, :order => "question_id"
-  has_many :drawings
-  has_many :inventors
+  has_many :drawings, :dependent => :destroy
+  has_many :inventors, :dependent => :destroy
   
   acts_as_state_machine :initial => :pending_answers
   

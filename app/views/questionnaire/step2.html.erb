@@ -10,13 +10,12 @@
 	
 	<%= label_tag "main_label", "<strong>3. Inventorship</strong>" %>
 	<%= label :answer3, :body, "<strong>A.</strong> #{@question3.name} <small>#{@question3.info}</small>" %>
-	<%= radio_button :answer3, :body, "Yes", :class => "required" %>
+	<%= radio_button :answer3, :body, "Yes", :class => "small required" %>
 	<%= label :answer3, :body_yes, "Yes", :class => "inline" %>
-	<%= radio_button :answer3, :body, "No", :class => "required" %>
+	<%= radio_button :answer3, :body, "No", :class => "small required" %>
 	<%= label :answer3, :body_no, "No", :class => "inline" %>
-	
-	<div class="break">&nbsp;</div>
-	
+	<br/>
+	<br/>	
 	<%= image_tag "bt/info_tab.jpg", :alt => "More Information", :class => "more_info" %>
 	<div class="info_text">
 	  <%= @question3.help %>
@@ -24,9 +23,52 @@
 	
 	<%= label :answer4, :body, "<strong>B.</strong> #{@question4.name} <small>#{@question4.info}</small>" %>
 	
-	<% @inventors.each do |inventor| %>
-		<%= inventor.first_name %>
-	<% end %>
+	<!-- <% @inventors.each do |inventor| %>
+		<table id='inventors'>
+		   	<tr>
+				<td valign="top">
+					<p class='first'>
+				 		<%= label :inventor, :first_name, '* First Name' %>
+						<%= text_field  :inventor, :first_name, :class => 'required' %> 
+				 	</p>
+					<p class='first'>
+				 		<%= label  :inventor, :last_name, '* Last Name' %>
+						<%= text_field  :inventor, :last_name, :class => 'required' %> 
+				 	</p>
+					<p class='first'>
+				 		<%= label  :inventor, :street_address, '* Street Address' %>
+						<%= text_field  :inventor, :street_address, :class => 'required' %> 
+				 	</p>
+					<p class='first'>
+				 		<%= label  :inventor, :state, '* State' %>
+						<%= us_state_select  :inventor, :state, {:show => :full}, {:include_blank => 'Select a State'}, {:class => 'required'} %>
+				 	</p>
+					<p class='first'>
+				 		<%= label  :inventor, :email, '* Email' %>
+						<%= text_field  :inventor, :email, :class => 'required email' %> 
+				 	</p>
+				</td>
+				<td valign="top">
+					<p class='first'>
+				 		<%= label  :inventor, :middle_name, '* Middel Name' %>
+						<%= text_field  :inventor, :middle_name, :class => 'required' %> 
+				 	</p>
+					<p class='first'>
+				 		<%= label  :inventor, :citizenship, '* Citizenship' %>
+						<%= text_field  :inventor, :citizenship, :class => 'required' %> 
+				 	</p>
+					<p class='first'>
+				 		<%= label  :inventor, :city, '* City' %>
+						<%= text_field  :inventor, :city, :class => 'required' %> 
+				 	</p>
+					<p class='first'>
+				 		<%= label  :inventor, :zipcode, '* ZIP Code' %>
+						<%= text_field  :inventor, :zipcode, :class => 'required' %> 
+				 	</p>
+				</td>
+			</tr>
+		</table>
+	<% end %> -->
 	
 	<div id="patent_inventors"></div>
 	<div class="bt_add"><%= add_object_link(image_tag("bt/add_inventor.jpg", :alt => "Add Inventor"), Inventor.new, "inventor", "#patent_inventors") %></div>

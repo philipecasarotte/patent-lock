@@ -1,20 +1,55 @@
-question_09:
-  id: 9
+question_14:
+  id: 14
+  name: "Would you like to conduct a patent search?"
+  help: "Help Text Here"
+  info: ""
+  position: 13
+
+question_13:
+  id: 13
   name: "Do you have any drawings, diagrams or flowcharts that further describe your invention?"
   help: "Help Text Here"
   info: ""
+  position: 12
+
+question_12:
+  id: 12
+  name: "If there are different variantions of your invention, describe the now:"
+  help: "Help Text Here"
+  info: "Alternative embodiments may be described within your patent application."
+  position: 11
+
+question_11:
+  id: 11
+  name: "Describe in detail how someone would use the invention. Also, describe how the ivnention can be used in different ways."
+  help: "Help Text Here"
+  info: ""
+  position: 10
+
+question_10:
+  id: 10
+  name: "If your invention is not a device or apparatus, but rather involves a series of steps or is a method, describe in detail each and every step or method your invention takes."
+  help: "Help Text Here"
+  info: ""
+  position: 9
+  
+question_09:
+  id: 9
+  name: "Relationship between component parts:"
+  help: "Help Text Here"
+  info: "Describe how each element or component relates or interacts with each other."
   position: 8
 
 question_08:
   id: 8
-  name: "If there are different variantions of your invention, describe the now:"
+  name: "Describe in detail each and every element or component of your invention."
   help: "Help Text Here"
-  info: "Alternative embodiments may be described within your patent application."
+  info: ""
   position: 7
 
 question_07:
   id: 7
-  name: "If your invention is not a device or apparatus, but rather involves a series of steps or is a method, describe in detail each and every step or method your invention takes."
+  name: "Describe in detail how your invention works and what it does."
   help: "Help Text Here"
   info: ""
   position: 6

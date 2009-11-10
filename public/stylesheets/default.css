@@ -7,7 +7,7 @@ a {color:black;text-decoration:none;}
 a:hover {text-decoration:underline;}
 
 label {display:block;margin-bottom:3px;}
-label.inline {display:inline;}
+label.inline {display:inline;float:left;}
 input {border:none !important;border:solid 1px transparent;font-weight:bold;height:18px;}
 input.submit {height:auto;width:auto;}
 
@@ -207,6 +207,7 @@ form#my_account {margin:10px 0 0 -40px;float:left;width:400px;}
 #questionnaire #column_first {float:left;width:540px;}
 #questionnaire #column_first select {width:390px;margin:5px 0 0 5px;}
 #questionnaire #column_first.right {float:right;width:400px;}
+#questionnaire input.small {float:left;width:20px;margin-left:10px;}
 
 #review_questions {margin:20px 0 0 40px;}
 #review_questions li {list-style-image:none;list-style:decimal;background:none;padding:5px;margin:0;}
@@ -217,6 +218,8 @@ form#my_account {margin:10px 0 0 -40px;float:left;width:400px;}
 #questionnaire p#terms_big textarea {height:190px !important;}
 
 .question_answers {width:400px;margin:20px;}
+.question_answers div {color:#999;}
+.question_answers dt {float:left;width:90px;color:black;}
 
 #field_set {background:url(../images/bg/input_04.jpg) left 20px no-repeat;height:auto !important;height:70px;min-height:70px;}
 #field_set.inline {background:url(../images/bg/input_06.jpg) left 20px no-repeat;height:auto !important;height:40px;min-height:40px;}
@@ -231,6 +234,7 @@ form#my_account {margin:10px 0 0 -40px;float:left;width:400px;}
 /*Investors*/
 #inventors {width:100%;margin:10px auto 0 auto;border-bottom:solid 1px #CCC;padding-bottom:10px;}
 .bt_add img {margin:20px 0;}
+#inventors select {width:390px;margin:5px 0 0 5px;}
 
 /*Footer*/
 #footer {clear:both;background:url(../images/bg/footer.png) no-repeat;height:45px;padding:10px 20px 0 20px;font-size:10px;line-height:16px;}
