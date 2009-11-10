@@ -8,8 +8,8 @@
     <%= hidden_field :order, :order_id, :value => @order.id %>
 	<%= hidden_field :order, :save_and_exit, :value => "" %>
 	
-	<%= label_tag "main_label", "<strong>9. Drawings:</strong>" %>
-	<%= label :answer12, :body, "#{@question13.name} <small>#{@question13.info}</small>" %><br/>
+	<%= label_tag "main_label", "<strong>9. Drawings</strong>" %>
+	<%= label :answer13, :body, "#{@question13.name} <small>#{@question13.info}</small>" %><br/>
 	<%= file_field :drawing1, :image %><br/><br/>
 	<%= image_tag @drawing1.image.url(:thumb) if @drawing1 and @drawing1.image.url.present? %><br/><br/>
 	<%= file_field :drawing2, :image %><br/><br/>
@@ -19,6 +19,18 @@
 	<%= image_tag "bt/info_tab.jpg", :alt => "More Information", :class => "more_info" %>
 	<div class="info_text">
 	  <%= @question13.help %>
+	</div>
+	
+	<%= label_tag "main_label", "<strong>10. Patent Search</strong>" %>
+	<%= label :answer14, :body, "#{@question14.name} <small>#{@question14.info}</small>" %>
+	<%= radio_button :answer14, :body, "Yes", :class => "small required" %>
+	<%= label :answer14, :body_yes, "Yes", :class => "inline" %>
+	<%= radio_button :answer14, :body, "No", :class => "small required" %>
+	<%= label :answer14, :body_no, "No", :class => "inline" %>
+	
+	<%= image_tag "bt/info_tab.jpg", :alt => "More Information", :class => "more_info" %>
+	<div class="info_text">
+	  <%= @question14.help %>
 	</div>
 	
     <div id="actions">

@@ -41,11 +41,11 @@ class QuestionnaireController < ApplicationController
     
     if request.post?
       @answer3_check = Answer.create_or_update({:order_id => params[:order][:order_id], :question_id => @question3.id, :body => params[:answer3][:body]})
-      @answer4_check = Answer.create_or_update({:order_id => params[:order][:order_id], :question_id => @question4.id, :body => "#{params[:inventors][:first_name]} #{params[:inventors][:last_name]}"})
+      @answer4_check = Answer.create_or_update({:order_id => params[:order][:order_id], :question_id => @question4.id, :body => "#{params[:inventors][:first_name]} #{params[:inventors][:last_name]}"}) if params[:inventors]
       
-      @inventors = Inventor.create_or_update({:order_id => params[:order][:order_id], :first_name => params[:inventors][:first_name], :middle_name => params[:inventors][:middle_name], :last_name => params[:inventors][:last_name], :citizenship => params[:inventors][:citizenship], :street_address => params[:inventors][:street_address], :city => params[:inventors][:city], :state => params[:inventors][:state], :zipcode => params[:inventors][:zipcode], :email => params[:inventors][:email]})
+      @inventors = Inventor.create_or_update({:order_id => params[:order][:order_id], :first_name => params[:inventors][:first_name], :middle_name => params[:inventors][:middle_name], :last_name => params[:inventors][:last_name], :citizenship => params[:inventors][:citizenship], :street_address => params[:inventors][:street_address], :city => params[:inventors][:city], :state => params[:inventors][:state], :zipcode => params[:inventors][:zipcode], :email => params[:inventors][:email]}) if params[:inventors]
       
-      if @answer3_check and @answer4_check
+      if @answer3_check
         flash[:notice] = I18n.t(:success_update)
         if params[:order][:save_and_exit] == "yes"
           redirect_to logout_path
@@ -175,6 +175,9 @@ class QuestionnaireController < ApplicationController
     @question13 = Question.find(13)
     @answer13 = Answer.find_or_create_by_question_id(@question13.id)
     
+    @question14 = Question.find(14)
+    @answer14 = Answer.find_or_create_by_question_id(@question14.id)
+    
     @drawings = Drawing.all(:conditions => ["order_id = ?", @order.id])
     
     @drawing1 = @drawings.first
@@ -186,6 +189,7 @@ class QuestionnaireController < ApplicationController
       @drawing2 = Drawing.create_or_update({:order_id => params[:order][:order_id], :position => 2, :image => params[:drawing2][:image]}) if params[:drawing2]
       @drawing3 = Drawing.create_or_update({:order_id => params[:order][:order_id], :position => 3, :image => params[:drawing3][:image]}) if params[:drawing3]
       if @drawing1 or @drawing2 or @drawing3
+        @answer14_check = Answer.create_or_update({:order_id => params[:order][:order_id], :question_id => @question14.id, :body => params[:answer14][:body]})
         flash[:notice] = I18n.t(:success_update)
         if params[:order][:save_and_exit] == "yes"
           redirect_to logout_path
@@ -232,6 +236,21 @@ class QuestionnaireController < ApplicationController
     
     @question9 = Question.find(9)
     @answer9 = Answer.first(:conditions => ["order_id = ? AND question_id = ?", @order.id, @question9.id])
+    
+    @question10 = Question.find(10)
+    @answer10 = Answer.first(:conditions => ["order_id = ? AND question_id = ?", @order.id, @question10.id])
+    
+    @question11 = Question.find(11)
+    @answer11 = Answer.first(:conditions => ["order_id = ? AND question_id = ?", @order.id, @question11.id])
+    
+    @question12 = Question.find(12)
+    @answer12 = Answer.first(:conditions => ["order_id = ? AND question_id = ?", @order.id, @question12.id])
+    
+    @question13 = Question.find(13)
+    @answer13 = Answer.first(:conditions => ["order_id = ? AND question_id = ?", @order.id, @question13.id])
+    
+    @question14 = Question.find(14)
+    @answer14 = Answer.first(:conditions => ["order_id = ? AND question_id = ?", @order.id, @question14.id])
     
     @page = Page.find_by_permalink("review-your-answers")
     @terms = Page.find_by_permalink("terms-of-service")
