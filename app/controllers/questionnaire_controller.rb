@@ -194,7 +194,11 @@ class QuestionnaireController < ApplicationController
         if params[:order][:save_and_exit] == "yes"
           redirect_to logout_path
         else
-          redirect_to questionnaire_terms_path
+          if params[:answer14][:body] == "Yes"
+            redirect_to page_path("patent-search", :combo => true)
+          else
+            redirect_to questionnaire_terms_path
+          end
         end
       end
     end
