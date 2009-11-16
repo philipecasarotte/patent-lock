@@ -14,7 +14,7 @@ class UsersController < ApplicationController
       role = Role.find_or_create_by_name('user')
       @user.roles << role
       flash[:notice] = I18n.t(:success_create)
-      redirect_to questionnaire_questions_path("questions", Question.first.position)
+      redirect_to questionnaire_step1_path
     else
       render :action => 'new'
     end
