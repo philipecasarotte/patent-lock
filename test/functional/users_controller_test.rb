@@ -42,7 +42,7 @@ class UsersControllerTest < ActionController::TestCase
           assert_not_nil(assigns(:user).order)
         end
         
-        should_redirect_to("profile page") { questionnaire_questions_path("questions", Question.first.position) }
+        should_redirect_to("profile page") { questionnaire_step1_path }
       end
     end
 
