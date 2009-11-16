@@ -220,6 +220,10 @@ form#my_account {margin:10px 0 0 -40px;float:left;width:400px;}
 .question_answers {width:400px;margin:20px;}
 .question_answers div {color:#999;}
 .question_answers dt {float:left;width:90px;color:black;}
+.question_answers p#terms {background:url(../images/bg/input_03.jpg) left 20px no-repeat;height:auto !important;height:70px;min-height:70px;}
+.question_answers textarea {background-color:#EFEFEF;height:55px;width:390px;margin:25px 0 20px 5px;}
+.question_answers p.checkbox_small input {float:left;width:20px;} 
+.question_answers p.answer {margin:0 0 14px 10px;}
 
 #field_set {background:url(../images/bg/input_04.jpg) left 20px no-repeat;height:auto !important;height:70px;min-height:70px;}
 #field_set.inline {background:url(../images/bg/input_06.jpg) left 20px no-repeat;height:auto !important;height:40px;min-height:40px;}

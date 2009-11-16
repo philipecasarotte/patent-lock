@@ -70,6 +70,10 @@
 		</table>
 	<% end %> -->
 	
+	<% @inventors.each do |inventor| %>
+		<%= inventor.first_name %>
+	<% end %>
+	
 	<div id="patent_inventors"></div>
 	<div class="bt_add"><%= add_object_link(image_tag("bt/add_inventor.jpg", :alt => "Add Inventor"), Inventor.new, "inventor", "#patent_inventors") %></div>
 

@@ -88,14 +88,16 @@
 				<p><strong>A.</strong><%= @question14.name %></p>
 				<div><%= simple_format @answer14.body %></div>
 			</div>
-			<h2><%= @terms.name %></h2>
-		    <p id="terms_big">
-		      <%= f.text_area :terms_text, :value => @terms.body, :disable=> true %>
-		    </p>
-		    <p class="checkbox_small">
-		      <%= check_box_tag(:accept, value = "yes") %>
-		      <%= label_tag :accept, "Yes I agree with the Terms above" %>
-		    </p>
+			<div class="question_answers">
+				<h2><%= @terms.name %></h2>
+			    <p id="terms">
+			      <%= f.text_area :terms_text, :value => @terms.body, :disable=> true %>
+			    </p>
+			    <p class="checkbox_small">
+			      <%= check_box_tag(:accept, value = "yes") %>
+			      <%= label_tag :accept, "Yes, I agree with the Terms above." %>
+			    </p>
+			</div>
 		</td>
 	</tr>
 </table>
