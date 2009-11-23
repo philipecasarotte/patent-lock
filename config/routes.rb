@@ -35,6 +35,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :pages
   map.resource :user_session
   map.resources :users
+  map.resources :inventors
   
   map.not_found '/404', :controller => 'pages', :action => '404'
   map.application_error '/500', :controller => 'pages', :action => '500'

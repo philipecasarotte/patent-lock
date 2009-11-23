@@ -4,6 +4,7 @@ $(document).ready(function() {
 	var steep_callback;
 	
 	$(".bt_add a").click(function(e) {
+		e.preventDefault();
 		if ($(this).attr("onclick") != "") {
 			steep_callback = $(this).attr("onclick");
 			$(this).attr("onclick", "");
@@ -19,16 +20,20 @@ $(document).ready(function() {
 	//Yes
 	$("#answer3_body_yes").click(function(){
 		$(".bt_add").hide();
+		$("#more_inventor").attr("checked", false);
 	});
 	
 	//No
 	$("#answer3_body_no").click(function(){
 		$(".bt_add").show();
+		$("#more_inventor").attr("checked", true);
 	});
 	
 	if (sole == "Yes"){
 		$(".bt_add").hide();
+		$("#more_inventor").attr("checked", false);
 	}else{
-		$(".bt_add a").click();
+		$(".bt_add").show();
+		$("#more_inventor").attr("checked", true);
 	};
 });

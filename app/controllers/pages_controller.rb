@@ -34,7 +34,7 @@ class PagesController < ApplicationController
       @cart = GoogleCheckout::Cart.new(MERCHANT_ID, MERCHANT_KEY)
       @cart.add_item(:name => "Patent Search for #{params[:trademarks][:name]}", :description => "User email: #{params[:trademarks][:email]} | Applicant Name: #{params[:trademarks][:applicant_name]}", :price => Configuration.first.patent_search_price)
       Mailer.deliver_patent_search(params[:trademarks], @file1, @file2, @file3)
-      if params[:combo]
+      if params[:trademarks][:combo]
         redirect_to questionnaire_terms_path
       end
     end

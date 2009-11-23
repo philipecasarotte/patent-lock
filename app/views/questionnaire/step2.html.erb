@@ -23,59 +23,68 @@
 	
 	<%= label :answer4, :body, "<strong>B.</strong> #{@question4.name} <small>#{@question4.info}</small>" %>
 	
-	<!-- <% @inventors.each do |inventor| %>
+	<table id="inventors_til_now" cellpadding="0" cellspacing="0" border="0">
+	<% @inventors.each do |inventor| %>
+		<tr <%= cycle("class='odd'", "") %>>
+			<th><%= inventor.first_name %></th>
+			<td><%= link_to "Edit", edit_inventor_path(inventor) %></td>
+		</tr>
+	<% end %>
+	</table>
+	
+	<div id="patent_inventors">
+	<% unless @inventors.size > 0 %>
 		<table id='inventors'>
-		   	<tr>
+				<tr>
 				<td valign="top">
 					<p class='first'>
-				 		<%= label :inventor, :first_name, '* First Name' %>
-						<%= text_field  :inventor, :first_name, :class => 'required' %> 
-				 	</p>
+						<%= label :inventor, :first_name, '* First Name' %>
+						<%= text_field :inventor, :first_name, :class => 'required' %> 
+					</p>
 					<p class='first'>
-				 		<%= label  :inventor, :last_name, '* Last Name' %>
-						<%= text_field  :inventor, :last_name, :class => 'required' %> 
-				 	</p>
+						<%= label :inventor, :last_name, '* Last Name' %>
+						<%= text_field :inventor, :last_name, :class => 'required' %> 
+					</p>
 					<p class='first'>
-				 		<%= label  :inventor, :street_address, '* Street Address' %>
-						<%= text_field  :inventor, :street_address, :class => 'required' %> 
-				 	</p>
+						<%= label :inventor, :street_address, '* Street Address' %>
+						<%= text_field :inventor, :street_address, :class => 'required' %> 
+					</p>
 					<p class='first'>
-				 		<%= label  :inventor, :state, '* State' %>
-						<%= us_state_select  :inventor, :state, {:show => :full}, {:include_blank => 'Select a State'}, {:class => 'required'} %>
-				 	</p>
+						<%= label :inventor, :state, '* State' %>
+						<%= us_state_select :inventor, :state, {:show => :full}, {:include_blank => 'Select a State'}, {:class => 'required'} %>
+					</p>
 					<p class='first'>
-				 		<%= label  :inventor, :email, '* Email' %>
-						<%= text_field  :inventor, :email, :class => 'required email' %> 
-				 	</p>
+						<%= label :inventor, :email, '* Email' %>
+						<%= text_field :inventor, :email, :class => 'required email' %> 
+					</p>
 				</td>
 				<td valign="top">
 					<p class='first'>
-				 		<%= label  :inventor, :middle_name, '* Middel Name' %>
-						<%= text_field  :inventor, :middle_name, :class => 'required' %> 
-				 	</p>
+						<%= label :inventor, :middle_name, '* Middel Name' %>
+						<%= text_field :inventor, :middle_name, :class => 'required' %> 
+					</p>
 					<p class='first'>
-				 		<%= label  :inventor, :citizenship, '* Citizenship' %>
-						<%= text_field  :inventor, :citizenship, :class => 'required' %> 
-				 	</p>
+						<%= label :inventor, :citizenship, '* Citizenship' %>
+						<%= text_field :inventor, :citizenship, :class => 'required' %> 
+					</p>
 					<p class='first'>
-				 		<%= label  :inventor, :city, '* City' %>
-						<%= text_field  :inventor, :city, :class => 'required' %> 
-				 	</p>
+						<%= label :inventor, :city, '* City' %>
+						<%= text_field :inventor, :city, :class => 'required' %> 
+					</p>
 					<p class='first'>
-				 		<%= label  :inventor, :zipcode, '* ZIP Code' %>
-						<%= text_field  :inventor, :zipcode, :class => 'required' %> 
-				 	</p>
+						<%= label :inventor, :zipcode, '* ZIP Code' %>
+						<%= text_field :inventor, :zipcode, :class => 'required' %> 
+					</p>
 				</td>
 			</tr>
 		</table>
-	<% end %> -->
-	
-	<% @inventors.each do |inventor| %>
-		<%= inventor.first_name %>
 	<% end %>
-	
-	<div id="patent_inventors"></div>
-	<div class="bt_add"><%= add_object_link(image_tag("bt/add_inventor.jpg", :alt => "Add Inventor"), Inventor.new, "inventor", "#patent_inventors") %></div>
+	</div>
+	<div class="bt_add">
+		<%= check_box_tag(:more_inventor, value = "yes") %>
+	    <%= label_tag :more_inventor, "Yes, I do want to add more inventors." %>
+		<%#= add_object_link(image_tag("bt/add_inventor.jpg", :alt => "Add Inventor"), Inventor.new, "inventor", "#patent_inventors") %>
+	</div>
 
 	
 	<%= image_tag "bt/info_tab.jpg", :alt => "More Information", :class => "more_info" %>

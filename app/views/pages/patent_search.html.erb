@@ -136,6 +136,9 @@
   		<%= f.label(:acceptance, "I Accept the terms above.") %>
   	</p>
   	<p class="submit">
+	<% if params[:combo] %>
+		<%= f.hidden_field :combo, :value => true %>
+	<% end %>
     	<%= image_submit_tag("bt/submit.jpg") %>
   	</p>
   <% end %>

@@ -1,0 +1,63 @@
+<h1>Edit Inventor</h1>
+<div id="questionnaire">
+	<% form_for(@inventor, :url => inventor_path, :html => { :class => "validate", :method => :put }) do |f| %>
+	  	<table id='inventors'>
+				<tr>
+				<td valign="top">
+					<p class='first'>
+						<%= f.label :first_name, '* First Name' %>
+						<%= f.text_field :first_name, :class => 'required' %> 
+					</p>
+					<p class='first'>
+						<%= f.label :last_name, '* Last Name' %>
+						<%= f.text_field :last_name, :class => 'required' %> 
+					</p>
+					<p class='first'>
+						<%= f.label :street_address, '* Street Address' %>
+						<%= f.text_field :street_address, :class => 'required' %> 
+					</p>
+					<p class='first'>
+						<%= f.label :state, '* State' %>
+						<%= f.us_state_select :state, {:show => :full}, {:include_blank => 'Select a State'}, {:class => 'required'} %>
+					</p>
+					<p class='first'>
+						<%= f.label :email, '* Email' %>
+						<%= f.text_field :email, :class => 'required email' %> 
+					</p>
+				</td>
+				<td valign="top">
+					<p class='first'>
+						<%= f.label :middle_name, '* Middel Name' %>
+						<%= f.text_field :middle_name, :class => 'required' %> 
+					</p>
+					<p class='first'>
+						<%= f.label :citizenship, '* Citizenship' %>
+						<%= f.text_field :citizenship, :class => 'required' %> 
+					</p>
+					<p class='first'>
+						<%= f.label :city, '* City' %>
+						<%= f.text_field :city, :class => 'required' %> 
+					</p>
+					<p class='first'>
+						<%= f.label :zipcode, '* ZIP Code' %>
+						<%= f.text_field :zipcode, :class => 'required' %> 
+					</p>
+				</td>
+			</tr>
+		</table>
+	  	<%= submit_tag(t(:update), :class => "replacement submit") %>
+		<div id="actions">
+		  <div id="progress_bar">
+		    <div style="width:<%= progress_bar(4.to_i)%>%;">&nbsp;</div>
+		    <p>PROGRESS BAR (<%= progress_bar(4.to_i)%>%)</p>
+		    <%= image_tag "bg/progress_bar_left_mask.png", :class => "left" %>
+		    <%= image_tag "bg/progress_bar_right_mask.png", :class => "right" %>
+		  </div>
+		  <div id="buttons">
+		    <%= link_to "Back", questionnaire_step2_path, :class => "back replacement", :style => "margin-right:10px" %>
+		    <%= submit_tag "Save & Continue", :class => "submit replacement" %>
+		  </div>
+		</div>
+	<% end %>	
+</div>
+<%= javascript "plugins/metadata", "plugins/validate" %>

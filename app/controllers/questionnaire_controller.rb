@@ -43,14 +43,19 @@ class QuestionnaireController < ApplicationController
       @answer3_check = Answer.create_or_update({:order_id => params[:order][:order_id], :question_id => @question3.id, :body => params[:answer3][:body]})
       @answer4_check = Answer.create_or_update({:order_id => params[:order][:order_id], :question_id => @question4.id, :body => "#{params[:inventors][:first_name]} #{params[:inventors][:last_name]}"}) if params[:inventors]
       
-      @inventors = Inventor.create_or_update({:order_id => params[:order][:order_id], :first_name => params[:inventors][:first_name], :middle_name => params[:inventors][:middle_name], :last_name => params[:inventors][:last_name], :citizenship => params[:inventors][:citizenship], :street_address => params[:inventors][:street_address], :city => params[:inventors][:city], :state => params[:inventors][:state], :zipcode => params[:inventors][:zipcode], :email => params[:inventors][:email]}) if params[:inventors]
+      @inventor = Inventor.create({:order_id => params[:order][:order_id], :first_name => params[:inventor][:first_name], :middle_name => params[:inventor][:middle_name], :last_name => params[:inventor][:last_name], :citizenship => params[:inventor][:citizenship], :street_address => params[:inventor][:street_address], :city => params[:inventor][:city], :state => params[:inventor][:state], :zipcode => params[:inventor][:zipcode], :email => params[:inventor][:email]}) if params[:inventor]
       
       if @answer3_check
         flash[:notice] = I18n.t(:success_update)
         if params[:order][:save_and_exit] == "yes"
           redirect_to logout_path
         else
-          redirect_to questionnaire_step3_path
+          if params[:more_inventor] == "yes"
+            flash[:notice] = "Please add the other inventor."
+            redirect_to questionnaire_step2_path
+          else
+            redirect_to questionnaire_step3_path
+          end
         end
       end
     end
@@ -204,14 +209,6 @@ class QuestionnaireController < ApplicationController
     end
   end
   
-  #************* OLD WAY ***************#
-  def questions
-    verify_questionnaire_on_hold
-    @page = Page.find_by_permalink("questionnaire")
-    @question = Question.find_by_position(params[:position])
-    @answer = Answer.find_or_create_by_question_id(@question.id)
-  end
-  
   def terms
     @question1 = Question.find(1)
     @answer1 = Answer.first(:conditions => ["order_id = ? AND question_id = ?", @order.id, @question1.id])
@@ -270,6 +267,7 @@ class QuestionnaireController < ApplicationController
   end
   
   def payment
+    @order.update_attribute(:total, Configuration.first.combo_patent_price)
     @cart = GoogleCheckout::Cart.new(MERCHANT_ID, MERCHANT_KEY)
     @cart.add_item(:name => "Provisional Patent Questionnaire of #{@order.user.name}", :description => "Email: #{@order.user.email} | Finished on #{Time.now}", :price => @order.total)
   end
