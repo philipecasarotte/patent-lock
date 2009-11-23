@@ -33,7 +33,7 @@
 	</table>
 	
 	<div id="patent_inventors">
-	<% unless @inventors.size > 0 %>
+	<% if @inventors or @answer3.body == "No" %>
 		<table id='inventors'>
 				<tr>
 				<td valign="top">
