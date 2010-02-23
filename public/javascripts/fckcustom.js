@@ -34,7 +34,7 @@ FCKConfig.SpellChecker = 'SpellerPages';
 FCKConfig.SkinPath = FCKConfig.BasePath + 'skins/default/';
 
 FCKConfig.ToolbarSets["Default"] = [
-	['FontFormat','Bold','Italic','Underline','-','OrderedList','UnorderedList','-','Outdent','Indent','-','JustifyLeft','JustifyCenter','JustifyRight','JustifyFull','-','Link','Unlink','Anchor','-','Image','Flash','Table','Rule','-','SelectAll','RemoveFormat', 'ShowBlocks', 'Source']
+	['FontFormat','Bold','Italic','Underline','-','TextColor','BGColor','-','OrderedList','UnorderedList','-','Outdent','Indent','-','JustifyLeft','JustifyCenter','JustifyRight','JustifyFull','-','Link','Unlink','Anchor','-','Image','Flash','Table','Rule','-','SelectAll','RemoveFormat', 'ShowBlocks', 'Source']
 ];
 
 /*
