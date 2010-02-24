@@ -33,11 +33,10 @@ FCKConfig.SpellChecker = 'SpellerPages';
 // ONLY CHANGE BELOW HERE
 FCKConfig.SkinPath = FCKConfig.BasePath + 'skins/default/';
 
-FCKConfig.ToolbarSets["Default"] = [
-	['FontFormat','Bold','Italic','Underline','-','TextColor','BGColor','-','OrderedList','UnorderedList','-','Outdent','Indent','-','JustifyLeft','JustifyCenter','JustifyRight','JustifyFull','-','Link','Unlink','Anchor','-','Image','Flash','Table','Rule','-','SelectAll','RemoveFormat', 'ShowBlocks', 'Source']
-];
+// FCKConfig.ToolbarSets["Default"] = [
+// 	['FontFormat','Bold','Italic','Underline','-','TextColor','BGColor','-','OrderedList','UnorderedList','-','Outdent','Indent','-','JustifyLeft','JustifyCenter','JustifyRight','JustifyFull','-','Link','Unlink','Anchor','-','Image','Flash','Table','Rule','-','SelectAll','RemoveFormat', 'ShowBlocks', 'Source']
+// ];
 
-/*
 FCKConfig.ToolbarSets["Default"] = [
 ['Source','DocProps','-','Save','NewPage','Preview','-','Templates'],
 ['Cut','Copy','Paste','PasteText','PasteWord','-','Print','SpellCheck'],
@@ -54,4 +53,3 @@ FCKConfig.ToolbarSets["Default"] = [
 ['TextColor','BGColor'],
 ['FitWindow','ShowBlocks','-','About'] // No comma for the last row.
 ];
-*/
