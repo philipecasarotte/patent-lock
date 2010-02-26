@@ -62,6 +62,9 @@ body {background:white url(../images/bg/body.png) repeat-x;font:12px "Trebuchet 
 #add_box_home td {padding:5px 10px;}
 #add_box_home .odd td {background-color:#F5B600;}
 
+#home_additional {margin:15px 0;}
+#home_additional li {display:inline;width:200px;float:left;background:url(../images/bullet/locker.jpg) no-repeat;padding-left:20px;margin:2px 0;}
+
 #get_started_home {float:right;margin-top:55px;}
 
 #hot_boxes {float:left;width:720px;}
