@@ -129,7 +129,7 @@
   		<%= f.text_field :country, :class => "required" %>
   	</p>
   	<p class="textarea terms">
-  		<%= f.text_area :terms, :value =>  @page.summary, :disabled => "disabled" %>
+  		<%= f.text_area :terms, :value =>  @page.summary, :readonly => "readonly" %>
   	</p>
   	<p class="checkbox check">
   		<input class="required" id="trademarks_acceptance" name="trademarks[acceptance]" type="checkbox" value="1" />

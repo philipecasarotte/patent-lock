@@ -91,7 +91,7 @@
 			<div class="question_answers">
 				<h2><%= @terms.name %></h2>
 			    <p id="terms">
-			      <%= f.text_area :terms_text, :value => @terms.body, :disable=> true %>
+			      <%= f.text_area :terms_text, :value => @terms.body, :readonly=> "readonly" %>
 			    </p>
 			    <p class="checkbox_small">
 			      <%= check_box_tag(:accept, value = "yes") %>

@@ -149,7 +149,7 @@
   	</p>
   	<%= link_to image_tag("bt/help.jpg", :alt => "Help", :class => "help_icon", :id => "help_icon11"), page_path("inventor-resource"), :target => "_blank" %>
   	<p class="textarea terms">
-  		<%= f.text_area :terms, :value => @page.summary, :disabled => "disabled" %>
+  		<%= f.text_area :terms, :value => @page.summary, :readonly => "readonly" %>
   	</p>
   	<p class="checkbox check">
   		<input class="required" id="trademarks_acceptance" name="trademarks[acceptance]" type="checkbox" value="1" />
