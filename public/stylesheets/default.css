@@ -58,6 +58,10 @@ body {background:white url(../images/bg/body.png) repeat-x;font:12px "Trebuchet 
 
 #home {float:left;width:545px;height:340px;overflow:hidden;padding-bottom:20px;}
 
+#add_box_home {font-size:14px;margin:15px 0;float:left;padding:15px 0;width:545px;height:140px;}
+#add_box_home td {padding:5px 10px;}
+#add_box_home .odd td {background-color:#F5B600;}
+
 #get_started_home {float:right;margin-top:55px;}
 
 #hot_boxes {float:left;width:720px;}
