@@ -58,9 +58,10 @@ body {background:white url(../images/bg/body.png) repeat-x;font:12px "Trebuchet 
 
 #home {float:left;width:545px;height:340px;overflow:hidden;padding-bottom:20px;}
 
-#add_box_home {font-size:14px;margin:15px 0;float:left;padding:15px 0;width:545px;height:140px;}
+#add_box_home {font-size:13px;margin:15px 0;float:left;padding:15px 10px;width:545px;height:140px;}
 #add_box_home td {padding:5px 10px;}
-#add_box_home .odd td {background-color:#F5B600;}
+#add_box_home th {color:red;font-size:16px;text-align:left;padding:5px 10px;color:#970200;}
+#add_box_home th a {color:#970200;}
 
 #home_additional {margin:15px 0;}
 #home_additional li {display:inline;width:200px;float:left;background:url(../images/bullet/locker.jpg) no-repeat;padding-left:20px;margin:2px 0;}
