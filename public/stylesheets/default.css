@@ -11,7 +11,7 @@ label.inline {display:inline;float:left;}
 input {border:none !important;border:solid 1px transparent;font-weight:bold;height:18px;}
 input.submit {height:auto;width:auto;}
 
-textarea {border:none;}
+textarea {border:none;overflow:auto;}
 
 h1 {font-size:18px;margin-bottom:10px;}
 h2 {font-size:15px;}
@@ -139,8 +139,8 @@ body {background:white url(../images/bg/body.png) repeat-x;font:12px "Trebuchet 
 #trademark p small {display:block;margin:5px 10px 10px 10px;color:#999;}
 #register textarea,
 #trademark textarea {height:60px;margin-bottom:2px;}
-#trademark form p.terms {background:url(../images/bg/input_03.jpg) 0 0 no-repeat;padding-top:4px;height:auto !important;height:70px;min-height:70px;}
-#trademark form p.terms textarea {height:60px;}
+#trademark form p.terms {background:url(../images/bg/input_07.jpg) 0 0 no-repeat;padding-top:4px;height:auto !important;height:110px;min-height:110px;}
+#trademark form p.terms textarea {height:95px;}
 #trademark form p.checkbox label.small {width:80px;}
 #trademark form p.submit {background:none;text-align:right;}
 #trademark form p.submit input {width:auto;height:auto;}
