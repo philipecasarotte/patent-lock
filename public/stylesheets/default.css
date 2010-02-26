@@ -142,7 +142,7 @@ body {background:white url(../images/bg/body.png) repeat-x;font:12px "Trebuchet 
 #trademark form p.terms {background:url(../images/bg/input_07.jpg) 0 0 no-repeat;padding-top:4px;height:auto !important;height:110px;min-height:110px;}
 #trademark form p.terms textarea {height:95px;}
 #trademark form p.checkbox label.small {width:80px;}
-#trademark form p.submit {background:none;text-align:right;}
+#trademark form p.submit {background:none;text-align:right;float:right;width:100%;}
 #trademark form p.submit input {width:auto;height:auto;}
 #trademark form p.checkbox small {margin-bottom:0px;}
 #trademark form p.checkbox input {width:20px;float:left;}
