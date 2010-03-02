@@ -98,7 +98,7 @@ body {background:white url(../images/bg/body.png) repeat-x;font:12px "Trebuchet 
 .content_cms ul {margin-bottom:14px;}
 .content_cms li {background:url(../images/bullet/locker.jpg) no-repeat;padding-left:20px;margin:2px 0;}
 
-#hot_links {text-align:center;width:940px;margin-top:20px;}
+#hot_links {text-align:center;width:940px;margin-top:20px;float:left;}
 #hot_links img.first {margin-right:100px;}
 
 #with_form {float:left;width:579px;padding-right:20px;border-right:1px dotted #CCC;}
@@ -266,8 +266,8 @@ form#my_account {margin:10px 0 0 -40px;float:left;width:400px;}
 
 /* Messages */
 label.error  {color:red; font-weight:normal;margin-top:5px;}
-div.notice {border:solid 2px green;background-color:#B2DFB8;color:green;padding:3px 5px;float:right;margin:60px -200px 0 0;}
-div.error {border:solid 2px red;background-color:#FDB5AF;color:red;padding:3px 5px;float:right;margin:60px -200px 0 0;}
+div.notice {border:solid 2px green;background-color:#B2DFB8;color:green;padding:3px 5px;float:right;margin:80px -200px 0 0;}
+div.error {border:solid 2px red;background-color:#FDB5AF;color:red;padding:3px 5px;float:right;margin:80px -200px 0 0;}
 
 /*Google Button*/
 #BB_BuyButtonForm input {height:auto !important;width:auto !important;margin-top:10px;}
