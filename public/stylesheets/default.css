@@ -66,7 +66,8 @@ body {background:white url(../images/bg/body.png) repeat-x;font:12px "Trebuchet 
 #home_additional {margin:15px 0;}
 #home_additional li {display:inline;width:200px;float:left;background:url(../images/bullet/locker.jpg) no-repeat;padding-left:20px;margin:2px 0;}
 
-#get_started_home {float:right;margin-top:55px;}
+#get_started_home {float:right;margin-top:25px;}
+#softmedia {float:right;width:180px;}
 
 #hot_boxes {float:left;width:720px;}
 #hot_boxes li {list-style:none;background:url(../images/bg/hot_boxes.png) 0 65px no-repeat;float:left;width:110px;height:220px;margin-right:10px;padding:0 14px 0 10px;}
