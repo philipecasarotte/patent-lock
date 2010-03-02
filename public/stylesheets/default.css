@@ -24,9 +24,11 @@ ol {margin-left:20px;}
 
 body {background:white url(../images/bg/body.png) repeat-x;font:12px "Trebuchet MS", Verdana, Arial, sans-serif;margin-bottom:20px;line-height:14px;}
 
-#main {width:940px;margin:0 auto;}
+#main {width:940px;margin:0 auto;position:relative;}
 
 #logo {margin:15px 0 21px 0;float:left;}
+
+#softmedia {width:180px;right:0;top:65px;position:absolute;}
 
 /*Menus*/
 #help_menu {float:right;background:url(../images/bg/tab.png) no-repeat;width:155px;height:23px;padding:10px 0 0 46px;font-size:11px;}
@@ -52,7 +54,7 @@ body {background:white url(../images/bg/body.png) repeat-x;font:12px "Trebuchet 
 #medal_services ul {background:url(../images/bg/services_menu.jpg) no-repeat;margin-top:20px;height:148px;padding:10px;}
 #medal_services ul h2 {color:#FFBD00;border-bottom:1px dotted white;padding-bottom:10px;margin-bottom:10px;}
 #medal_services ul li.head {margin:0;padding:0;background:none;}
-#medal_services ul li {list-style:none;margin:15px 0;font-size:11px;background:url(../images/bullet/yellow.png) 0 4px no-repeat;padding-left:10px;}
+#medal_services ul li {list-style:none;margin:10px 0;font-size:11px;background:url(../images/bullet/yellow.png) 0 4px no-repeat;padding-left:10px;}
 #medal_services ul li a {color:white;display:block;}
 #medal_services ul li a:hover {color:#FFBD00;text-decoration:none;}
 
@@ -63,11 +65,10 @@ body {background:white url(../images/bg/body.png) repeat-x;font:12px "Trebuchet 
 #add_box_home th {color:red;font-size:16px;text-align:left;padding:5px 15px 0 15px;color:#970200;}
 #add_box_home th a {color:#970200;}
 
-#home_additional {margin:15px 0;}
+#home_additional {margin:15px auto;width:450px;}
 #home_additional li {display:inline;width:200px;float:left;background:url(../images/bullet/locker.jpg) no-repeat;padding-left:20px;margin:2px 0;}
 
 #get_started_home {float:right;margin-top:25px;}
-#softmedia {float:right;width:180px;}
 
 #hot_boxes {float:left;width:720px;}
 #hot_boxes li {list-style:none;background:url(../images/bg/hot_boxes.png) 0 65px no-repeat;float:left;width:110px;height:220px;margin-right:10px;padding:0 14px 0 10px;}
