@@ -6,10 +6,10 @@ class QuestionnaireController < ApplicationController
     @page = Page.find_by_permalink("questionnaire")
     
     @question1 = Question.find(1)
-    @answer1 = Answer.find_or_create_by_question_id(@question1.id)
+    @answer1 = Answer.find_or_create_by_question_id_and_order_id_and_order_id(@question1.id, @order.id)
     
     @question2 = Question.find(2)
-    @answer2 = Answer.find_or_create_by_question_id(@question2.id)
+    @answer2 = Answer.find_or_create_by_question_id_and_order_id(@question2.id, @order.id)
     
     if request.post?
       @answer1_check = Answer.create_or_update({:order_id => params[:order][:order_id], :question_id => @question1.id, :body => params[:answer1][:body]})
@@ -30,10 +30,10 @@ class QuestionnaireController < ApplicationController
     @page = Page.find_by_permalink("questionnaire")
     
     @question3 = Question.find(3)
-    @answer3 = Answer.find_or_create_by_question_id(@question3.id)
+    @answer3 = Answer.find_or_create_by_question_id_and_order_id(@question3.id, @order.id)
     
     @question4 = Question.find(4)
-    @answer4 = Answer.find_or_create_by_question_id(@question4.id)
+    @answer4 = Answer.find_or_create_by_question_id_and_order_id(@question4.id, @order.id)
     
     @order.inventors.build
     
@@ -66,10 +66,10 @@ class QuestionnaireController < ApplicationController
     @page = Page.find_by_permalink("questionnaire")
     
     @question5 = Question.find(5)
-    @answer5 = Answer.find_or_create_by_question_id(@question5.id)
+    @answer5 = Answer.find_or_create_by_question_id_and_order_id(@question5.id, @order.id)
     
     @question6 = Question.find(6)
-    @answer6 = Answer.find_or_create_by_question_id(@question6.id)
+    @answer6 = Answer.find_or_create_by_question_id_and_order_id(@question6.id, @order.id)
     
     if request.post?
       @answer5_check = Answer.create_or_update({:order_id => params[:order][:order_id], :question_id => @question5.id, :body => params[:answer5][:body]})
@@ -90,13 +90,13 @@ class QuestionnaireController < ApplicationController
     @page = Page.find_by_permalink("questionnaire")
     
     @question7 = Question.find(7)
-    @answer7 = Answer.find_or_create_by_question_id(@question7.id)
+    @answer7 = Answer.find_or_create_by_question_id_and_order_id(@question7.id, @order.id)
     
     @question8 = Question.find(8)
-    @answer8 = Answer.find_or_create_by_question_id(@question8.id)
+    @answer8 = Answer.find_or_create_by_question_id_and_order_id(@question8.id, @order.id)
     
     @question9 = Question.find(9)
-    @answer9 = Answer.find_or_create_by_question_id(@question9.id)
+    @answer9 = Answer.find_or_create_by_question_id_and_order_id(@question9.id, @order.id)
     
     if request.post?
       @answer7_check = Answer.create_or_update({:order_id => params[:order][:order_id], :question_id => @question7.id, :body => params[:answer7][:body]})
@@ -118,7 +118,7 @@ class QuestionnaireController < ApplicationController
     @page = Page.find_by_permalink("questionnaire")
     
     @question10 = Question.find(10)
-    @answer10 = Answer.find_or_create_by_question_id(@question10.id)
+    @answer10 = Answer.find_or_create_by_question_id_and_order_id(@question10.id, @order.id)
     
     if request.post?
       @answer10_check = Answer.create_or_update({:order_id => params[:order][:order_id], :question_id => @question10.id, :body => params[:answer10][:body]})
@@ -138,7 +138,7 @@ class QuestionnaireController < ApplicationController
     @page = Page.find_by_permalink("questionnaire")
     
     @question11 = Question.find(11)
-    @answer11 = Answer.find_or_create_by_question_id(@question11.id)
+    @answer11 = Answer.find_or_create_by_question_id_and_order_id(@question11.id, @order.id)
     
     if request.post?
       @answer11_check = Answer.create_or_update({:order_id => params[:order][:order_id], :question_id => @question11.id, :body => params[:answer11][:body]})
@@ -158,7 +158,7 @@ class QuestionnaireController < ApplicationController
     @page = Page.find_by_permalink("questionnaire")
     
     @question12 = Question.find(12)
-    @answer12 = Answer.find_or_create_by_question_id(@question12.id)
+    @answer12 = Answer.find_or_create_by_question_id_and_order_id(@question12.id, @order.id)
     
     if request.post?
       @answer12_check = Answer.create_or_update({:order_id => params[:order][:order_id], :question_id => @question12.id, :body => params[:answer12][:body]})
@@ -178,10 +178,10 @@ class QuestionnaireController < ApplicationController
     @page = Page.find_by_permalink("questionnaire")
     
     @question13 = Question.find(13)
-    @answer13 = Answer.find_or_create_by_question_id(@question13.id)
+    @answer13 = Answer.find_or_create_by_question_id_and_order_id(@question13.id, @order.id)
     
     @question14 = Question.find(14)
-    @answer14 = Answer.find_or_create_by_question_id(@question14.id)
+    @answer14 = Answer.find_or_create_by_question_id_and_order_id(@question14.id, @order.id)
     
     @drawings = Drawing.all(:conditions => ["order_id = ?", @order.id])
     

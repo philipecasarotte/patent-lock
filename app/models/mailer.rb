@@ -33,6 +33,17 @@ class Mailer < ActionMailer::Base
     body[:params] = params
   end
   
+  def new_user_registration(user)
+    @recipients = SITE_EMAIL
+    @from = user.email if user.email
+    @reply_to = user.email if user.email
+    @subject = "New User Registration #{SITE_DOMAIN}"
+    @sent_on = Time.now
+    @content_type = 'text/html'
+    
+    body[:params] = user
+  end
+  
   def provisional_patent_questionnaire(order)
     @recipients = SITE_EMAIL
     @from = order.user[:email] if order.user

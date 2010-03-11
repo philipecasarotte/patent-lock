@@ -14,6 +14,7 @@ class UsersController < ApplicationController
       role = Role.find_or_create_by_name('user')
       @user.roles << role
       flash[:notice] = I18n.t(:success_create)
+      Mailer.deliver_new_user_registration(@user)
       redirect_to questionnaire_step1_path
     else
       render :action => 'new'
