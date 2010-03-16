@@ -12,4 +12,10 @@ class InventorsController < ApplicationController
       render :action => "edit"
     end 
   end
+  
+  def destroy
+    @inventor = Inventor.find(params[:id])
+    @inventor.destroy
+    redirect_to questionnaire_step2_path
+  end
 end

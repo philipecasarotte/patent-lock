@@ -6,7 +6,7 @@ class QuestionnaireController < ApplicationController
     @page = Page.find_by_permalink("questionnaire")
     
     @question1 = Question.find(1)
-    @answer1 = Answer.find_or_create_by_question_id_and_order_id_and_order_id(@question1.id, @order.id)
+    @answer1 = Answer.find_or_create_by_question_id_and_order_id(@question1.id, @order.id)
     
     @question2 = Question.find(2)
     @answer2 = Answer.find_or_create_by_question_id_and_order_id(@question2.id, @order.id)
@@ -43,7 +43,7 @@ class QuestionnaireController < ApplicationController
       @answer3_check = Answer.create_or_update({:order_id => params[:order][:order_id], :question_id => @question3.id, :body => params[:answer3][:body]})
       @answer4_check = Answer.create_or_update({:order_id => params[:order][:order_id], :question_id => @question4.id, :body => "#{params[:inventors][:first_name]} #{params[:inventors][:last_name]}"}) if params[:inventors]
       
-      @inventor = Inventor.create({:order_id => params[:order][:order_id], :first_name => params[:inventor][:first_name], :middle_name => params[:inventor][:middle_name], :last_name => params[:inventor][:last_name], :citizenship => params[:inventor][:citizenship], :street_address => params[:inventor][:street_address], :city => params[:inventor][:city], :state => params[:inventor][:state], :zipcode => params[:inventor][:zipcode], :email => params[:inventor][:email]}) if params[:inventor]
+      @inventor = Inventor.create({:order_id => params[:order][:order_id], :first_name => params[:inventor][:first_name], :middle_name => params[:inventor][:middle_name], :last_name => params[:inventor][:last_name], :citizenship => params[:inventor][:citizenship], :street_address => params[:inventor][:street_address], :city => params[:inventor][:city], :state => params[:inventor][:state], :zipcode => params[:inventor][:zipcode], :email => params[:inventor][:email]}) unless params[:inventor][:first_name].empty?
       
       if @answer3_check
         flash[:notice] = I18n.t(:success_update)
@@ -193,7 +193,7 @@ class QuestionnaireController < ApplicationController
       @drawing1 = Drawing.create_or_update({:order_id => params[:order][:order_id], :position => 1, :image => params[:drawing1][:image]}) if params[:drawing1]
       @drawing2 = Drawing.create_or_update({:order_id => params[:order][:order_id], :position => 2, :image => params[:drawing2][:image]}) if params[:drawing2]
       @drawing3 = Drawing.create_or_update({:order_id => params[:order][:order_id], :position => 3, :image => params[:drawing3][:image]}) if params[:drawing3]
-      if @drawing1 or @drawing2 or @drawing3
+      #if @drawing1 or @drawing2 or @drawing3
         @answer14_check = Answer.create_or_update({:order_id => params[:order][:order_id], :question_id => @question14.id, :body => params[:answer14][:body]})
         flash[:notice] = I18n.t(:success_update)
         if params[:order][:save_and_exit] == "yes"
@@ -205,7 +205,7 @@ class QuestionnaireController < ApplicationController
             redirect_to questionnaire_terms_path
           end
         end
-      end
+      #end
     end
   end
   

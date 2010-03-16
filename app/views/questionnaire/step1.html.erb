@@ -10,7 +10,7 @@
 	
 	<div id="field_set" class="inline">
 	  <%= label :answer1, :body, "<strong>1.</strong> #{@question1.name} <small>#{@question1.info}</small>" %>
-	  <%= text_field :answer1, :body, :class => "required" %>
+	  <%= text_field :answer1, :body, :value => @answer1.body,:class => "required" %>
 	</div>
 	<%= image_tag "bt/info_tab.jpg", :alt => "More Information", :class => "more_info" %>
 	<div class="info_text">

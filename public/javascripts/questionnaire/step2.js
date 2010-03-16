@@ -20,18 +20,20 @@ $(document).ready(function() {
 	//Yes
 	$("#answer3_body_yes").click(function(){
 		$(".bt_add").hide();
-		$("#inventors").remove();
+		$("#inventors").hide();
 		$("#more_inventor").attr("checked", false);
 	});
 	
 	//No
 	$("#answer3_body_no").click(function(){
 		$(".bt_add").show();
+		$("#inventors").show();
 		$("#more_inventor").attr("checked", true);
 	});
 	
 	if (sole == "Yes"){
 		$(".bt_add").hide();
+		$("#inventors").hide();
 		$("#more_inventor").attr("checked", false);
 	}else{
 		$(".bt_add").show();

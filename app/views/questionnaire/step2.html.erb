@@ -24,13 +24,17 @@
 	<%= label :answer4, :body, "<strong>B.</strong> #{@question4.name} <small>#{@question4.info}</small>" %>
 	
 	<table id="inventors_til_now" cellpadding="0" cellspacing="0" border="0">
+	<% @required = "required" unless @inventors.size > 0 %>
+	
 	<% @inventors.each do |inventor| %>
 		<tr <%= cycle("class='odd'", "") %>>
-			<th><%= inventor.first_name %></th>
+			<th><%= "#{inventor.first_name} #{inventor.last_name}" %></th>
 			<td><%= link_to "Edit", edit_inventor_path(inventor) %></td>
+			<td><%= link_to "Remove", inventor_path(inventor), :confirm => t(:are_you_sure), :method => :delete  %></td>
 		</tr>
 	<% end %>
 	</table>
+	<br/>
 	
 	<div id="patent_inventors">
 	<% if @inventors or @answer3.body == "No" %>
@@ -39,41 +43,41 @@
 				<td valign="top">
 					<p class='first'>
 						<%= label :inventor, :first_name, '* First Name' %>
-						<%= text_field :inventor, :first_name, :class => 'required' %> 
+						<%= text_field :inventor, :first_name, :class => "#{@required}" %> 
 					</p>
 					<p class='first'>
 						<%= label :inventor, :last_name, '* Last Name' %>
-						<%= text_field :inventor, :last_name, :class => 'required' %> 
+						<%= text_field :inventor, :last_name, :class => "#{@required}" %> 
 					</p>
 					<p class='first'>
 						<%= label :inventor, :street_address, '* Street Address' %>
-						<%= text_field :inventor, :street_address, :class => 'required' %> 
+						<%= text_field :inventor, :street_address, :class => "#{@required}" %> 
 					</p>
 					<p class='first'>
 						<%= label :inventor, :state, '* State' %>
-						<%= us_state_select :inventor, :state, {:show => :full}, {:include_blank => 'Select a State'}, {:class => 'required'} %>
+						<%= us_state_select :inventor, :state, {:show => :full}, {:include_blank => 'Select a State'}, {:class => "#{@required}"} %>
 					</p>
 					<p class='first'>
 						<%= label :inventor, :email, '* Email' %>
-						<%= text_field :inventor, :email, :class => 'required email' %> 
+						<%= text_field :inventor, :email, :class => "#{@required} email" %> 
 					</p>
 				</td>
 				<td valign="top">
 					<p class='first'>
 						<%= label :inventor, :middle_name, '* Middel Name' %>
-						<%= text_field :inventor, :middle_name, :class => 'required' %> 
+						<%= text_field :inventor, :middle_name, :class => "#{@required}" %> 
 					</p>
 					<p class='first'>
 						<%= label :inventor, :citizenship, '* Citizenship' %>
-						<%= text_field :inventor, :citizenship, :class => 'required' %> 
+						<%= text_field :inventor, :citizenship, :class => "#{@required}" %> 
 					</p>
 					<p class='first'>
 						<%= label :inventor, :city, '* City' %>
-						<%= text_field :inventor, :city, :class => 'required' %> 
+						<%= text_field :inventor, :city, :class => "#{@required}" %> 
 					</p>
 					<p class='first'>
 						<%= label :inventor, :zipcode, '* ZIP Code' %>
-						<%= text_field :inventor, :zipcode, :class => 'required' %> 
+						<%= text_field :inventor, :zipcode, :class => "#{@required}" %> 
 					</p>
 				</td>
 			</tr>
