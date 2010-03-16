@@ -84,11 +84,13 @@ Rails::Initializer.run do |config|
   PAPERCLIP_PATH = ":rails_root/public/system/:class/:id/:style/:basename.:extension"
   PAPERCLIP_URL = "/system/:class/:id/:style/:basename.:extension"
   
-  MERCHANT_ID = "637492163835195"
-  MERCHANT_KEY = "12RKUL9Ef22mFi2xpO0cBw"
+  #Development
+  #MERCHANT_ID = "637492163835195"
+  #MERCHANT_KEY = "12RKUL9Ef22mFi2xpO0cBw"
   
-  # MERCHANT_ID = "148545293775794"
-  # MERCHANT_KEY = "iJVuI8il1i06FFf7GqIvpA"
+  #Production
+  MERCHANT_ID = "148545293775794"
+  MERCHANT_KEY = "iJVuI8il1i06FFf7GqIvpA"
 
   $VERBOSE = old_verbose
 end
