@@ -64,7 +64,7 @@
 				</td>
 				<td valign="top">
 					<p class='first'>
-						<%= label :inventor, :middle_name, '* Middel Name' %>
+						<%= label :inventor, :middle_name, '* Middle Name' %>
 						<%= text_field :inventor, :middle_name, :class => "#{@required}" %> 
 					</p>
 					<p class='first'>
@@ -85,7 +85,7 @@
 	<% end %>
 	</div>
 	<div class="bt_add">
-		<%= check_box_tag(:more_inventor, value = "yes") %>
+		<%= check_box_tag(:more_inventor, "yes", false) %>
 	    <%= label_tag :more_inventor, "Yes, I do want to add more inventors." %>
 		<%#= add_object_link(image_tag("bt/add_inventor.jpg", :alt => "Add Inventor"), Inventor.new, "inventor", "#patent_inventors") %>
 	</div>

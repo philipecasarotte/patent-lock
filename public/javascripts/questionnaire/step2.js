@@ -21,6 +21,7 @@ $(document).ready(function() {
 	$("#answer3_body_yes").click(function(){
 		$(".bt_add").hide();
 		$("#inventors").hide();
+		$("#inventors input, #inventors select").attr("disable", "disable");
 		$("#more_inventor").attr("checked", false);
 	});
 	
@@ -28,6 +29,7 @@ $(document).ready(function() {
 	$("#answer3_body_no").click(function(){
 		$(".bt_add").show();
 		$("#inventors").show();
+		$("#inventors input, #inventors select").attr("disable", "");
 		$("#more_inventor").attr("checked", true);
 	});
 	
@@ -37,6 +39,6 @@ $(document).ready(function() {
 		$("#more_inventor").attr("checked", false);
 	}else{
 		$(".bt_add").show();
-		$("#more_inventor").attr("checked", true);
+		$("#more_inventor").attr("checked", false);
 	};
 });
