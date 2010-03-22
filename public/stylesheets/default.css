@@ -185,6 +185,7 @@ body {background:white url(../images/bg/body.png) repeat-x;font:12px "Trebuchet 
 #trademark form .checkbox label.error {float:right;margin:0 140px 0 0;}
 
 form#my_account {margin:10px 0 0 -40px;float:left;width:400px;}
+div#my_account span a {background-color:black;padding:5px 10px;float:left;margin:10px 5px 0 0;color:white;}
 
 /*Questionnaire*/
 #questionnaire {margin-top:20px;width:940px;}

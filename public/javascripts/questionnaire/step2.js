@@ -19,10 +19,12 @@ $(document).ready(function() {
 
 	//Yes
 	$("#answer3_body_yes").click(function(){
-		$(".bt_add").hide();
-		$("#inventors").hide();
-		$("#inventors input, #inventors select").attr("disable", "disable");
-		$("#more_inventor").attr("checked", false);
+		if (inventors_count > 0){
+			$(".bt_add").hide();
+			$("#inventors").hide();
+			$("#inventors input, #inventors select").attr("disable", "disable");
+			$("#more_inventor").attr("checked", false);
+		};
 	});
 	
 	//No

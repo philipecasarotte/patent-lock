@@ -6,12 +6,12 @@
   <%= error_messages_for @object.class.to_s.underscore.to_sym %>
   <% form_tag("step-5", :url => questionnaire_step5_path, :class => "validate", :method => :post ) do %>
     <%= hidden_field :order, :order_id, :value => @order.id %>
-	<%= hidden_field :order, :save_and_exit, :value => "" %>
+	<%= hidden_field :order, :save_and_exit, :value => "no" %>
 	
 	<%= label_tag "main_label", "<strong>6. Methods and Steps:</strong>" %>
 	<div id="field_set">
 	  <%= label :answer10, :body, "#{@question10.name} <small>#{@question10.info}</small>" %>
-	  <%= text_area :answer10, :body, :class => "required" %>
+	  <%= text_area :answer10, :body %>
 	</div>
 	<%= image_tag "bt/info_tab.jpg", :alt => "More Information", :class => "more_info" %>
 	<div class="info_text">

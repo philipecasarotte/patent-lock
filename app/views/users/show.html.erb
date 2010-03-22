@@ -6,6 +6,6 @@
     <p><%= @user.email %></p>
     <p>Registered on <%= l(@user.created_at, :format => :long) %></p>
   </div>
-  <span><%= link_to t(:edit_profile), edit_user_path(@user) %> - <%= link_to "My Patent Questionnaire", go_to_current_order_state %> - <%= link_to "Logout", logout_path %></span>
+  <span><%= link_to "Change Password", edit_user_path(@user) %><%= link_to "Return to My Patent Questionnaire", go_to_current_order_state if @has_order %><%= link_to "Logout", logout_path %></span>
 </div>
 

@@ -23,6 +23,7 @@ class UsersController < ApplicationController
   
   def show
     @user = User.find(params[:id])
+    @has_order = Order.find_by_user_id(@user)
     redirect_to user_path(current_user) if @user != current_user
   end
   

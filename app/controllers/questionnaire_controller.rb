@@ -274,7 +274,7 @@ class QuestionnaireController < ApplicationController
   
   def save_and_continue
     @question = Question.find(params[:answer][:question_id])
-    @answer_check = Answer.create_or_update({:order_id => params[:answer][:order_id], :question_id => params[:answer][:question_id], :body => params[:answer][:body]})
+    @answer_check = Answer.create_or_update({:order_id => params[:answer][:order_id], :question_id => params[:answer][:question_id], :body => params[:answer][:body]}) rescue true
     if @answer_check
       flash[:notice] = I18n.t(:success_update)
       if params[:answer][:save_and_exit] == "yes"
@@ -291,13 +291,18 @@ class QuestionnaireController < ApplicationController
   
   private
   def require_user
-    unless current_user
-      store_location
-      flash[:error] = I18n.t(:not_authorized)
-      redirect_to login_url
-      return false
-    end
     @order = Order.find_by_user_id(current_user)
+    if @order
+      unless current_user
+        store_location
+        flash[:error] = I18n.t(:not_authorized)
+        redirect_to login_url
+        return false
+      end
+    else
+      flash[:error] = "You are an administrator user, logout and register as an normal user to proceed."
+      redirect_to login_url
+    end
   end
   
   def verify_questionnaire_on_hold

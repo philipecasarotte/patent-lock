@@ -6,7 +6,7 @@
   <%= error_messages_for @object.class.to_s.underscore.to_sym %>
   <% form_tag("step-1", :url => questionnaire_step1_path, :class => "validate", :method => :post ) do %>
     <%= hidden_field :order, :order_id, :value => @order.id %>
-	<%= hidden_field :order, :save_and_exit, :value => "" %>
+	<%= hidden_field :order, :save_and_exit, :value => "no" %>
 	
 	<div id="field_set" class="inline">
 	  <%= label :answer1, :body, "<strong>1.</strong> #{@question1.name} <small>#{@question1.info}</small>" %>
