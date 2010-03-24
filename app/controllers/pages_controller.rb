@@ -84,6 +84,6 @@ class PagesController < ApplicationController
   end
   
   def gateway
-		GoogleCheckout.use_sandbox
+		GoogleCheckout.use_production
 	end
 end
