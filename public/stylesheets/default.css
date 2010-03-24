@@ -97,6 +97,7 @@ body {background:white url(../images/bg/body.png) repeat-x;font:12px "Trebuchet 
 .content_cms p {margin-bottom:14px;}
 .content_cms ul {margin-bottom:14px;}
 .content_cms li {background:url(../images/bullet/locker.jpg) no-repeat;padding-left:20px;margin:2px 0;}
+.content_cms ol li {background:none;padding-left:0px;margin:2px 0;}
 
 #hot_links {text-align:center;width:940px;margin-top:20px;float:left;}
 #hot_links img.first {margin-right:100px;}
