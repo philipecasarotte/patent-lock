@@ -17,5 +17,9 @@
   <% end %>
 </ol>
 <% end %>
+<h2>Drawings</h2>
+<% parent_object.order.drawings.each do |image| %>
+	<p><%= image_tag image.image(:thumb) %></p>
+<% end %>
 <br/>
 <p><%= link_to t(:back), admin_users_path %></p>
