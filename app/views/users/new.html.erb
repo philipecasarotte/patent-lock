@@ -4,8 +4,13 @@
 </div>
 <div id="register">
   <% form_for(@user, :url => users_path, :html => { :class => "validate" }) do |f| %>
-    <%= render :partial => 'form', :locals => { :f => f } %>
-    <%= submit_tag(t(:register), :class => "replacement submit") %>
-    <%= link_to image_tag("bt/already_a_member.jpg", :alt => "Already a Member?", :title => "Already a Member?", :id => "already_member"), login_path %>
+    <% unless @error_field %>
+		<%= render :partial => 'form', :locals => { :f => f } %>
+		<%= submit_tag(t(:register), :class => "replacement submit") %>
+	    <%= link_to image_tag("bt/already_a_member.jpg", :alt => "Already a Member?", :title => "Already a Member?", :id => "already_member"), login_path %>
+	<% else %>
+		<%= f.error_messages %>
+		<%= link_to image_tag("bt/back.jpg", :alt => "Back", :title => "Back", :id => "already_member"), :back %>
+	<% end %>    
   <% end %>
 </div>

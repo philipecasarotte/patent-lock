@@ -17,6 +17,7 @@ class UsersController < ApplicationController
       Mailer.deliver_new_user_registration(@user)
       redirect_to questionnaire_step1_path
     else
+      @error_field = true
       render :action => 'new'
     end
   end

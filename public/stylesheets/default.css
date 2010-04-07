@@ -106,8 +106,10 @@ body {background:white url(../images/bg/body.png) repeat-x;font:12px "Trebuchet 
 #with_form_small {float:left;width:459px;padding-right:40px;border-right:1px dotted #CCC;}
 
 /*Login*/
-#login {float:right;width:274px;margin:-44px 0 0 20px;padding:0 33px 0 13px;}
-#login form {background:url(../images/bg/login.png) no-repeat;height:183px;padding:10px;margin-bottom:20px;}
+#login {float:right;width:274px;margin:-44px 0 0 20px;padding:0 33px 0 13px;position:relative;}
+#login .errorExplanation {position:absolute;width:240px;border:solid 2px red;background-color:#FDB5AF;color:red;padding:3px 5px;}
+#login .errorExplanation h2 {display:none;}
+#login form {background:url(../images/bg/login.png) bottom center no-repeat;height:183px;padding:10px;margin-bottom:20px;}
 #login.f_password form {background:url(../images/bg/forgot_password.png) no-repeat;}
 #login form h3 {width:254px;margin-top:15px;padding-bottom:5px;border-bottom:1px dotted #999;margin-bottom:15px;font-size:14px;float:left;}
 #login form input {margin:2px 0 10px 5px;width:240px;}
@@ -136,10 +138,15 @@ body {background:white url(../images/bg/body.png) repeat-x;font:12px "Trebuchet 
 #register form input.contact {margin-top:20px;}
 #register form img#already_member {float:right;margin:5px 10px 0 0;}
 #trademark form p.checkbox,
-#register form p.checkbox {background:none;float:right;}
+#register form p.checkbox {background:none;float:right;min-height:30px;}
 #trademark form p.checkbox label.small,
 #register form p.checkbox label {display:inline;float:right;width:370px;margin:0 0 0 10px;}
 #register form p.checkbox input {width:auto;float:left;}
+
+#register .errorExplanation {float:left;width:380px;border:solid 2px red;background-color:#FDB5AF;color:red;padding:3px 5px;margin:0;}
+#register .errorExplanation h2 {display:none;}
+#register .errorExplanation p {background:none;height:14px !important;min-height:14px;padding:0;margin:0;}
+#register .fieldWithErrors {display:none;}
 
 /*Trademarks*/
 #trademark {margin-top:40px;}
