@@ -217,7 +217,9 @@ div#my_account span a {background-color:black;padding:5px 10px;float:left;margin
 #questionnaire #buttons input.submit {margin:5px 0 0 0;float:left;width:155px;height:26px;background:url(../images/bt/save_and_continue.jpg) no-repeat;}
 #questionnaire #buttons .saveexit {float:left;width:116px;height:26px;background:url(../images/bt/exit_and_save.jpg) no-repeat;margin:5px 10px 0 10px;}
 #questionnaire #buttons .space {margin-right:10px;}
+#trademark p.submit .back,
 #questionnaire #buttons .back {float:left;width:66px;height:26px;background:url(../images/bt/back.jpg) no-repeat;margin-top:5px;}
+#trademark p.submit .back {text-decoration:none;font-size:1px;line-height:1px;color:#CCC;float:left;margin:0 0 0 790px;}
 #questionnaire #buttons a {text-decoration:none;color:white;}
 #questionnaire form p.checkbox_small {background:none;height:25 !important;height:25px;min-height:25px;margin-top:10px;}
 #questionnaire form p.checkbox_small label {float:left;margin:8px 0 0 5px;}

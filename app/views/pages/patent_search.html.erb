@@ -138,6 +138,7 @@
   	<p class="submit">
 	<% if params[:combo] %>
 		<%= f.hidden_field :combo, :value => true %>
+		<%= link_to "Back", questionnaire_step8_path, :class => "back replacement" %>
 	<% end %>
     	<%= image_submit_tag("bt/submit.jpg") %>
   	</p>
