@@ -200,7 +200,7 @@ class QuestionnaireController < ApplicationController
           redirect_to logout_path
         else
           if params[:answer14][:body] == "Yes"
-            redirect_to page_path("patent-search", :combo => true)
+            redirect_to questionnaire_terms_path(:combo => true)
           else
             redirect_to questionnaire_terms_path
           end
@@ -255,11 +255,18 @@ class QuestionnaireController < ApplicationController
     
     @page = Page.find_by_permalink("review-your-answers")
     @terms = Page.find_by_permalink("terms-of-service")
+    
     if request.post?
       if params[:accept]
         @order.accept_terms!
         Mailer.deliver_provisional_patent_questionnaire(@order)
-        redirect_to questionnaire_payment_path
+        if params[:combo]
+          @order.update_attribute(:total, Configuration.first.combo_patent_price)
+          redirect_to questionnaire_payment_path(:combo => true)
+        else
+          @order.update_attribute(:total, Configuration.first.service_price)
+          redirect_to questionnaire_payment_path
+        end
       else
         flash[:error] = "You must accept the terms to continue."
       end
@@ -267,9 +274,13 @@ class QuestionnaireController < ApplicationController
   end
   
   def payment
-    @order.update_attribute(:total, Configuration.first.combo_patent_price)
-    @cart = GoogleCheckout::Cart.new(MERCHANT_ID, MERCHANT_KEY)
-    @cart.add_item(:name => "Provisional Patent Questionnaire of #{@order.user.name}", :description => "Email: #{@order.user.email} | Finished on #{Time.now}", :price => @order.total)
+    if params[:combo]   
+      @cart = GoogleCheckout::Cart.new(MERCHANT_ID, MERCHANT_KEY)
+      @cart.add_item(:name => "COMBO - Provisional Patent Questionnaire of #{@order.user.name}", :description => "Email: #{@order.user.email} | Finished on #{Time.now} - User signed to Patent Search Together", :price => @order.total)   
+    else
+      @cart = GoogleCheckout::Cart.new(MERCHANT_ID, MERCHANT_KEY)
+      @cart.add_item(:name => "Provisional Patent Questionnaire of #{@order.user.name}", :description => "Email: #{@order.user.email} | Finished on #{Time.now}", :price => @order.total)
+    end
   end
   
   def save_and_continue

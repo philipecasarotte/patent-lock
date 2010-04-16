@@ -94,6 +94,7 @@
                   <%= text_area :terms_text, :terms, {:value =>@terms.summary, :readonly => "readonly"}  %>
 			    </p>
 			    <p class="checkbox_small">
+				  <%= hidden_field :combo, :value => true if params[:combo] %>
 			      <%= check_box_tag(:accept, value = "yes") %>
 			      <%= label_tag :accept, "Yes, I agree with the Terms above." %>
 			    </p>
