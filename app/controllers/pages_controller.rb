@@ -3,7 +3,7 @@ class PagesController < ApplicationController
   before_filter :gateway
   before_filter :require_user, :only => "patent-search"
   
-  after_filter(:except => [:contact, :patent_search, :trademark_search, :trademark_registration, "patent-search", "trademark-search", "trademark-registration"]) {|c| c.cache_page}
+  after_filter(:except => [:contact, :patent_search, :trademark_search, :trademark_registration, :trademark_application, "patent-search", "trademark-search", "trademark-registration", "trademark-application"]) {|c| c.cache_page}
 
   def index
     @page = Page.find_by_permalink("home")
