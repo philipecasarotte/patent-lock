@@ -282,3 +282,7 @@ div.error {border:solid 2px red;background-color:#FDB5AF;color:red;padding:3px 5
 
 /*Google Button*/
 #BB_BuyButtonForm input {height:auto !important;width:auto !important;margin-top:10px;}
+
+/*Warning*/
+#warning {border:solid 1px red;border-left:none;border-right:none;padding:10px 0;margin-bottom:20px;background-color:#FDB5AF;}
+#warning p {margin:0 20px 0 20px;}

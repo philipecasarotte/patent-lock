@@ -2,7 +2,7 @@ class QuestionnaireController < ApplicationController
   before_filter :require_user, :gateway
   
   def step1
-    verify_questionnaire_on_hold
+    #verify_questionnaire_on_hold
     @page = Page.find_by_permalink("questionnaire")
     
     @question1 = Question.find(1)
@@ -26,7 +26,7 @@ class QuestionnaireController < ApplicationController
   end
   
   def step2
-    verify_questionnaire_on_hold
+    #verify_questionnaire_on_hold
     @page = Page.find_by_permalink("questionnaire")
     
     @question3 = Question.find(3)
@@ -62,7 +62,7 @@ class QuestionnaireController < ApplicationController
   end
   
   def step3
-    verify_questionnaire_on_hold
+    #verify_questionnaire_on_hold
     @page = Page.find_by_permalink("questionnaire")
     
     @question5 = Question.find(5)
@@ -86,7 +86,7 @@ class QuestionnaireController < ApplicationController
   end
   
   def step4
-    verify_questionnaire_on_hold
+    #verify_questionnaire_on_hold
     @page = Page.find_by_permalink("questionnaire")
     
     @question7 = Question.find(7)
@@ -114,7 +114,7 @@ class QuestionnaireController < ApplicationController
   end
   
   def step5
-    verify_questionnaire_on_hold
+    #verify_questionnaire_on_hold
     @page = Page.find_by_permalink("questionnaire")
     
     @question10 = Question.find(10)
@@ -134,7 +134,7 @@ class QuestionnaireController < ApplicationController
   end
   
   def step6
-    verify_questionnaire_on_hold
+    #verify_questionnaire_on_hold
     @page = Page.find_by_permalink("questionnaire")
     
     @question11 = Question.find(11)
@@ -154,7 +154,7 @@ class QuestionnaireController < ApplicationController
   end
   
   def step7
-    verify_questionnaire_on_hold
+    #verify_questionnaire_on_hold
     @page = Page.find_by_permalink("questionnaire")
     
     @question12 = Question.find(12)
@@ -174,7 +174,7 @@ class QuestionnaireController < ApplicationController
   end
   
   def step8
-    verify_questionnaire_on_hold
+    #verify_questionnaire_on_hold
     @page = Page.find_by_permalink("questionnaire")
     
     @question13 = Question.find(13)
@@ -274,9 +274,10 @@ class QuestionnaireController < ApplicationController
   end
   
   def payment
+    @warning = Configuration.first if Configuration.first.questionnaire_on_hold
     if params[:combo]   
       @cart = GoogleCheckout::Cart.new(MERCHANT_ID, MERCHANT_KEY)
-      @cart.add_item(:name => "COMBO - Provisional Patent Questionnaire of #{@order.user.name}", :description => "Email: #{@order.user.email} | Finished on #{Time.now} - User signed to Patent Search Together", :price => @order.total)   
+      @cart.add_item(:name => "COMBO - Provisional Patent Questionnaire of #{@order.user.name}", :description => "Email: #{@order.user.email} | Finished on #{Time.now} - User signed to Patent Search Together", :price => @order.total)
     else
       @cart = GoogleCheckout::Cart.new(MERCHANT_ID, MERCHANT_KEY)
       @cart.add_item(:name => "Provisional Patent Questionnaire of #{@order.user.name}", :description => "Email: #{@order.user.email} | Finished on #{Time.now}", :price => @order.total)

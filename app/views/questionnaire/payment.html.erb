@@ -1,5 +1,8 @@
 <h1>Provisional Patent Questionnaire &raquo; Payment</h1>
 <div class="content_cms">
+	<% if @warning %>
+		<div id="warning"><%= @warning.away_message %></div>
+	<% end %>
   Please make the payment of <%= number_to_currency @order.total %>
   <%= @cart.checkout_button %>
 </div>

@@ -34,6 +34,7 @@ class PagesController < ApplicationController
       @cart = GoogleCheckout::Cart.new(MERCHANT_ID, MERCHANT_KEY)
       @cart.add_item(:name => "Patent Search for #{params[:trademarks][:name]}", :description => "User email: #{params[:trademarks][:email]} | Applicant Name: #{params[:trademarks][:applicant_name]}", :price => Configuration.first.patent_search_price)
       Mailer.deliver_patent_search(params[:trademarks], @file1, @file2, @file3)
+      @warning = Configuration.first if Configuration.first.questionnaire_on_hold
       if params[:trademarks][:combo]
         redirect_to questionnaire_terms_path
       end
@@ -47,6 +48,7 @@ class PagesController < ApplicationController
       @cart = GoogleCheckout::Cart.new(MERCHANT_ID, MERCHANT_KEY)
       @cart.add_item(:name => "Trademark Search for #{params[:trademarks][:name]}", :description => "User email: #{params[:trademarks][:email]} | Patent Phrase: #{params[:trademarks][:phrase]}", :price => Configuration.first.trademark_search_price)
       Mailer.deliver_trademark_search(params[:trademarks])
+      @warning = Configuration.first if Configuration.first.questionnaire_on_hold
     end
     @metatag_object = @page
   end
@@ -57,6 +59,7 @@ class PagesController < ApplicationController
       @cart = GoogleCheckout::Cart.new(MERCHANT_ID, MERCHANT_KEY)
       @cart.add_item(:name => "Trademark Application for #{params[:trademarks][:name]}", :description => "User email: #{params[:trademarks][:email]} | Applicant Name: #{params[:trademarks][:applicant_name]}", :price => Configuration.first.trademark_application_price)
       Mailer.deliver_trademark_application(params[:trademarks])
+      @warning = Configuration.first if Configuration.first.questionnaire_on_hold
     end
     @metatag_object = @page
   end
