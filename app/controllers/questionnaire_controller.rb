@@ -259,7 +259,8 @@ class QuestionnaireController < ApplicationController
     if request.post?
       if params[:accept]
         @order.accept_terms!
-        Mailer.deliver_provisional_patent_questionnaire(@order)
+        @user = current_user
+        Mailer.deliver_provisional_patent_questionnaire(@user, @order, @terms, @inventors, @question1, @answer1, @question2, @answer2, @question3, @answer3, @question4, @answer4, @question5, @answer5, @question6, @answer6, @question7, @answer7, @question8, @answer8, @question9, @answer9, @question10, @answer10, @question11, @answer11, @question12, @answer12, @question13, @answer13, @question14, @answer14)
         if params[:combo]
           @order.update_attribute(:total, Configuration.first.combo_patent_price)
           redirect_to questionnaire_payment_path(:combo => true)

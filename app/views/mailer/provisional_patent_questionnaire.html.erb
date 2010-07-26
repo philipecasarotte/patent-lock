@@ -1,15 +1,106 @@
 <h1>Provisional Patent Questionnaire <%= SITE_DOMAIN %></h1>
 <p>&nbsp;</p>
-<p><%= @params.user[:name] %> sent you a Provisional Patent.</p>
+<p><% @user.name %> sent you a Provisional Patent.</p>
 <p>To confirm the payment please check your Google Checkout Account.</p>
 <h2>Order Info</h2>
 <table>
 		<tr>
 			<td align="right" valign="top">Price</td>
-			<td valign="top"><%= number_to_currency @params.total %></td>
+			<td valign="top"><%= number_to_currency @order.total %></td>
 		</tr>
 		<tr>
 			<td align="right" valign="top">Applicant email</td>
-			<td valign="top"><%= @params.user[:email] %></td>
+			<td valign="top"><%= @user.email %></td>
 		</tr>
+</table>
+<table id='inventors'>
+   	<tr>
+		<td valign="top">
+			<div class="question_answers">
+				<p><strong>1.</strong><%= @question1.name %></p>
+				<div><%= simple_format @answer1.body rescue "" %></div>
+			</div>
+			<div class="question_answers">
+				<p><strong>2.</strong><%= @question2.name %></p>
+				<div><%= simple_format @answer2.body rescue "" %></div>
+			</div>
+			<div class="question_answers">
+				<p><strong>3.</strong>Inventorship</p>
+				<p><strong>A.</strong><%= @question3.name %></p>
+				<div><%= simple_format @answer3.body rescue "" %></div>
+				<p><strong>B.</strong><%= @question4.name %></p>
+				<div>
+					<% @inventors.each do |inventor| %>
+						<dl>
+							<dt>First Name:</dt>
+							<dd><%= inventor.first_name %></dd>
+							<dt>Middle Name:</dt>
+							<dd><%= inventor.middle_name %></dd>
+							<dt>Last Name:</dt>
+							<dd><%= inventor.last_name %></dd>
+							<dt>Citizenship:</dt>
+							<dd><%= inventor.citizenship %></dd>
+							<dt>Stree Address:</dt>
+							<dd><%= inventor.street_address %></dd>
+							<dt>City:</dt>
+							<dd><%= inventor.city %></dd>
+							<dt>State:</dt>
+							<dd><%= inventor.state %></dd>
+							<dt>ZIP Code:</dt>
+							<dd><%= inventor.zipcode %></dd>
+							<dt>Email Address:</dt>
+							<dd><%= inventor.email %></dd>
+						</dl>
+					<% end %>
+				</div>
+			</div>
+			<div class="question_answers">
+				<p><strong>4.</strong>Objectives and Problems Solved by your invention</p>
+				<p><strong>A.</strong><%= @question5.name %></p>
+				<div><%= simple_format @answer5.body rescue "" %></div>
+				<p><strong>B.</strong><%= @question6.name %></p>
+				<div><%= simple_format @answer6.body rescue "" %></div>
+			</div>
+			<div class="question_answers">
+				<p><strong>5.</strong>Methods and Steps</p>
+				<p><strong>A.</strong><%= @question7.name %></p>
+				<div><%= simple_format @answer7.body rescue "" %></div>
+				<p><strong>B.</strong><%= @question8.name %></p>
+				<div><%= simple_format @answer8.body rescue "" %></div>
+				<p><strong>C.</strong><%= @question9.name %></p>
+				<div><%= simple_format @answer9.body rescue "" %></div>
+			</div>
+		</td>
+		<td valign="top">
+			<div class="question_answers">
+				<p><strong>6.</strong>Methods or Steps</p>
+				<p><strong>A.</strong><%= @question10.name %></p>
+				<div><%= simple_format @answer10.body rescue "" %></div>
+			</div>
+			<div class="question_answers">
+				<p><strong>7.</strong>Use of the Invention</p>
+				<p><strong>A.</strong><%= @question11.name %></p>
+				<div><%= simple_format @answer11.body rescue "" %></div>
+			</div>
+			<div class="question_answers">
+				<p><strong>8.</strong>Alternatives or Variations</p>
+				<p><strong>A.</strong><%= @question12.name %></p>
+				<div><%= simple_format @answer12.body rescue "" %></div>
+			</div>
+			<div class="question_answers">
+				<p><strong>9.</strong>Drawings</p>
+				<p><strong>A.</strong><%= @question13.name %></p>
+				<div><%= simple_format @answer13.body rescue "" %></div>
+			</div>
+			<div class="question_answers">
+				<p><strong>10.</strong>Patent Search</p>
+				<p><strong>A.</strong><%= @question14.name %></p>
+				<div><%= simple_format @answer14.body rescue "" %></div>
+			</div>
+			<div class="question_answers">
+				<h2><%= @terms.name %></h2>
+                <%= @terms.body %>
+			</div>
+		</td>
+	</tr>
 </table>
