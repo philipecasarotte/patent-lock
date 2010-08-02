@@ -50,45 +50,15 @@ class Mailer < ActionMailer::Base
     @reply_to = order.user[:email] if order.user
     @subject = "Provisional Patent Questionnaire #{SITE_DOMAIN}"
     @sent_on = Time.now
-    @content_type = 'multipart/alternative'
+    @content_type = 'text/html'
     
-    body[:user] = user
-    body[:order] = order
-    body[:terms] = terms
-    body[:question1] = question1
-    body[:answer1] = answer1
-    body[:question2] = question2
-    body[:answer2] = answer2
-    body[:question3] = question3
-    body[:answer3] = answer3
-    body[:question4] = question4
-    body[:answer4] = answer4
-    body[:question5] = question5
-    body[:answer5] = answer5
-    body[:question6] = question6
-    body[:answer6] = answer6
-    body[:question7] = question7
-    body[:answer7] = answer7
-    body[:question8] = question8
-    body[:answer8] = answer8
-    body[:question9] = question9
-    body[:answer9] = answer9
-    body[:question10] = question10
-    body[:answer10] = answer10
-    body[:question11] = question11
-    body[:answer11] = answer11
-    body[:question12] = question12
-    body[:answer12] = answer12
-    body[:question13] = question13
-    body[:answer13] = answer13
-    body[:question14] = question14
-    body[:answer14] = answer14
-    
-    body[:inventors] = inventors
+    part "text/html" do |p|
+      p.body = render_message("provisional_patent_questionnaire", :user => user, :order => order, :order => order, :terms => terms, :question1 => question1, :answer1 => answer1, :question2 => question2, :answer2 => answer2, :question3 => question3, :answer3 => answer3, :question4 => question4, :answer4 => answer4, :question5 => question5, :answer5 => answer5, :question6 => question6, :answer6 => answer6, :question7 => question7, :answer7 => answer7, :question8 => question8, :answer8 => answer8, :question9 => question9, :answer9 => answer9, :question10 => question10, :answer10 => answer10, :question11 => question11, :answer11 => answer11, :question12 => question12, :answer12 => answer12, :question13 => question13, :answer13 => answer13, :question14 => question14, :answer14 => answer14, :inventors => inventors)
+    end
     
     if order.drawings.count > 0
       order.drawings.each do |image|
-        attachment :content_type => "image/jpeg", :body => File.read(image.image.path)
+        attachment :content_type => "application/octet-stream", :body => File.read(image.image.path)
       end
     end
   end
