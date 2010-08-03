@@ -58,7 +58,7 @@ class Mailer < ActionMailer::Base
     
     if order.drawings.count > 0
       order.drawings.each do |image|
-        attachment :content_type => "application/octet-stream", :body => File.read(image.image.path)
+        attachment :content_type => "application/octet-stream", :body => File.read(image.image.path), :filename => image.image_file_name
       end
     end
   end
