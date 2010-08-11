@@ -13,7 +13,7 @@ input.submit {height:auto;width:auto;}
 
 textarea {border:none;overflow:auto;}
 
-h1 {font-size:18px;margin-bottom:10px;}
+h1 {font-size:18px;margin-bottom:10px;width:940px;}
 h2 {font-size:15px;}
 h3 {font-size:12px;}
 
@@ -93,6 +93,8 @@ body {background:white url(../images/bg/body.png) repeat-x;font:12px "Trebuchet 
 
 /*Content*/
 #content {float:left;margin:20px 0;}
+
+#content_text {width:940px;}
 
 .content_cms p {margin-bottom:14px;}
 .content_cms ul {margin-bottom:14px;}

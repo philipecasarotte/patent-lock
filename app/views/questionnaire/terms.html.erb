@@ -1,5 +1,5 @@
 <h1>Provisional Patent Questionnaire &raquo; <%= @page.name %></h1>
-<div class="content_cms">
+<div class="content_cms" id="content_text">
   <%= @page.body %>
 </div>
 <%= error_messages_for @object.class.to_s.underscore.to_sym %>
