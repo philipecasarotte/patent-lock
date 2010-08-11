@@ -1,6 +1,6 @@
 <h1><%= @page.name %></h1>
 <%= render :partial => 'sidebar' %>
-<div class="content_cms">
+<div class="content_cms" id="content_text">
 	<% if @warning %>
 		<div id="warning"><%= @warning.away_message %></div>
 	<% end %>
