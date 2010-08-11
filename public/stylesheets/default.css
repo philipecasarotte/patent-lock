@@ -36,10 +36,10 @@ body {background:white url(../images/bg/body.png) repeat-x;font:12px "Trebuchet 
 #help_menu li.first {margin-right:50px;}
 
 #menu {float:left;width:940px;}
-#menu li {list-style:none;display:inline;}
-#menu li a {float:left;background-image:url(../images/bg/menu.png);background-repeat:no-repeat;height:54px;text-indent:-9999px;}
+#menu li {list-style:none;display:inline;float:left;}
+#menu li a {float:left;background-image:url(../images/bg/menu.png);background-repeat:no-repeat;height:54px !important;text-indent:-9999px;overflow:hidden;}
 #menu li.welcome a {width:110px;}
-#menu li.welcome a:hover {background-position:0 -54px;}
+#menu li.welcome a:hover {background-position:0 -54px;height:54px;width:110px;}
 #menu li.get_started a {width:194px;background-position:-110px 0;}
 #menu li.get_started a:hover {background-position:-110px -54px;}
 #menu li.why a {width:199px;background-position:-304px 0;}
@@ -92,7 +92,7 @@ body {background:white url(../images/bg/body.png) repeat-x;font:12px "Trebuchet 
 #patent_search input.submit {width:40px;margin-left:5px;position:absolute;bottom:9px;right:12px;left:auto;}
 
 /*Content*/
-#content {float:left;margin:20px 0;}
+#content {float:left;margin:20px 0;width:940px;}
 
 #content_text {width:940px;}
 
