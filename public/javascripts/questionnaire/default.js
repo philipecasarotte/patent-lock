@@ -10,6 +10,7 @@ $(document).ready(function() {
 	//Save and Exit
 	$("#exit_button").click(function(){
 		$("#order_save_and_exit").val("yes");
+		$(".required").removeClass("required");
 		$("form").submit();
 	});
 });
