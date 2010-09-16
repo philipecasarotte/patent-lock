@@ -43,7 +43,7 @@ class QuestionnaireController < ApplicationController
       @answer3_check = Answer.create_or_update({:order_id => params[:order][:order_id], :question_id => @question3.id, :body => params[:answer3][:body]})
       @answer4_check = Answer.create_or_update({:order_id => params[:order][:order_id], :question_id => @question4.id, :body => "#{params[:inventors][:first_name]} #{params[:inventors][:last_name]}"}) if params[:inventors]
       
-      @inventor = Inventor.create({:order_id => params[:order][:order_id], :first_name => params[:inventor][:first_name], :middle_name => params[:inventor][:middle_name], :last_name => params[:inventor][:last_name], :citizenship => params[:inventor][:citizenship], :street_address => params[:inventor][:street_address], :city => params[:inventor][:city], :state => params[:inventor][:state], :zipcode => params[:inventor][:zipcode], :email => params[:inventor][:email]}) unless params[:inventor][:first_name].empty?
+      @inventor = Inventor.create({:order_id => params[:order][:order_id], :first_name => params[:inventor][:first_name], :middle_name => params[:inventor][:middle_name], :last_name => params[:inventor][:last_name], :citizenship => params[:inventor][:citizenship], :street_address => params[:inventor][:street_address], :city => params[:inventor][:city], :state => params[:inventor][:state], :zipcode => params[:inventor][:zipcode], :email => params[:inventor][:email], :phone => params[:inventor][:phone]}) unless params[:inventor][:first_name].empty?
       
       if @answer3_check
         flash[:notice] = I18n.t(:success_update)
