@@ -26,7 +26,7 @@ Rails::Initializer.run do |config|
   # config.gem "hpricot", :version => '0.6', :source => "http://code.whytheluckystiff.net"
   # config.gem "aws-s3", :lib => "aws/s3"
   # config.gem "thoughtbot-shoulda", :lib => "shoulda", :source => 'http://gems.github.com'
-  config.gem "topfunky-google-checkout", :lib => "google-checkout", :source => 'http://gems.github.com'
+  config.gem "google-checkout", :lib => "google-checkout", :source => 'http://gems.github.com'
   config.gem "money"
 
   # Only load the plugins named here, in the order given. By default, all plugins 
