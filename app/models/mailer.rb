@@ -35,6 +35,7 @@ class Mailer < ActionMailer::Base
   
   def new_user_registration(user)
     @recipients = SITE_EMAIL
+    @cc = user.email if user.email    
     @from = user.email if user.email
     @reply_to = user.email if user.email
     @subject = "New User Registration #{SITE_DOMAIN}"
@@ -46,6 +47,7 @@ class Mailer < ActionMailer::Base
   
   def provisional_patent_questionnaire(user, order,terms,inventors,question1,answer1,question2,answer2,question3,answer3,question4,answer4,question5,answer5,question6,answer6,question7,answer7,question8,answer8,question9,answer9,question10,answer10,question11,answer11,question12,answer12,question13,answer13,question14,answer14)
     @recipients = SITE_EMAIL
+    @cc = order.user[:email] if order.user
     @from = order.user[:email] if order.user
     @reply_to = order.user[:email] if order.user
     @subject = "Provisional Patent Questionnaire #{SITE_DOMAIN}"
