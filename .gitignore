@@ -13,3 +13,5 @@ public/uploads
 public/uploads/*
 public/system
 public/system/*
+deploy/deploy.rb
+deploy/templates/*
